@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash End House Children's Farm — Inicio</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" type="image/png" href="Imagenes/LogoGranja.png">
+</head>
+<body>
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
+                <img src="Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
+            </a>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <nav class="main-nav" id="nav-menu" aria-label="Principal">
+                <ul class="main-nav-list">
+                    <li class="nav-dropdown">
+                        <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
+                            Información
+                        </button>
+                        <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
+                            <li role="none"><a role="menuitem" href="Paginas/General.html">General</a></li>
+                            <li role="none"><a role="menuitem" href="Paginas/Fiestas.html">Fiestas</a></li>
+                            <li role="none"><a role="menuitem" href="Paginas/Escuelas.html">Escuelas</a></li>
+                            <li role="none"><a role="menuitem" href="Paginas/Eventos.html">Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Paginas/Seguridad.html">Seguridad de la granja</a></li>
+                    <li><a href="Paginas/Preguntas.html">Preguntas Frecuentes</a></li>
+                    <li><a href="Paginas/Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <form class="header-search" role="search" action="#" method="get">
+                    <label class="visually-hidden" for="q">Buscar en el sitio</label>
+                    <input id="q" type="search" name="q" placeholder="Buscar…" autocomplete="off">
+                    <button type="submit" class="search-submit" aria-label="Buscar">
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="header-utilities" role="toolbar" aria-label="Preferencias (próximamente)">
+                    <button type="button" class="icon-btn" disabled title="Modo oscuro — próximamente" aria-label="Modo oscuro — próximamente">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
+                        <span class="icon-a">A</span>
+                        <span class="icon-plus-minus" aria-hidden="true">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">−</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main" id="contenido">
+        <section class="welcome" aria-labelledby="welcome-title">
+            <h1 id="welcome-title" class="welcome-title">¡Bienvenido!</h1>
+            <p class="welcome-text" lang="es">Somos una granja acogedora que recibe excelentes comentarios de nuestros clientes por las numerosas actividades incluidas, la amabilidad de nuestro personal y el cuidado que brindamos a nuestros animales. Contamos con una granja, áreas de juego, una tienda y una cafetería. Tenemos un granero de juegos enorme que puedes añadir a tu visita. Las actividades con animales están incluidas en el precio de la entrada infantil: los niños pueden recoger un huevo para llevar a casa, charlar con un pollito, acariciar un conejito, montar en poni, dar un paseo en tractor y mucho más.</p>
+            <figure class="welcome-figure">
+                <img src="Imagenes/ImagenBienvenida.png" alt="Ilustración de animales de granja junto a una valla de madera." loading="lazy" decoding="async">
+            </figure>
+            <div class="welcome-actions">
+                <a href="#" class="btn-reserve">Se recomienda reservar</a>
+            </div>
+        </section>
+
+        <section class="highlights" aria-labelledby="highlights-heading">
+            <h2 id="highlights-heading" class="visually-hidden">Experiencias en la granja</h2>
+            <div class="highlights-grid">
+                <article class="feature-card">
+                    <h3 class="feature-card-title">Haz nuevos amigos</h3>
+                    <div class="feature-card-body">
+                        <div class="feature-card-img-wrap">
+                            <img src="Imagenes/Cerditos.jpg" alt="Cerditos en la granja." loading="lazy" decoding="async">
+                        </div>
+                        <p class="feature-card-text">Nuestros animales son curiosos y amigables. Disfruta de un día inolvidable del que hablarás durante semanas.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <h3 class="feature-card-title">Acércate</h3>
+                    <div class="feature-card-body">
+                        <div class="feature-card-img-wrap">
+                            <img src="Imagenes/Cabra.jpg" alt="Cabra en la granja." loading="lazy" decoding="async">
+                        </div>
+                        <p class="feature-card-text">Nuestras glotonas cabras son las favoritas de todos, e incluso nuestros visitantes más jóvenes superan rápidamente cualquier miedo.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <h3 class="feature-card-title">Descubrir</h3>
+                    <div class="feature-card-body">
+                        <div class="feature-card-img-wrap">
+                            <img src="Imagenes/Tortuga.jpg" alt="Tortuga en la granja." loading="lazy" decoding="async">
+                        </div>
+                        <p class="feature-card-text">El establo de criaturas espeluznantes, la cetrería y nuestra nueva ciudad de tortugas amplían nuestro atractivo.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <h3 class="feature-card-title">Jugar</h3>
+                    <div class="feature-card-body">
+                        <div class="feature-card-img-wrap">
+                            <img src="Imagenes/Cabra2.jpg" alt="Cabra en la granja." loading="lazy" decoding="async">
+                        </div>
+                        <p class="feature-card-text">¡A los animales les encanta nuestro evento navideño donde podrás conocer a Papá Noel y recibir un pequeño regalo! ¡También hay eventos especiales en Semana Santa y Halloween!</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <h3 class="feature-card-title">Aprender habilidades</h3>
+                    <div class="feature-card-body">
+                        <div class="feature-card-img-wrap">
+                            <img src="Imagenes/Caballo.jpg" alt="Caballo en la granja." loading="lazy" decoding="async">
+                        </div>
+                        <p class="feature-card-text">Nuestros jóvenes visitantes pueden montar en poni, incluido en el precio. Pero eso no es todo… también hay un cubo de comida para los animales y un huevo para llevar a casa.</p>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <h3 class="feature-card-title">Preguntarse</h3>
+                    <div class="feature-card-body">
+                        <div class="feature-card-img-wrap">
+                            <img src="Imagenes/Pollito.jpg" alt="Pollito en la granja." loading="lazy" decoding="async">
+                        </div>
+                        <p class="feature-card-text">Nuestras sesiones de “acariciar conejitos” y “charlar con pollitos” son una oportunidad para interactuar con nuestros animales más pequeños. ¡Crearás recuerdos inolvidables!</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-bar">
+                <div class="footer-social">
+                    <a class="social-link social-facebook" href="https://www.facebook.com/thechildrensfarm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <span class="social-icon" aria-hidden="true">
+                            <img src="Imagenes/facebook.png" alt="">
+                        </span>
+                        <span>Facebook</span>
+                    </a>
+                    <a class="social-link social-instagram" href="https://www.instagram.com/ashendhousefarm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <span class="social-icon" aria-hidden="true">
+                            <img src="Imagenes/Instagram.png" alt="">
+                        </span>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+                <p class="footer-copy"><span class="copy-symbol" aria-hidden="true">©</span> Copyright <span id="year">2026</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
