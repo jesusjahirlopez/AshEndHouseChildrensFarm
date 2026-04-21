@@ -801,6 +801,56 @@ main#contenido .welcome > p.welcome-text,
   }
 }
 
+.nav-active {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* AGREGA estas: */
+.icon-btn-text2 {
+  font-weight: 700;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.icon-a-small {
+  font-size: 1.30rem;
+  line-height: 1;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.icon-a-large {
+  font-size: 2.00rem;
+  line-height: 1;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+/*Boton retorno*/
+.btn-back {
+  margin-top: 2rem; /* ← ajusta el valor a tu gusto */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-btn-reserve);
+  box-shadow: 0 2px 8px rgba(239, 130, 29, 0.35); /* ← misma sombra */
+  transition: background 0.2s ease;
+}
+
+.btn-back:hover {
+  background: var(--color-btn-reserve-hover);
+}
+
+.btn-back img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
