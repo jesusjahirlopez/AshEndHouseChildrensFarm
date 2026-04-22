@@ -906,11 +906,12 @@ main#contenido .welcome > p.welcome-text,
   margin: 0.5rem 0;
 }
 
-/* ——— Seccion Escuelas (Precios) ——— */
+/* ——— Seccion Eventos (Precios) ——— */
 
 .Events {
   margin-top: clamp(2.5rem, 5vw, 4rem);
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .Events .highlights-grid{
@@ -926,6 +927,7 @@ main#contenido .welcome > p.welcome-text,
   width: 100%;
   margin: 0 0 1rem 0;   
   padding: 0 2rem;
+  align-items: stretch;
 }
 
 .Events-block.reverse{
@@ -937,8 +939,9 @@ main#contenido .welcome > p.welcome-text,
   flex-direction: column;
   border-radius: 14px;
   overflow: hidden;
-  border: 0.5px solid rgba(234, 158, 83, 0.35);
+  border: none;
   background: #fff;
+  box-shadow:  0 2px 14px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 
@@ -964,14 +967,14 @@ main#contenido .welcome > p.welcome-text,
   order: 2;
 }
 
-.feature-card-title {
+.Events .feature-card-title {
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
-  padding: 0.75rem 1rem 0.6rem;
+  padding: 1.25rem 1.5rem 0.5rem;
   color: var(--color-text);
   text-align: left;
-  border-bottom: 0.5px solid rgba(234, 158, 83, 0.25);
+  border-bottom: none;
   text-align: center;
 }
 
@@ -979,20 +982,22 @@ main#contenido .welcome > p.welcome-text,
   padding: 0.75rem 1rem;
   flex: 1;
   text-align: left;
+  border-radius: 0%;
 }
 
 .event-text {
-  margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-text);
   line-height: 1.6;
+  margin-top: 0.25;
 }
 
 .event-figure {
   flex: 1;
   margin: 0;
-  min-height: 100px;
   overflow: hidden;
+  height: 100%;
+  min-height: 300px;
 }
 
 .event-figure img {
@@ -1001,6 +1006,7 @@ main#contenido .welcome > p.welcome-text,
   object-fit: cover;
   display: block;
   background-color: #f5b942;
+  background: linear-gradient(135deg, #f5a623 0%, #f0c05a 100%);
 }
 
 @media (max-width: 600px) {
