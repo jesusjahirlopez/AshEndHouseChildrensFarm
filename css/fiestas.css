@@ -41,7 +41,6 @@ body {
 
 /* --- HEADER PROFESIONAL --- */
 .site-header {
-    background: transparent;
     padding: px 0;
     position: relative;
     z-index: 100;
@@ -68,7 +67,7 @@ body {
 
 /* Menú */
 .color{
-    background-color: var(--primary-orange);
+    background-color: var(--primary-orange) !important;
 }
 .main-nav-list {
     display: flex;
@@ -84,7 +83,7 @@ body {
     font-size: 15px;
     transition: var(--transition);
 }
-.nav-link:hover { color: var(--primary-orange); }
+.nav-link:hover { color: white; }
 
 /* Dropdown */
 .nav-dropdown { position: relative; }
@@ -142,84 +141,6 @@ body {
     border: none;
 }
 
-/* --- HERO SECTION --- */
-.hero-section { padding: 60px 0 100px; }
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: 50px;
-}
-.hero-badge {
-    background: var(--soft-orange);
-    color: var(--primary-orange);
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
-}
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    font-weight: 800;
-    color: var(--dark-text);
-    line-height: 1.05;
-    margin: 20px 0;
-}
-.hero-title .highlight { color: var(--primary-orange); }
-.hero-desc {
-    color: var(--light-text);
-    font-size: 1.1rem;
-    max-width: 500px;
-    margin-bottom: 40px;
-}
-
-.hero-actions { display: flex; gap: 15px; }
-.btn-main {
-    background: var(--primary-orange);
-    color: var(--white);
-    padding: 18px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 10px 20px rgba(239, 130, 29, 0.2);
-    transition: var(--transition);
-}
-.btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(239, 130, 29, 0.3); }
-
-.btn-outline {
-    border: 2px solid var(--turqueza);
-    color: var(--turqueza);
-    padding: 16px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: var(--transition);
-}
-.btn-outline:hover { background: var(--turqueza); color: var(--white); }
-
-/* --- IMAGEN CON FIGURA CIRCULAR (BLOB) --- */
-.hero-image-area {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.blob-bg {
-    margin-top: 50px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--soft-orange);
-    border-radius: 45% 55% 70% 30% / 30% 60% 40% 70%; /* Forma orgánica tipo "blob" */
-    z-index: 1;
-    transform: scale(1.2);
-}
-.main-animal {
-    width: 100%;
-    max-width: 480px;
-    z-index: 2;
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
-}
 
 /* --- VIDEO SECTION --- */
 .section-padding { padding: 100px 0; }
@@ -983,3 +904,171 @@ body.dark-mode .policy-note { background: #332a22; }
     filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.3));
 }
 
+/*footer/
+/* --- FOOTER (REDISEÑO CORPORATIVO) --- */
+.site-footer {
+    background: var(--primary-orange);
+    color: white;
+    padding: 0 0 50px 0;
+    position: relative;
+}
+
+/* El divisor de onda suave */
+.footer-wave svg {
+    fill: var(--white); /* Usamos la variable para que cambie sola */
+    height: 70px;
+    width: 100%;
+    transition: fill 0.6s ease; /* Para que el cambio de color sea suave */
+}
+
+/* --- REGLA ESPECÍFICA PARA MODO OSCURO --- */
+body.dark-mode .footer-wave svg {
+    fill: #1a1a1a; /* El mismo color de fondo que le pusiste al cuerpo en dark mode */
+}
+
+.footer-wave svg {
+    fill: var(--bg-cream); /* Usamos la variable para que cambie sola */
+    height: 70px;
+    width: 100%;
+    transition: fill 0.6s ease; /* Para que el cambio de color sea suave */
+}
+
+.footer-main-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1.2fr;
+    gap: 100px;
+    padding: 80px 0 60px;
+}
+
+.footer-logo {
+    filter: brightness(0) invert(1);
+    height: 65px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover { transform: scale(1.05); }
+
+.footer-description {
+    color: black;
+    line-height: 1.9;
+    font-size: 0.95rem;
+    max-width: 400px;
+}
+
+.footer-nav h4, .footer-contact h4 {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+/* Línea decorativa bajo los títulos del footer */
+.footer-nav h4::after, .footer-contact h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-orange);
+    border-radius: 2px;
+}
+
+.footer-nav ul { list-style: none; padding: 0; }
+.footer-nav li { margin-bottom: 15px; }
+
+.footer-nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-nav a:hover {
+    color: white;
+    transform: translateX(8px);
+}
+
+.footer-contact p {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+}
+
+.footer-badge {
+    display: inline-block;
+    background: rgba(115, 200, 200, 0.15);
+    color: var(--turqueza);
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 15px;
+    border: 1px solid rgba(115, 200, 200, 0.2);
+}
+
+/* Parte legal final */
+.footer-legal {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.legal-links { display: flex; gap: 30px; }
+.legal-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.legal-links a:hover { color: #888; }
+
+
+/* --- ICONOS DE REDES SOCIALES --- */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1); /* Fondo sutil */
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Colores al pasar el mouse (Hover) */
+.social-icon:hover {
+    background: var(--primary-orange);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(239, 130, 29, 0.3);
+    border-color: var(--primary-orange);
+}
+
+/* Estilo específico para los iconos de Font Awesome */
+.social-icon i {
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover i {
+    transform: scale(1.1);
+}

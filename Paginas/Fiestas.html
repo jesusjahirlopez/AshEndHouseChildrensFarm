@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -92,25 +93,6 @@
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="container hero-grid">
-                <div class="hero-text-area" data-aos="fade-right">
-                    <span class="hero-badge">¡Bienvenidos a la granja!</span>
-                    <h1 class="hero-title">Todo lo que tu <br><span class="highlight">Fiesta Necesita</span></h1>
-                    <p class="hero-desc">Celebra momentos inolvidables en Monterrey. Un espacio diseñado para que los
-                        niños conecten con la naturaleza y la diversión.</p>
-                    <div class="hero-actions">
-                        <a href="#reservas" class="btn-main">Reserva Ahora</a>
-                        <a href="#planes" class="btn-outline">Ver Planes →</a>
-                    </div>
-                </div>
-
-                <div class="hero-image-area" data-aos="fade-left">
-                    <div class="blob-bg"></div>
-                    <img src="../Imagenes/borrego.png" alt="Animal Granja" class="main-animal">
-                </div>
-            </div>
-        </section>
 
         <section id="planes" class="container section-padding">
             <div class="section-intro" data-aos="fade-up">
@@ -184,53 +166,64 @@
             </div>
         </section>
 
-        <section class="special-booking-section section-padding">
-            <div class="container container-flex-align">
-
-                <div class="video-side-long" data-aos="fade-right">
-                    <div class="video-frame-pro">
-                        <video autoplay loop muted playsinline>
-                            <source src="../resource/videoplayback.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-
-                <div class="info-card-side" data-aos="fade-left">
-                    <div class="info-card-content">
-                        <div class="promo-header">
-                            <span class="badge-fire">¡OFERTA LIMITADA! 🎆</span>
-                        </div>
-
-                        <h2 class="card-title">Adquiere o Reserva <br>Tus Boletos</h2>
-
-                        <div class="booking-options">
-                            <a href="#" class="pill-link cyan">
-                                <strong>RESERVA UNA</strong> excursión a la granja / combinada
-                            </a>
-                            <a href="#" class="pill-link orange">
-                                <strong>RESERVA UNA</strong> LITTLE COMBI DIY Party
-                            </a>
-                        </div>
-
-                        <div class="card-timer">
-                            <p>OFERTA ESPECIAL TERMINA EN:</p>
-                            <div class="timer-row">
-                                <div class="t-val"><span>03</span><small>Días</small></div>
-                                <div class="t-val"><span>10</span><small>Hrs</small></div>
-                                <div class="t-val"><span>36</span><small>Min</small></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
     </main>
 
     <footer class="site-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V46.29C80.7,51.86,215.15,76.32,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
         <div class="container">
-            <p>© 2026 Ash End House Children's Farm | Monterrey, NL</p>
+            <div class="footer-main-grid">
+                <div class="footer-about">
+                    <a href="#" class="brand footer-brand-link">
+                        <img src="../Imagenes/LogoGranja.png" alt="Logo" class="footer-logo">
+                        <div class="brand-text">
+                            <span class="brand-name">ASH END</span>
+                            <span class="brand-sub">HOUSE</span>
+                        </div>
+                    </a>
+                    <p class="footer-description">
+                        Desde 1995, conectando a las familias de Monterrey con la esencia del campo y la vida animal
+                        en un ambiente educativo y seguro.
+                    </p>
+
+
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Explora</h4>
+                    <ul>
+                        <li><a href="General.html">Información</a></li>
+                        <li><a href="Fiestas.html">Fiestas</a></li>
+                        <li><a href="Escuelas.html">Escuelas</a></li>
+                        <li><a href="Seguridad.html">Seguridad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p>📍 Carretera Nacional, Monterrey, NL.</p>
+                    <p>📞 +1 (234) 567 89 00</p>
+                    <p>✉️ info@ashendhouse.com</p>
+                    <div class="footer-badge">Abierto hoy: 8am - 8pm</div>
+                </div>
+            </div>
         </div>
     </footer>
 

@@ -1,99 +1,265 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ash End House Children's Farm — General</title>
-    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Ash End House Children's Farm — Fiestas</title>
+    <link rel="stylesheet" href="../css/general.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
-    <header class="site-header" id="site-header">
-        <div class="header-inner">
-            <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
-                <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
+
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-info">⏰ Horario: 08 AM - 08 PM</div>
+            <div class="top-contact">
+                <span>✉️ info@ashendhouse.com</span>
+                <span>📞 +1 (234) 567 89 00</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header color" id="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="../Imagenes/LogoGranja.png" alt="Logo" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-name">ASH END</span>
+                    <span class="brand-sub">HOUSE</span>
+                </div>
             </a>
-            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-            </button>
-            <nav class="main-nav" id="nav-menu" aria-label="Principal">
+
+            <nav class="main-nav" id="nav-menu">
                 <ul class="main-nav-list">
                     <li class="nav-dropdown">
-                        <button type="button" class="nav-dropdown-toggle nav-active" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
-                            Información
-                        </button>
-                        <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
-                            <li role="none"><a role="menuitem" class="nav-active" href="General.html">General</a></li>
-                            <li role="none"><a role="menuitem" href="Fiestas.html">Fiestas</a></li>
-                            <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
-                            <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
+                        <a href="#" class="nav-link dropdown-link">Información</a>
+                        <ul class="nav-submenu">
+                            <li><a href="General.html">General</a></li>
+                            <li><a href="Fiestas.html">Fiestas</a></li>
+                            <li><a href="Escuelas.html">Escuelas</a></li>
                         </ul>
                     </li>
-                    <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
-                    <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
-                    <li><a href="Contacto.html">Contacto</a></li>
+                    <li><a href="Seguridad.html" class="nav-link">Seguridad</a></li>
+                    <li><a href="Preguntas.html" class="nav-link">Preguntas frecuentes</a></li>
+                    <li><a href="Contacto.html" class="nav-link">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="header-right">
-                <form class="header-search" role="search" action="#" method="get">
-                    <label class="visually-hidden" for="q">Buscar en el sitio</label>
-                    <input id="q" type="search" name="q" placeholder="Buscar…" autocomplete="off">
-                    <button type="submit" class="search-submit" aria-label="Buscar">
-                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
-                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input class="buscar" type="text" placeholder="Buscar...">
+                    <button class="search-btn">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                                fill="currentColor" />
                         </svg>
-                    </button>
-                </form>
-                <div class="header-utilities" role="toolbar" aria-label="Preferencias (próximamente)">
-                    <button type="button" class="icon-btn" disabled title="Modo oscuro — próximamente" aria-label="Modo oscuro — próximamente">
-                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
-                        </svg>
-                    </button>
-                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
-                        <span class="icon-a">A</span>
-                        <span class="icon-plus-minus" aria-hidden="true">
-                            <span class="icon-plus">+</span>
-                            <span class="icon-minus">−</span>
-                        </span>
                     </button>
                 </div>
+
+                <div class="accessibility-tools">
+                    <label class="theme-switch">
+                        <input type="checkbox" class="theme-switch__checkbox" id="theme-checkbox">
+                        <div class="theme-switch__container">
+                            <div class="theme-switch__clouds"></div>
+                            <div class="theme-switch__stars-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <div class="theme-switch__circle-container">
+                                <div class="theme-switch__sun-moon-container">
+                                    <div class="theme-switch__moon">
+                                        <div class="theme-switch__spot"></div>
+                                        <div class="theme-switch__spot"></div>
+                                        <div class="theme-switch__spot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <button class="tool-btn text-tool" id="text-toggle" title="Tamaño de Texto">A<span>±</span></button>
+                </div>
             </div>
-        </div>
     </header>
 
-    <main class="site-main" id="contenido">
-        <section class="welcome" aria-labelledby="welcome-title">
-            <h1 id="welcome-title" class="welcome-title">General</h1>
-           
-        </section>
-    </main>
+    <main>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-bar">
-                <div class="footer-social">
-                    <a class="social-link social-facebook" href="https://www.facebook.com/thechildrensfarm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <span class="social-icon" aria-hidden="true">
-                            <img src="../Imagenes/facebook.png" alt="">
-                        </span>
-                        <span>Facebook</span>
-                    </a>
-                    <a class="social-link social-instagram" href="https://www.instagram.com/ashendhousefarm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <span class="social-icon" aria-hidden="true">
-                            <img src="../Imagenes/Instagram.png" alt="">
-                        </span>
-                        <span>Instagram</span>
-                    </a>
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text-area" data-aos="fade-right">
+                    <span class="hero-badge">¡Bienvenidos a la granja!</span>
+                    <h1 class="hero-title">Todo lo que tu <br><span class="highlight">Fiesta Necesita</span></h1>
+                    <p class="hero-desc">Celebra momentos inolvidables en Monterrey. Un espacio diseñado para que los
+                        niños conecten con la naturaleza y la diversión.</p>
+                    <div class="hero-actions">
+                        <a href="Reservas.html" class="btn-main">Reserva Ahora</a>
+                        <a href="#info-general" class="btn-outline">Ver más ↓</a>
+                    </div>
                 </div>
-                <p class="footer-copy"><span class="copy-symbol" aria-hidden="true">©</span> Copyright <span id="year">2026</span></p>
+
+                <div class="hero-image-area" data-aos="fade-left">
+                    <div class="blob-bg"></div>
+                    <img src="../Imagenes/borrego.png" alt="Animal Granja" class="main-animal">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="info-general" class="info-section-premium">
+    <div class="container info-grid-modern">
+        <div class="carousel-container" data-aos="fade-right">
+            <div class="carousel-wrapper">
+                <div class="carousel-slides">
+                    <img src="../Imagenes/car1.jpg" alt="Instalaciones" class="slide active">
+                    <img src="../Imagenes/car2.jpg" alt="Animales" class="slide">
+                    <img src="../Imagenes/car3.jpg" alt="Niños divirtiéndose" class="slide">
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev-btn">❮</button>
+                    <button class="next-btn">❯</button>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
-    </footer>
 
-    <script src="../script.js"></script>
+        <div class="info-content-area" data-aos="fade-left">
+            <span class="info-tag">Desde 1995</span>
+            <h2 class="section-title">Pasión por la <span class="highlight">Vida Rural</span></h2>
+            <p class="main-text">
+                En <strong>Ash End House</strong>, no solo somos una granja; somos un espacio educativo donde el respeto por la naturaleza y la diversión infantil se encuentran. Ubicados en el corazón de Monterrey, ofrecemos una experiencia auténtica.
+            </p>
+            <div class="feature-pills">
+                <div class="pill"><i class="fas fa-check-circle"></i> +20 especies de animales</div>
+                <div class="pill"><i class="fas fa-check-circle"></i> Guías especializados</div>
+                <div class="pill"><i class="fas fa-check-circle"></i> Entorno 100% seguro</div>
+            </div>
+            <p class="sub-text">
+                Nuestro objetivo es que cada niño regrese a casa con una sonrisa y un nuevo aprendizaje sobre el mundo que nos rodea.
+            </p>
+            <a href="SobreNosotros.html" class="btn-text">Conoce nuestra historia →</a>
+        </div>
+    </div>
+</section>
+
+        <footer class="site-footer">
+            <div class="footer-wave">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V46.29C80.7,51.86,215.15,76.32,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="container">
+                <div class="footer-main-grid">
+                    <div class="footer-about">
+                        <a href="#" class="brand footer-brand-link">
+                            <img src="../Imagenes/LogoGranja.png" alt="Logo" class="footer-logo">
+                            <div class="brand-text">
+                                <span class="brand-name">ASH END</span>
+                                <span class="brand-sub">HOUSE</span>
+                            </div>
+                        </a>
+                        <p class="footer-description">
+                            Desde 1995, conectando a las familias de Monterrey con la esencia del campo y la vida animal
+                            en un ambiente educativo y seguro.
+                        </p>
+
+
+                        <div class="social-links">
+                            <a href="https://facebook.com" class="social-icon" target="_blank">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" class="social-icon" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://tiktok.com" class="social-icon" target="_blank">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-nav">
+                        <h4>Explora</h4>
+                        <ul>
+                            <li><a href="General.html">Información</a></li>
+                            <li><a href="Fiestas.html">Fiestas</a></li>
+                            <li><a href="Escuelas.html">Escuelas</a></li>
+                            <li><a href="Seguridad.html">Seguridad</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-contact">
+                        <h4>Contacto</h4>
+                        <p>📍 Carretera Nacional, Monterrey, NL.</p>
+                        <p>📞 +1 (234) 567 89 00</p>
+                        <p>✉️ info@ashendhouse.com</p>
+                        <div class="footer-badge">Abierto hoy: 8am - 8pm</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            AOS.init({ duration: 1000, once: true });
+
+            // Menu Mobile
+            const navBtn = document.getElementById('nav-toggle');
+            const header = document.getElementById('site-header');
+            if (navBtn) {
+                navBtn.onclick = () => header.classList.toggle('nav-open');
+            }
+
+            // DARK MODE (Checkbox)
+            const themeCheckbox = document.getElementById('theme-checkbox');
+            if (themeCheckbox) {
+                themeCheckbox.addEventListener('change', () => {
+                    document.body.classList.toggle('dark-mode', themeCheckbox.checked);
+                });
+            }
+
+            // TAMAÑO DE TEXTO (Burbuja Flotante)
+            const textBtn = document.getElementById('text-toggle');
+            if (textBtn) {
+                let sizeIndex = 1;
+                const sizes = ['text-small', 'text-medium', 'text-large'];
+
+                textBtn.onclick = () => {
+                    sizeIndex = (sizeIndex + 1) % 3;
+                    document.body.classList.remove(...sizes);
+                    document.body.classList.add(sizes[sizeIndex]);
+
+                    // Animación de feedback
+                    textBtn.style.transform = "scale(1.2)";
+                    setTimeout(() => textBtn.style.transform = "scale(1)", 200);
+                };
+            }
+        });
+    </script>
+
+    <script src="../js/general.js"></script>
+
 </body>
+
 </html>
