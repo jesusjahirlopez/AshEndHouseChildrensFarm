@@ -1,0 +1,87 @@
+/*ESTILOS PARA LA PÁGINA DE CONTACTO*/
+
+
+.welcome-title {
+    text-align: center !important;
+    color: var(--color-welcome-title, #e8892e) !important;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 40px !important;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.caja-gris-formulario {
+    background-color: #b5b5b5 !important;
+    padding: 3rem;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 580px;
+    margin: 0 auto 100px auto !important; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.campo-form label {
+    color: #000 !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.campo-form input,
+.campo-form textarea {
+    padding: 1rem;
+    border: 1px solid #999;
+    background-color: #fff !important;
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+.contenedor-btn {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.btn-naranja {
+    background-color: #ef821d !important;
+    color: #ffffff !important;
+    border: none;
+    padding: 1rem 5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50px; /* Forma de píldora */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(239, 130, 29, 0.4);
+}
+
+.btn-naranja:hover {
+    background-color: #d97518 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(239, 130, 29, 0.5);
+}
+
+/* --- Adaptación Modo Oscuro --- */
+body.dark-mode .caja-gris-formulario {
+    background-color: #2a2a2a !important;
+}
+
+body.dark-mode .campo-form label {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .campo-form input,
+body.dark-mode .campo-form textarea {
+    background-color: #1a1a1a !important;
+    color: #fff !important;
+    border: 1px solid #444;
+}

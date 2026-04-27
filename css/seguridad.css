@@ -1,0 +1,73 @@
+/*ESTILOS PARA SEGURIDAD EN LA GRANJA*/
+
+
+.welcome-title {
+    text-align: center !important;
+    color: var(--color-welcome-title, #e8892e) !important;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 30px !important;
+    width: 100%;
+}
+
+.subtitulo-naranja {
+    color: #e8892e !important; /* Color naranja directo por si falla la variable */
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.caja-texto-seguridad {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+.caja-texto-seguridad p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333 !important;
+    text-align: justify;
+}
+
+
+.caja-naranja-reglas {
+    background-color: #ef821d !important; 
+    color: #ffffff !important; 
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(239, 130, 29, 0.3); 
+}
+
+.caja-naranja-reglas ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.caja-naranja-reglas li {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ffffff !important;
+}
+
+.caja-naranja-reglas strong {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* --- Adaptación para el Modo Oscuro --- */
+body.dark-mode .caja-naranja-reglas {
+    background-color: #b05c0f !important; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .caja-texto-seguridad p {
+    color: #e8e8e8 !important;
+}
