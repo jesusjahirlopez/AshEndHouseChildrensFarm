@@ -1,11 +1,8 @@
+// ——— IIFE principal: nav y calendario ———
 (function () {
-  "use strict";
-
-  // --- 1. Inicialización Global (Año) ---
   var y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 
-  // --- 2. Navegación y Menú ---
   var header = document.getElementById("site-header");
   var toggle = document.getElementById("nav-toggle");
   var menu = document.getElementById("nav-menu");
@@ -72,55 +69,18 @@
     if (e.matches) { closeMenu(); closeInfoDropdown(); }
   });
 
-
-  // --- 3. Modo Oscuro (del Archivo 1) ---
-  var darkBtn = document.getElementById("btn-dark-mode");
-  if (darkBtn) {
-    if (localStorage.getItem("ash-dark") === "1") {
-      document.body.classList.add("dark-mode");
-    }
-
-    darkBtn.addEventListener("click", function () {
-      var isDark = document.body.classList.toggle("dark-mode");
-      localStorage.setItem("ash-dark", isDark ? "1" : "0");
-      darkBtn.setAttribute("aria-label", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
-      darkBtn.setAttribute("title", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
-    });
-  }
+})();
+// ——— FIN IIFE principal ———
 
 
-  // --- 4. Ajuste de Tamaño de Letra (del Archivo 1) ---
-  var fontBtn = document.getElementById("btn-font-size");
-  var fontLevels = ["", "font-md", "font-lg"];
-
-  if (fontBtn) {
-    var savedLevel = parseInt(localStorage.getItem("ash-font") || "0", 10);
-    if (savedLevel > 0 && savedLevel < fontLevels.length) {
-      document.body.classList.add(fontLevels[savedLevel]);
-    }
-
-    fontBtn.addEventListener("click", function () {
-      var current = 0;
-      fontLevels.forEach(function (cls, i) {
-        if (cls && document.body.classList.contains(cls)) { current = i; }
-      });
-
-      if (fontLevels[current]) { document.body.classList.remove(fontLevels[current]); }
-
-      var next = (current + 1) % fontLevels.length;
-      if (fontLevels[next]) { document.body.classList.add(fontLevels[next]); }
-
-      localStorage.setItem("ash-font", String(next));
-
-      var labels = ["Tamaño normal", "Tamaño mediano", "Tamaño grande"];
-      fontBtn.setAttribute("title", labels[next]);
-      fontBtn.setAttribute("aria-label", labels[next]);
-    });
-  }
-
+// ——— Año en footer ———
+(function() {
+  var y = document.getElementById("year");
+  if (y) y.textContent = String(new Date().getFullYear());
 })();
 
-// --- 5. Modales (Advertencia y Confirmación) ---
+
+// ——— Modal de advertencia ———
 (function() {
   var modalOverlay = document.getElementById('modal-overlay');
   var modalMsg = document.getElementById('modal-msg');
@@ -139,6 +99,8 @@
   }
 })();
 
+
+// ——— Modal de confirmación de ticket ———
 (function() {
   var confirmCancel = document.getElementById('modal-confirm-cancel');
   var confirmOk = document.getElementById('modal-confirm-ok');
@@ -154,7 +116,71 @@
   }
 })();
 
-// --- 6. Calendario y Selección de Tickets ---
+
+// ——— Selección de tickets ———
+(function() {
+  document.querySelectorAll('.ticket-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+
+      var dateBox = document.getElementById('cal-selected-date');
+      if (!dateBox || dateBox.hasAttribute('hidden')) {
+        window.showModal('Primero debes seleccionar una fecha en el calendario.');
+        return;
+      }
+
+      var selectedDay = window.calSelectedDay;
+      if (selectedDay) {
+        var hoy = new Date();
+        var todayMid = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+        var estaHoy = selectedDay.toDateString() === todayMid.toDateString();
+        if (estaHoy) {
+          var timeText = item.querySelector('.ticket-time');
+          if (timeText) {
+            var partes = timeText.textContent.split('-')[0].trim().split(':');
+            var horaEntrada = parseInt(partes[0]);
+            var minEntrada = parseInt(partes[1]);
+            var limite = new Date();
+            limite.setHours(horaEntrada, minEntrada - 30, 0, 0);
+            if (new Date() > limite) {
+              window.showModal('Solo se puede hacer una reserva 30 minutos antes de cada entrada.');
+              return;
+            }
+          }
+        }
+      }
+
+      document.querySelectorAll('.ticket-item').forEach(function(i) {
+        i.classList.remove('selected');
+      });
+      item.classList.add('selected');
+
+      var timeText = item.querySelector('.ticket-time');
+      var priceText = item.querySelector('.ticket-price');
+      var horario = timeText ? timeText.textContent.trim() : '';
+      var precios = priceText ? priceText.textContent.trim() : '';
+      var fechaTexto = document.getElementById('cal-date-text') ? document.getElementById('cal-date-text').textContent : '';
+
+      var confirmTitle = document.getElementById('modal-confirm-title');
+      var tblFecha = document.getElementById('modal-tbl-fecha');
+      var tblHorario = document.getElementById('modal-tbl-horario');
+      var tblNino = document.getElementById('modal-tbl-nino');
+      var tblAdulto = document.getElementById('modal-tbl-adulto');
+      var confirmOverlay = document.getElementById('modal-confirm-overlay');
+
+      if (confirmTitle) confirmTitle.textContent = fechaTexto + ',  ' + horario;
+      if (tblFecha) tblFecha.textContent = fechaTexto;
+      if (tblHorario) tblHorario.textContent = horario;
+
+      var preciosParts = precios.split('·');
+      if (tblNino) tblNino.textContent = preciosParts[1] ? preciosParts[1].trim() : precios;
+      if (tblAdulto) tblAdulto.textContent = preciosParts[0] ? preciosParts[0].trim() : precios;
+      if (confirmOverlay) confirmOverlay.removeAttribute('hidden');
+    });
+  });
+})();
+
+
+// ——— Calendario ———
 (function() {
   var grid = document.getElementById('cal-grid');
   if (!grid) return;
@@ -237,64 +263,8 @@
   renderCal();
 })();
 
-(function() {
-  document.querySelectorAll('.ticket-item').forEach(function(item) {
-    item.addEventListener('click', function() {
-      var dateBox = document.getElementById('cal-selected-date');
-      if (!dateBox || dateBox.hasAttribute('hidden')) {
-        window.showModal('Primero debes seleccionar una fecha en el calendario.');
-        return;
-      }
 
-      var selectedDay = window.calSelectedDay;
-      if (selectedDay) {
-        var hoy = new Date();
-        var todayMid = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
-        if (selectedDay.toDateString() === todayMid.toDateString()) {
-          var timeText = item.querySelector('.ticket-time');
-          if (timeText) {
-            var partes = timeText.textContent.split('-')[0].trim().split(':');
-            var horaEntrada = parseInt(partes[0]);
-            var minEntrada = parseInt(partes[1]);
-            var limite = new Date();
-            limite.setHours(horaEntrada, minEntrada - 30, 0, 0);
-            if (new Date() > limite) {
-              window.showModal('Solo se puede hacer una reserva 30 minutos antes de cada entrada.');
-              return;
-            }
-          }
-        }
-      }
-
-      document.querySelectorAll('.ticket-item').forEach(function(i) { i.classList.remove('selected'); });
-      item.classList.add('selected');
-
-      var timeText = item.querySelector('.ticket-time');
-      var priceText = item.querySelector('.ticket-price');
-      var horario = timeText ? timeText.textContent.trim() : '';
-      var precios = priceText ? priceText.textContent.trim() : '';
-      var fechaTexto = document.getElementById('cal-date-text') ? document.getElementById('cal-date-text').textContent : '';
-
-      var confirmTitle = document.getElementById('modal-confirm-title');
-      var tblFecha = document.getElementById('modal-tbl-fecha');
-      var tblHorario = document.getElementById('modal-tbl-horario');
-      var tblNino = document.getElementById('modal-tbl-nino');
-      var tblAdulto = document.getElementById('modal-tbl-adulto');
-      var confirmOverlay = document.getElementById('modal-confirm-overlay');
-
-      if (confirmTitle) confirmTitle.textContent = fechaTexto + ',  ' + horario;
-      if (tblFecha) tblFecha.textContent = fechaTexto;
-      if (tblHorario) tblHorario.textContent = horario;
-
-      var preciosParts = precios.split('·');
-      if (tblNino) tblNino.textContent = preciosParts[1] ? preciosParts[1].trim() : precios;
-      if (tblAdulto) tblAdulto.textContent = preciosParts[0] ? preciosParts[0].trim() : precios;
-      if (confirmOverlay) confirmOverlay.removeAttribute('hidden');
-    });
-  });
-})();
-
-// --- 7. Contadores y Stripe ---
+// ——— Contadores boletos ———
 (function() {
   var PRECIO = 12.95;
 
@@ -324,23 +294,41 @@
   makeCounter('ninos-minus', 'ninos-plus', 'ninos-val');
 })();
 
+// ——— Stripe ———
 (function() {
   var stripe = Stripe('pk_test_51TQkbiE39Wjlxm9UGglTWob41ovCU8qN42gwfHuJQNscpD8pkif2P0xhJExiUgWZFYKHYHxP2FlV4AAFXqaEJxmo00gOIQKJJM');
-  var elements = stripe.elements({ fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Segoe+UI' }] });
+
+  var elements = stripe.elements({
+    fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Segoe+UI' }]
+  });
 
   var style = {
-    base: { fontSize: '15px', color: '#1a1a1a', fontFamily: '"Segoe UI", system-ui, sans-serif', '::placeholder': { color: '#888' } },
+    base: {
+      fontSize: '15px',
+      color: '#1a1a1a',
+      fontFamily: '"Segoe UI", system-ui, sans-serif',
+      '::placeholder': { color: '#888' }
+    },
     invalid: { color: '#d32f2f' }
   };
 
-  var cardNumber = elements.create('cardNumber', { style: style, showIcon: true, disableLink: true });
+  // ← UNA sola declaración de cada elemento, sin duplicados
+  var cardNumber = elements.create('cardNumber', {
+    style: style,
+    showIcon: true,
+    disableLink: true
+  });
   var cardExpiry = elements.create('cardExpiry', { style: style });
-  var cardCvc = elements.create('cardCvc', { style: style, placeholder: '000' });
+  var cardCvc    = elements.create('cardCvc',     {
+  style: style,
+  placeholder: '000'
+});
 
   cardNumber.mount('#stripe-card-number');
   cardExpiry.mount('#stripe-card-expiry');
   cardCvc.mount('#stripe-card-cvc');
 
+  // Errores en tiempo real
   cardNumber.on('change', function(e) {
     var err = document.getElementById('err-tarjeta');
     var msg = document.getElementById('err-tarjeta-msg');
@@ -350,27 +338,39 @@
 
   cardExpiry.on('change', function(e) {
     var err = document.getElementById('err-vencimiento');
-    e.error ? err.removeAttribute('hidden') : err.setAttribute('hidden', '');
+    if (e.error) err.removeAttribute('hidden');
+    else err.setAttribute('hidden', '');
   });
 
   cardCvc.on('change', function(e) {
     var err = document.getElementById('err-cvv');
-    e.error ? err.removeAttribute('hidden') : err.setAttribute('hidden', '');
+    if (e.error) err.removeAttribute('hidden');
+    else err.setAttribute('hidden', '');
   });
 
+  // Modal éxito
   var successOverlay = document.getElementById('modal-success-overlay');
-  var successClose = document.getElementById('modal-success-close');
-  if (successClose) { successClose.addEventListener('click', function() { successOverlay.setAttribute('hidden', ''); }); }
-  
+  var successClose   = document.getElementById('modal-success-close');
+  if (successClose) {
+    successClose.addEventListener('click', function() {
+      successOverlay.setAttribute('hidden', '');
+    });
+  }
   var failedOverlay = document.getElementById('modal-failed-overlay');
-  var failedClose = document.getElementById('modal-failed-close');
-  if (failedClose) { failedClose.addEventListener('click', function() { failedOverlay.setAttribute('hidden', ''); }); }
+  var failedClose   = document.getElementById('modal-failed-close');
+  if (failedClose) {
+    failedClose.addEventListener('click', function() {
+      failedOverlay.setAttribute('hidden', '');
+    });
+  }
 
+  // Validación y pago
   var btn = document.getElementById('btn-compra');
   if (!btn) return;
 
   btn.addEventListener('click', function() {
     var valid = true;
+
     function showErr(errId, inputId) {
       var err = document.getElementById(errId);
       var inp = inputId ? document.getElementById(inputId) : null;
@@ -378,6 +378,7 @@
       if (inp) inp.classList.add('input-error');
       valid = false;
     }
+
     function hideErr(errId, inputId) {
       var err = document.getElementById(errId);
       var inp = inputId ? document.getElementById(inputId) : null;
@@ -396,7 +397,7 @@
     correoRegex.test(correo) ? hideErr('err-correo', 'pf-correo') : showErr('err-correo', 'pf-correo');
 
     var adultos = parseInt(document.getElementById('adultos-val').textContent) || 0;
-    var ninos = parseInt(document.getElementById('ninos-val').textContent) || 0;
+    var ninos   = parseInt(document.getElementById('ninos-val').textContent)   || 0;
     adultos + ninos === 0 ? showErr('err-boletos', null) : hideErr('err-boletos', null);
 
     if (!valid) return;
@@ -405,13 +406,16 @@
     btn.textContent = 'Procesando…';
 
     var totalTexto = document.getElementById('pf-total').textContent;
-    var totalNum = parseFloat(totalTexto.replace('£', '').trim());
+    var totalNum   = parseFloat(totalTexto.replace('£', '').trim());
 
     stripe.createPaymentMethod({
       type: 'card',
       card: cardNumber,
-      billing_details: { name: nombre + ' ' + apellido, email: correo }
-    }).then(function(result) {
+      billing_details: {
+        name:  nombre + ' ' + apellido,
+        email: correo
+      }
+   }).then(function(result) {
       btn.disabled = false;
       btn.textContent = 'Efectuar Compra';
 
@@ -438,12 +442,15 @@
           successMsg.textContent = '¡Pago realizado con éxito! Se han reservado ' + (adultos + ninos) + ' entradas por un total de £' + totalNum.toFixed(2) + '. Revisa la confirmación en tu correo.';
           successOverlay.removeAttribute('hidden');
 
+           // Correo de confirmación
           emailjs.send('service_fm3nkmj', 'template_ghjehj7', {
-            nombre: nombre + ' ' + apellido,
-            correo: correo,
+            nombre:   nombre + ' ' + apellido,
+            correo:   correo,
             entradas: (adultos + ninos) + ' entrada(s) — Adultos: ' + adultos + ', Niños: ' + ninos,
-            total: '£ ' + totalNum.toFixed(2)
-          }).catch(function(err) { console.error('EmailJS error:', err); });
+            total:    '£ ' + totalNum.toFixed(2)
+          }).catch(function(err) {
+            console.error('EmailJS error:', err);
+          });
         }
       }
     });
