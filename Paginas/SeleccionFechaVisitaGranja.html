@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash End House Children's Farm — Selección de Fecha</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
+</head>
+<body>
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
+                <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
+            </a>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <nav class="main-nav" id="nav-menu" aria-label="Principal">
+                <ul class="main-nav-list">
+                    <li class="nav-dropdown">
+                        <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
+                            Información
+                        </button>
+                        <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
+                            <li role="none"><a role="menuitem" class="nav-active" href="General.html">General</a></li>
+                            <li role="none"><a role="menuitem" href="Fiestas.html">Fiestas</a></li>
+                            <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
+                            <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
+                    <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <form class="header-search" role="search" action="#" method="get">
+                    <label class="visually-hidden" for="q">Buscar en el sitio</label>
+                    <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
+                    <button type="submit" class="search-submit" aria-label="Buscar">
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="header-utilities" role="toolbar" aria-label="Preferencias (próximamente)">
+                    <button type="button" class="icon-btn" disabled title="Modo oscuro — próximamente" aria-label="Modo oscuro — próximamente">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
+                        <span class="icon-a">A</span>
+                        <span class="icon-plus-minus" aria-hidden="true">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">−</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main" id="contenido">
+        <section class="welcome" aria-labelledby="welcome-title">
+            <h1 id="welcome-title" class="welcome-title">Selecciona una fecha disponible</h1>
+            <h2 class="welcome-title welcome-subtitle-left">Instrucciones</h2>
+            <p class="welcome-text" lang="es">Selecciona la fecha en el calendario y elige la hora de entrada que prefieras para tu visita en la granja.</p>
+            
+            <!-- Calendario -->
+<div class="cal-wrapper">
+    <div class="cal-header">
+        <button type="button" class="cal-nav" id="cal-prev" aria-label="Mes anterior">&#8592;</button>
+        <span class="cal-month-label" id="cal-month-label"></span>
+        <button type="button" class="cal-nav" id="cal-next" aria-label="Mes siguiente">&#8594;</button>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+</div>
+
+<!-- Fecha seleccionada -->
+<div class="cal-selected-date" id="cal-selected-date" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span id="cal-date-text"></span>
+</div>
+
+            <div class="ticket-list">
+
+    <div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">09:30 - 09:45</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">09:45 - 10:00</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">10:00 - 10:15</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">10:15 - 10:30</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">10:30 - 10:45</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">10:45 - 11:00</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">11:00 - 11:15</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">11:15 - 11:30</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">11:30 - 11:45</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">11:45 - 12:00</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">12:00 - 12:15</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">12:15 - 12:30</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">12:30 - 12:45</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">12:45 - 13:00</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">13:00 - 13:15</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">13:15 - 13:30</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+<div class="ticket-item" tabindex="0">
+    <div class="ticket-info">
+        <span class="ticket-time">13:30 - 13:45</span>
+        <span class="ticket-name">Visita a Granja</span>
+        <span class="ticket-price">12,95 libras para adultos · 12,95 libras para niños</span>
+    </div>
+</div>
+
+</div>
+        
+            <a href="ReservaVisitaGranja.html" class="btn-back" aria-label="Regresar">
+             <img src="../Imagenes/FlechaRetorno.png" alt="Regresar">
+           </a>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-bar">
+                <div class="footer-social">
+                    <a class="social-link social-facebook" href="https://www.facebook.com/thechildrensfarm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <span class="social-icon" aria-hidden="true">
+                            <img src="../Imagenes/facebook.png" alt="">
+                        </span>
+                        <span>Facebook</span>
+                    </a>
+                    <a class="social-link social-instagram" href="https://www.instagram.com/ashendhousefarm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <span class="social-icon" aria-hidden="true">
+                            <img src="../Imagenes/Instagram.png" alt="">
+                        </span>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+                <p class="footer-copy"><span class="copy-symbol" aria-hidden="true">©</span> Copyright <span id="year">2026</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de advertencia -->
+<div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="modal-box" role="alertdialog" aria-modal="true" aria-labelledby="modal-msg">
+        <p id="modal-msg" class="modal-msg"></p>
+        <button type="button" class="modal-close" id="modal-close">Entendido</button>
+    </div>
+</div>
+
+<!-- Modal de confirmación de reserva -->
+<div class="modal-overlay" id="modal-confirm-overlay" hidden>
+    <div class="modal-confirm-box" role="dialog" aria-modal="true">
+        <h2 class="modal-confirm-title" id="modal-confirm-title"></h2>
+        <p class="modal-confirm-intro">Reservaremos este espacio durante los próximos <strong>30 minutos</strong>.</p>
+        <p class="modal-confirm-intro">Esto garantizará que nadie más reserve este espacio mientras tanto.</p>
+        <p class="modal-confirm-intro">Siempre puedes cancelar tu reserva en cualquier momento; no se te cobrará nada hasta que la confirmes.</p>
+        <table class="modal-confirm-table">
+            <tr><td class="modal-tbl-label">Ubicación:</td><td class="modal-tbl-value">Granja</td></tr>
+            <tr><td class="modal-tbl-label">Fecha:</td><td class="modal-tbl-value" id="modal-tbl-fecha"></td></tr>
+            <tr><td class="modal-tbl-label">Llegar entre:</td><td class="modal-tbl-value" id="modal-tbl-horario"></td></tr>
+            <tr><td class="modal-tbl-label">Precio (por niño):</td><td class="modal-tbl-value" id="modal-tbl-nino"></td></tr>
+            <tr><td class="modal-tbl-label">Precio (por adulto):</td><td class="modal-tbl-value" id="modal-tbl-adulto"></td></tr>
+        </table>
+        <div class="modal-confirm-actions">
+            <button type="button" class="modal-btn-cancel" id="modal-confirm-cancel">Cancelar</button>
+            <button type="button" class="modal-btn-confirm" id="modal-confirm-ok">Confirmar Datos</button>
+        </div>
+    </div>
+</div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

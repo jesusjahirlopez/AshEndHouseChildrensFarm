@@ -25,7 +25,7 @@
                             Información
                         </button>
                         <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
-                            <li role="none"><a role="menuitem" href="General.html">General</a></li>
+                            <li role="none"><a role="menuitem" class="nav-active" href="General.html">General</a></li>
                             <li role="none"><a role="menuitem" href="Fiestas.html">Fiestas</a></li>
                             <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
                             <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
@@ -39,7 +39,7 @@
             <div class="header-right">
                 <form class="header-search" role="search" action="#" method="get">
                     <label class="visually-hidden" for="q">Buscar en el sitio</label>
-                    <input id="q" type="search" name="q" placeholder="Buscar…" autocomplete="off">
+                    <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
                     <button type="submit" class="search-submit" aria-label="Buscar">
                         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
@@ -47,17 +47,18 @@
                         </svg>
                     </button>
                 </form>
-                <div class="header-utilities" role="toolbar" aria-label="Preferencias de visualización">
-                    <button type="button" class="icon-btn" id="btn-dark-mode"
-                            title="Activar modo oscuro" aria-label="Activar modo oscuro">
+                <div class="header-utilities" role="toolbar" aria-label="Preferencias (próximamente)">
+                    <button type="button" class="icon-btn" disabled title="Modo oscuro — próximamente" aria-label="Modo oscuro — próximamente">
                         <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
                         </svg>
                     </button>
-                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size"
-                            title="Tamaño de texto" aria-label="Tamaño de texto">
-                        <span class="icon-a-small">A</span>
-                        <span class="icon-a-large">A</span>
+                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
+                        <span class="icon-a">A</span>
+                        <span class="icon-plus-minus" aria-hidden="true">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">−</span>
+                        </span>
                     </button>
                 </div>
             </div>
@@ -67,14 +68,18 @@
     <main class="site-main" id="contenido">
         <section class="welcome" aria-labelledby="welcome-title">
             <h1 id="welcome-title" class="welcome-title">Reserva de Visita en la Granja</h1>
-            <p class="welcome-text" lang="es">Información de reserva</p>
-            <figure class="welcome-figure">
-                <img src="../Imagenes/ImagenBienvenida.png" alt="Ilustración de animales de granja junto a una valla de madera." loading="lazy" decoding="async">
-            </figure>
+            <ul class="welcome-list">
+    <li>Ofrecemos entradas en taquilla, pero recomendamos reservar con antelación. Le aseguramos que le ayudaremos con los cambios de fecha o cancelaciones, ya que somos un negocio familiar.</li>
+    <li>La granja abre de 9:30 a 17:00 (horario reducido en invierno, normalmente cierra a las 16:00). Le recomendamos llegar aproximadamente dos horas antes del cierre para aprovechar al máximo su entrada.</li>
+    <li>El área de juegos está abierta de 9:00 a 18:30, así que si compras una entrada combinada, podrás acceder incluso después del cierre de la granja. La entrada incluye una sesión de juego de dos horas.</li>
+</ul>
+        <figure class="welcome-video">
+            <video src="../Videos/VisitaGranja.mp4" autoplay loop muted playsinline disablepictureinpicture controlsList="nodownload nofullscreen noremoteplayback"></video>
+        </figure>
             <div class="welcome-actions">
-                <a href="#" class="btn-reserve">Iniciar Reserva</a>
+                <a href="SeleccionFechaVisitaGranja.html" class="btn-reserve">Iniciar Reserva</a>
             </div>
-            <a href="#" class="btn-back" aria-label="Regresar">
+            <a href="General.html" class="btn-back" aria-label="Regresar">
              <img src="../Imagenes/FlechaRetorno.png" alt="Regresar">
            </a>
         </section>

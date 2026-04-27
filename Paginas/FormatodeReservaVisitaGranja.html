@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash End House Children's Farm — Formulario de Reserva</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>emailjs.init('Jssbwa_x7cMjk5-7F');</script>
+</head>
+<body>
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
+                <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
+            </a>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <nav class="main-nav" id="nav-menu" aria-label="Principal">
+                <ul class="main-nav-list">
+                    <li class="nav-dropdown">
+                        <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
+                            Información
+                        </button>
+                        <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
+                            <li role="none"><a role="menuitem" class="nav-active" href="General.html">General</a></li>
+                            <li role="none"><a role="menuitem" href="Fiestas.html">Fiestas</a></li>
+                            <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
+                            <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
+                    <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <form class="header-search" role="search" action="#" method="get">
+                    <label class="visually-hidden" for="q">Buscar por  palabra...</label>
+                    <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
+                    <button type="submit" class="search-submit" aria-label="Buscar">
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="header-utilities" role="toolbar" aria-label="Preferencias (próximamente)">
+                    <button type="button" class="icon-btn" disabled title="Modo oscuro — próximamente" aria-label="Modo oscuro — próximamente">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
+                        <span class="icon-a">A</span>
+                        <span class="icon-plus-minus" aria-hidden="true">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">−</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main" id="contenido">
+    <section class="welcome" aria-labelledby="welcome-title">
+        <h1 id="welcome-title" class="welcome-title">Formulario de Reserva</h1>
+        <h2 class="welcome-title welcome-subtitle-left">Instrucciones</h2>
+        <p class="welcome-text" lang="es">Rellena el formulario para comprar tus entradas a la granja.</p>
+
+        <div class="payment-form-wrapper">
+
+            <div class="payment-row">
+                <div class="payment-field">
+                    <label class="payment-label" for="pf-nombre">Nombre(s)</label>
+                    <input class="payment-input" id="pf-nombre" type="text" autocomplete="given-name">
+                    <span class="payment-error" id="err-nombre" hidden>
+                        <span aria-hidden="true">⚠</span> Ingresa tu nombre.
+                    </span>
+                </div>
+                <div class="payment-field">
+                    <label class="payment-label" for="pf-apellido">Apellido(s)</label>
+                    <input class="payment-input" id="pf-apellido" type="text" autocomplete="family-name">
+                    <span class="payment-error" id="err-apellido" hidden>
+                        <span aria-hidden="true">⚠</span> Ingresa tu apellido.
+                    </span>
+                </div>
+            </div>
+
+            <div class="payment-row">
+                <div class="payment-field">
+                    <label class="payment-label" for="pf-correo">Correo Electrónico</label>
+                    <input class="payment-input" id="pf-correo" type="email" placeholder="Ejemplo: correo@gmail.com" autocomplete="email">
+                    <span class="payment-error" id="err-correo" hidden>
+                        <span aria-hidden="true">⚠</span> Ingresa un correo válido (ej. correo@gmail.com).
+                    </span>
+                </div>
+                <div class="payment-field">
+                    <label class="payment-label">Cantidad de Boletos</label>
+                    <div class="boletos-row">
+                        <div class="boleto-group">
+                            <span class="boleto-label">Adultos:</span>
+                            <div class="counter-box">
+                                <button type="button" class="counter-btn" id="adultos-minus" aria-label="Reducir adultos">−</button>
+                                <span class="counter-val" id="adultos-val">0</span>
+                                <button type="button" class="counter-btn" id="adultos-plus" aria-label="Aumentar adultos">+</button>
+                            </div>
+                        </div>
+                        <div class="boleto-group">
+                            <span class="boleto-label">Niños:</span>
+                            <div class="counter-box">
+                                <button type="button" class="counter-btn" id="ninos-minus" aria-label="Reducir niños">−</button>
+                                <span class="counter-val" id="ninos-val">0</span>
+                                <button type="button" class="counter-btn" id="ninos-plus" aria-label="Aumentar niños">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="payment-error" id="err-boletos" hidden>
+                        <span aria-hidden="true">⚠</span> Selecciona al menos un boleto.
+                    </span>
+                </div>
+            </div>
+
+            <div class="payment-total-row">
+    <span class="payment-total-label">Total:</span>
+    <span class="payment-total-amount" id="pf-total">£ 0.00</span>
+</div>
+
+<div class="payment-row payment-row-cards">
+    <div class="payment-field payment-field-card-number">
+        <label class="payment-label">Número de Tarjeta</label>
+        <div class="payment-input stripe-element" id="stripe-card-number"></div>
+        <div class="card-logos">
+            <img src="../Imagenes/LogoVisa.png" alt="Visa">
+            <img src="../Imagenes/LogoMasterCard.png" alt="Mastercard">
+        </div>
+        <span class="payment-error" id="err-tarjeta" hidden>
+            <span aria-hidden="true">⚠</span> <span id="err-tarjeta-msg">Número de tarjeta inválido.</span>
+        </span>
+    </div>
+    <div class="payment-field">
+        <label class="payment-label">Fecha de Vencimiento</label>
+        <div class="payment-input stripe-element" id="stripe-card-expiry"></div>
+        <span class="payment-error" id="err-vencimiento" hidden>
+            <span aria-hidden="true">⚠</span> Fecha inválida.
+        </span>
+    </div>
+    <div class="payment-field">
+        <label class="payment-label">CVV</label>
+        <div class="payment-input stripe-element" id="stripe-card-cvc"></div>
+        <span class="payment-error" id="err-cvv" hidden>
+            <span aria-hidden="true">⚠</span> CVV inválido.
+        </span>
+    </div>
+</div>
+
+            <div class="payment-submit-row">
+                <button type="button" class="btn-reserve" id="btn-compra">Efectuar Compra</button>
+            </div>
+
+        </div>
+
+        <a href="SeleccionFechaVisitaGranja.html" class="btn-back" aria-label="Regresar">
+            <img src="../Imagenes/FlechaRetorno.png" alt="Regresar">
+        </a>
+    </section>
+
+</main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-bar">
+                <div class="footer-social">
+                    <a class="social-link social-facebook" href="https://www.facebook.com/thechildrensfarm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <span class="social-icon" aria-hidden="true">
+                            <img src="../Imagenes/facebook.png" alt="">
+                        </span>
+                        <span>Facebook</span>
+                    </a>
+                    <a class="social-link social-instagram" href="https://www.instagram.com/ashendhousefarm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <span class="social-icon" aria-hidden="true">
+                            <img src="../Imagenes/Instagram.png" alt="">
+                        </span>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+                <p class="footer-copy"><span class="copy-symbol" aria-hidden="true">©</span> Copyright <span id="year">2026</span></p>
+            </div>
+        </div>
+    </footer>
+<!-- Modal de pago exitoso -->
+<div class="modal-overlay" id="modal-success-overlay" hidden>
+    <div class="modal-box" role="alertdialog" aria-modal="true">
+        <img src="../Imagenes/PagoExitoso.png" alt="Pago exitoso" style="width:80px; height:80px; object-fit:contain; margin:0 auto 0.75rem;">
+        <p class="modal-msg" id="modal-success-msg">Revisa la confirmación en tu correo.</p>
+        <button type="button" class="modal-close" id="modal-success-close">Aceptar</button>
+    </div>
+</div>
+
+<!-- Modal de Pago Fallido -->
+<div class="modal-overlay" id="modal-failed-overlay" hidden>
+    <div class="modal-box" role="alertdialog" aria-modal="true">
+        <img src="../Imagenes/PagoFallido.png" alt="Pago fallido" style="width:80px; height:80px; object-fit:contain; margin:0 auto 0.75rem;">
+        <p class="modal-msg" id="modal-failed-msg">Ha ocurrido un error con tu pago.</p>
+        <button type="button" class="modal-close" id="modal-failed-close">Intentar de nuevo</button>
+    </div>
+</div>
+    <script src="../script.js"></script>
+
+</body>
+</html>
