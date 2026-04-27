@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ash End House Children's Farm — Fiestas</title>
+    <title>Ash End House — Fiestas</title>
     <link rel="stylesheet" href="../css/fiestas.css">
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -35,10 +35,14 @@
                 </div>
             </a>
 
-            <nav class="main-nav" id="nav-menu">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="main-nav">
                 <ul class="main-nav-list">
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-link">Información</a>
+                        <a href="#" class="nav-link">Información</a>
                         <ul class="nav-submenu">
                             <li><a href="General.html">General</a></li>
                             <li><a href="Fiestas.html">Fiestas</a></li>
@@ -46,65 +50,92 @@
                         </ul>
                     </li>
                     <li><a href="Seguridad.html" class="nav-link">Seguridad</a></li>
-                    <li><a href="Preguntas.html" class="nav-link">Preguntas frecuentes</a></li>
+                    <li><a href="Preguntas.html" class="nav-link">Preguntas</a></li>
                     <li><a href="Contacto.html" class="nav-link">Contacto</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
-                <div class="search-bar">
-                    <input class="buscar" type="text" placeholder="Buscar...">
-                    <button class="search-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16">
-                            <path
-                                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                                fill="currentColor" />
-                        </svg>
-                    </button>
-                </div>
-
                 <div class="accessibility-tools">
                     <label class="theme-switch">
                         <input type="checkbox" class="theme-switch__checkbox" id="theme-checkbox">
                         <div class="theme-switch__container">
                             <div class="theme-switch__clouds"></div>
                             <div class="theme-switch__stars-container">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z"
-                                        fill="currentColor"></path>
+                                <svg viewBox="0 0 144 55" fill="none">
+                                    <path d="..."></path>
                                 </svg>
                             </div>
                             <div class="theme-switch__circle-container">
                                 <div class="theme-switch__sun-moon-container">
-                                    <div class="theme-switch__moon">
-                                        <div class="theme-switch__spot"></div>
-                                        <div class="theme-switch__spot"></div>
-                                        <div class="theme-switch__spot"></div>
-                                    </div>
+                                    <div class="theme-switch__moon"></div>
                                 </div>
                             </div>
                         </div>
                     </label>
-
-                    <button class="tool-btn text-tool" id="text-toggle" title="Tamaño de Texto">A<span>±</span></button>
                 </div>
             </div>
+        </div>
     </header>
 
     <main>
+       
+  <section class="page-theme">
+    <div class="sun"></div>
 
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+
+    <div class="horse-container">
+        <div class="horse-body">
+            <div class="h-mane-back"></div> 
+            <div class="h-head-wrapper">
+                <div class="h-head">
+                    <div class="h-ear-l"></div><div class="h-ear-r"></div>
+                    <div class="h-eye-l"></div><div class="h-eye-r"></div>
+                    <div class="h-snout">
+                        <div class="h-nose-l"></div><div class="h-nose-r"></div>
+                    </div>
+                    <div class="h-mane-front"></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="main-page-title">Fiestas</h1>
+    </div>
+
+    <div class="cow-container">
+        <div class="cow-body">
+            <div class="c-spot-body"></div>
+            <div class="c-head-wrapper">
+                <div class="c-head">
+                    <div class="c-ear-l"></div><div class="c-ear-r"></div>
+                    <div class="c-horn-l"></div><div class="c-horn-r"></div>
+                    <div class="c-eye-l"></div><div class="c-eye-r"></div>
+                    <div class="c-snout">
+                        <div class="c-nose-l"></div><div class="c-nose-r"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="farm-floor"></div>
+</section>
+
+    
         <section id="planes" class="container section-padding">
             <div class="section-intro" data-aos="fade-up">
                 <span class="hero-badge">Nuestros Paquetes</span>
                 <h2 class="section-title">Grupos con Guía Turístico</h2>
-                <p class="section-desc">Nuestro amable guía llevará a los niños a recorrer la granja, y el cumpleañero
-                    será el <strong>"Granjero Jefe por un Día"</strong>.</p>
+                <p class="section-desc">Nuestro amable guía llevará a los niños a recorrer la granja.</p>
             </div>
 
             <div class="grid-cards">
                 <div class="card" data-aos="fade-up">
-                    <div class="card-badge">Más Completo</div>
                     <span class="card-tag">Opción 1</span>
                     <h3>Fiesta Combinada Matutina</h3>
                     <p class="duration">⏱ 3 - 3.5 horas</p>
@@ -112,7 +143,6 @@
                         <li>12-30 niños</li>
                         <li>Juego en Barrio de Juegos</li>
                         <li>Visita a la granja + Poni/Tractor</li>
-                        <li>Comida en los establos</li>
                     </ul>
                     <div class="price">£21.95 <span>/ niño</span></div>
                 </div>
@@ -125,31 +155,33 @@
                         <li>10-30 niños</li>
                         <li>Visita guiada completa</li>
                         <li>Paseo en poni o tractor</li>
-                        <li>Comida final en establos</li>
                     </ul>
                     <div class="price">£17.95 <span>/ niño</span></div>
                 </div>
 
                 <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-badge">VIP</div>
                     <span class="card-tag">Opción 3</span>
                     <h3>Combinada Grande Tarde</h3>
                     <p class="duration">⏱ 3.5 - 4 horas</p>
                     <ul class="features">
                         <li>12-20 niños</li>
                         <li>Recorrido Granja + Actividad</li>
-                        <li>2h en Granja de Juegos</li>
                         <li>Cápsula privada (Cerdo/Vaca)</li>
                     </ul>
                     <div class="price">£23.95 <span>/ niño</span></div>
                 </div>
+            </div>
 
-                <div class="card card-diy" data-aos="fade-up" data-aos-delay="300">
+            <div class="section-intro" style="margin-top: 80px;" data-aos="fade-up">
+                <h2 class="section-title">Grupos Pequeños</h2>
+            </div>
+
+            <div class="single-card-container">
+                <div class="card card-diy" data-aos="zoom-in">
                     <span class="card-tag">Bricolaje / Grupos Pequeños</span>
                     <h3>Fiesta DIY "LITTLE COMBI"</h3>
                     <p class="duration">⏱ 4 horas (Recomendado)</p>
-                    <p class="diy-info">Ideal para grupos desde 8 personas. Incluye mesa familiar y entradas ilimitadas
-                        a la granja.</p>
+                    <p class="diy-info">Ideal para grupos desde 8 personas.</p>
                     <ul class="features">
                         <li>Mesa en Play Barn</li>
                         <li>Alimentación de animales</li>
@@ -160,13 +192,13 @@
                 </div>
             </div>
 
-            <div class="policy-note" data-aos="fade-in">
-                <p><strong>Política de Tarifas:</strong> 1 adulto gratis por niño (2 para el cumpleañero). Adultos
-                    adicionales £6.</p>
+            <div class="policy-note" data-aos="fade-in" style="margin-top: 40px;">
+                <p><strong>Política de Tarifas:</strong> 1 adulto gratis por niño. Adultos adicionales £6.</p>
             </div>
         </section>
-
     </main>
+
+    <button class="text-tool" id="text-toggle">A<span>±</span></button>
 
     <footer class="site-footer">
         <div class="footer-wave">
@@ -232,40 +264,33 @@
         document.addEventListener("DOMContentLoaded", () => {
             AOS.init({ duration: 1000, once: true });
 
-            // Menu Mobile
-            const navBtn = document.getElementById('nav-toggle');
-            const header = document.getElementById('site-header');
-            if (navBtn) {
-                navBtn.onclick = () => header.classList.toggle('nav-open');
-            }
+            // SCRIPT DEL MENÚ MÓVIL
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const nav = document.getElementById('main-nav');
 
-            // DARK MODE (Checkbox)
-            const themeCheckbox = document.getElementById('theme-checkbox');
-            if (themeCheckbox) {
-                themeCheckbox.addEventListener('change', () => {
-                    document.body.classList.toggle('dark-mode', themeCheckbox.checked);
-                });
-            }
+            mobileBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                mobileBtn.querySelector('i').classList.toggle('fa-bars');
+                mobileBtn.querySelector('i').classList.toggle('fa-xmark');
+            });
 
-            // TAMAÑO DE TEXTO (Burbuja Flotante)
+            // TAMAÑO DE TEXTO
             const textBtn = document.getElementById('text-toggle');
-            if (textBtn) {
-                let sizeIndex = 1;
-                const sizes = ['text-small', 'text-medium', 'text-large'];
+            let sizeIndex = 1;
+            const sizes = ['text-small', 'text-medium', 'text-large'];
+            textBtn.onclick = () => {
+                sizeIndex = (sizeIndex + 1) % 3;
+                document.body.classList.remove(...sizes);
+                document.body.classList.add(sizes[sizeIndex]);
+            };
 
-                textBtn.onclick = () => {
-                    sizeIndex = (sizeIndex + 1) % 3;
-                    document.body.classList.remove(...sizes);
-                    document.body.classList.add(sizes[sizeIndex]);
-
-                    // Animación de feedback
-                    textBtn.style.transform = "scale(1.2)";
-                    setTimeout(() => textBtn.style.transform = "scale(1)", 200);
-                };
-            }
+            // DARK MODE
+            const themeCheckbox = document.getElementById('theme-checkbox');
+            themeCheckbox.addEventListener('change', () => {
+                document.body.classList.toggle('dark-mode', themeCheckbox.checked);
+            });
         });
     </script>
-
 </body>
 
 </html>

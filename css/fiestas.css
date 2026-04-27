@@ -1072,3 +1072,286 @@ body.dark-mode .footer-wave svg {
 .social-icon:hover i {
     transform: scale(1.1);
 }
+
+/* --- RESET DE LOS RECUADROS Y BORDES --- */
+.card-badge { display: none !important; } /* Elimina el recuadro VIP/Completo */
+
+.card-diy {
+    border: 1px solid rgba(0,0,0,0.05) !important; /* Quita el borde punteado y pone uno sólido suave */
+    max-width: 400px;
+}
+
+/* --- TÍTULO DE TEMA SUPERIOR --- */
+/* --- CONTENEDOR PRINCIPAL --- */
+/* --- VACA CON CUERPO (Derecha) --- */
+/* --- CONTENEDOR PRINCIPAL --- */
+.page-theme {
+    position: relative;
+    padding: 60px 0;
+    min-height: 280px;
+    background: linear-gradient(180deg, #fdf6f0 0%, #fde8e0 100%);
+    overflow: hidden; /* Importante para que nada se salga */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #ef821d;
+}
+
+/* --- SOL --- */
+.sun {
+    position: absolute;
+    top: 30px;
+    left: 45px;
+    width: 65px;
+    height: 65px;
+    background: #ffcc33;
+    border-radius: 50%;
+    box-shadow: 0 0 35px #ffcc33;
+    z-index: 2;
+    animation: pulseSun 4s ease-in-out infinite;
+}
+
+@keyframes pulseSun {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* --- NUBES --- */
+.cloud {
+    position: absolute;
+    background: white;
+    width: 100px;
+    height: 35px;
+    border-radius: 50px;
+    opacity: 0.7;
+    z-index: 1;
+    animation: moveClouds 40s linear infinite;
+}
+
+.c1 { top: 50px; animation-duration: 50s; }
+.c2 { top: 110px; animation-duration: 35s; animation-delay: -10s; }
+.c3 { top: 30px; left: 40%; animation-duration: 60s; animation-delay: -25s; }
+
+@keyframes moveClouds {
+    from { left: -150px; }
+    to { left: 100%; }
+}
+
+/* --- TÍTULO --- */
+.main-page-title {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #ef821d;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    z-index: 10;
+    margin: 0;
+}
+
+/* --- CABALLO (IZQUIERDA) --- */
+.horse-container {
+    position: absolute;
+    bottom: 10px;
+    left: -25px;
+    z-index: 5;
+    transform: scale(1.1);
+}
+
+.horse-body {
+    width: 180px;
+    height: 140px;
+    background: #a67232;
+    border: 2px solid #8b5a2b;
+    border-radius: 40px 80px 40px 10px;
+    position: relative;
+}
+
+.h-mane-back {
+    width: 30px;
+    height: 80px;
+    background: #5d2e0a;
+    position: absolute;
+    top: -10px;
+    right: 40px;
+    border-radius: 20px;
+}
+
+.h-head-wrapper {
+    position: absolute;
+    top: -45px;
+    right: -25px;
+    transform-origin: bottom center;
+    animation: horseLookAround 7s ease-in-out infinite;
+}
+
+.h-head {
+    width: 85px;
+    height: 110px;
+    background: #a67232;
+    border: 2px solid #8b5a2b;
+    border-radius: 40px 40px 25px 25px;
+    position: relative;
+}
+
+@keyframes horseLookAround {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(12deg); }
+    70% { transform: rotate(-12deg); }
+}
+
+.h-ear-l, .h-ear-r { width: 18px; height: 30px; background: #a67232; position: absolute; top: -10px; border-radius: 50% 50% 0 0; }
+.h-ear-l { left: 15px; transform: rotate(-15deg); }
+.h-ear-r { right: 15px; transform: rotate(15deg); }
+
+.h-snout { 
+    width: 70px; height: 50px; background: #8b5a2b; border-radius: 20px; 
+    position: absolute; bottom: 5px; left: 7.5px; 
+}
+
+.h-eye-l, .h-eye-r { width: 7px; height: 7px; background: #222; border-radius: 50%; position: absolute; top: 40px; }
+.h-eye-l { left: 20px; } .h-eye-r { right: 20px; }
+
+.h-mane-front {
+    width: 35px; height: 20px; background: #5d2e0a;
+    position: absolute; top: 0; left: 25px; border-radius: 0 0 15px 15px;
+}
+
+/* --- VACA (DERECHA) --- */
+.cow-container {
+    position: absolute;
+    bottom: 10px;
+    right: -25px;
+    z-index: 5;
+    transform: scale(1.1);
+}
+
+.cow-body {
+    width: 180px;
+    height: 140px;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 80px 40px 10px 40px;
+    position: relative;
+}
+
+.c-spot-body {
+    width: 70px; height: 80px; background: #333;
+    border-radius: 40% 60% 30% 70%;
+    position: absolute; top: 20px; left: 20px;
+}
+
+.c-head-wrapper {
+    position: absolute;
+    top: -40px;
+    left: -30px;
+    transform-origin: bottom center;
+    animation: lookAround 8s ease-in-out infinite;
+}
+
+.c-head {
+    width: 90px; height: 100px; background: #fff;
+    border: 2px solid #ddd; border-radius: 45px 45px 30px 30px;
+    position: relative;
+}
+
+@keyframes lookAround {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+}
+
+.c-ear-l, .c-ear-r { width: 25px; height: 35px; background: #333; position: absolute; top: 10px; border-radius: 50%; }
+.c-ear-l { left: -10px; transform: rotate(-30deg); }
+.c-ear-r { right: -10px; transform: rotate(30deg); }
+
+.c-horn-l, .c-horn-r { width: 8px; height: 20px; background: #e0e0e0; position: absolute; top: -12px; border-radius: 5px; }
+.c-horn-l { left: 25px; } .c-horn-r { right: 25px; }
+
+.c-snout { 
+    width: 75px; height: 50px; background: #ffdbdb; border-radius: 25px; 
+    position: absolute; bottom: 5px; left: 7.5px; 
+}
+.c-eye-l, .c-eye-r { width: 8px; height: 8px; background: #333; border-radius: 50%; position: absolute; top: 35px; }
+.c-eye-l { left: 22px; } .c-eye-r { right: 22px; }
+
+/* --- SUELO --- */
+.farm-floor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: #ef821d;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+
+/* --- final --- */
+.main-page-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary-orange);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+/* --- CENTRADO DE LA ÚLTIMA TARJETA --- */
+.single-card-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* --- MENÚ MÓVIL (HAMBURGUESA) --- */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 991px) {
+    .mobile-menu-btn { display: block; }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido a la derecha */
+        width: 70%;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        transition: 0.4s ease;
+        padding-top: 100px;
+        z-index: 1000;
+    }
+
+    .main-nav.active {
+        right: 0; /* Aparece */
+    }
+
+    .main-nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-link {
+        color: var(--dark-text);
+        font-size: 1.2rem;
+    }
+}
+
+/* --- MODO OSCURO PARA EL TEMA --- */
+body.dark-mode .page-theme {
+    background: #252525;
+}
+body.dark-mode .main-nav {
+    background: #1a1a1a;
+}
