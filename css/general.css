@@ -1095,10 +1095,11 @@ body.dark-mode .policy-note { background: #332a22; }
 }
 
 .footer-wave svg {
-    fill: var(--white); /* Usamos la variable para que cambie sola */
-    height: 70px;
+    /* En modo claro usa el cremita */
+    fill: var(--bg-cream) !important; 
+    display: block;
     width: 100%;
-    transition: fill 0.6s ease; /* Para que el cambio de color sea suave */
+    height: 70px;
 }
 
 .footer-main-grid {
@@ -1241,82 +1242,6 @@ body.dark-mode .policy-note { background: #332a22; }
     transform: scale(1.1);
 }
 
-/* --- REDISEÑO INFO GENERAL CON CARRUSEL --- */
-.info-section-premium {
-    padding: 100px 0;
-    background: var(--white);
-}
-
-.info-grid-modern {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
-    align-items: center;
-}
-
-/* CARRUSEL */
-.carousel-container {
-    position: relative;
-    width: 100%;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-}
-
-.carousel-slides {
-    height: 450px;
-    position: relative;
-}
-
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Cambia esto */
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-    background-color: #f0f0f0; /* Color de fondo por si quedan espacios vacíos */
-}
-
-.slide.active { opacity: 1; position: relative; }
-
-.carousel-nav button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.8);
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.2rem;
-    transition: 0.3s;
-}
-
-.prev-btn { left: 20px; }
-.next-btn { right: 20px; }
-.carousel-nav button:hover { background: var(--primary-orange); color: white; }
-
-.carousel-dots {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.dot {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.dot.active { background-color: var(--primary-orange); width: 25px; border-radius: 10px; }
-
 /* CONTENIDO TEXTO */
 .info-content-area .section-title { text-align: left; margin-bottom: 25px; font-size: 2.5rem; }
 .main-text { font-size: 1.1rem; line-height: 1.8; color: var(--dark-text); margin-bottom: 25px; }
@@ -1354,4 +1279,371 @@ body.dark-mode .policy-note { background: #332a22; }
 @media (max-width: 991px) {
     .info-grid-modern { grid-template-columns: 1fr; }
     .carousel-slides { height: 300px; }
+}
+
+/*
+
+
+/* --- SECCIÓN ZIGZAG --- */
+.info-zigzag-section {
+    padding: 120px 0;
+    position: relative;
+    background-color: transparent;
+    overflow: visible; /* Clave para el efecto pop-out */
+}
+
+/* Fondo decorativo (Burbujas difuminadas) */
+.glass-bg-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+}
+.b1 { width: 400px; height: 400px; background: var(--soft-orange); top: 10%; left: -5%; }
+.b2 { width: 300px; height: 300px; background: var(--turqueza); bottom: 10%; right: -5%; }
+
+/* Filas Zig-Zag */
+.zigzag-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 150px;
+    z-index: 1;
+    position: relative;
+    margin: auto;
+}
+
+
+
+.zigzag-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* El contenedor de la imagen con forma de fondo */
+.zigzag-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.zigzag-shape {
+    width: 380px;
+    height: 380px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morphing 10s infinite alternate ease-in-out;
+}
+
+.s1 { background: var(--soft-orange); }
+.s2 { background: #e0f7f7; border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+.s3 { background: #fff1d6; }
+
+@keyframes morphing {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    100% { border-radius: 50% 50% 30% 70% / 50% 30% 70% 50%; }
+}
+
+/* --- EFECTO DE SALIDA (ANIMALES) --- */
+.pop-animal {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 420px;
+    filter: drop-shadow(20px 20px 40px rgba(0,0,0,0.12));
+    transition: transform 0.3s ease;
+}
+
+/* Posicionamiento específico para que se salgan */
+.a-left { transform: translateY(-60px) translateX(-30px) rotate(-5deg); }
+.a-right { transform: translateY(-70px) translateX(40px) rotate(5deg); }
+.a-center { transform: translateY(-50px) scale(1.1); }
+
+.zigzag-row:hover .pop-animal {
+    transform: translateY(-80px) scale(1.05); /* Efecto de flotación al pasar el mouse */
+}
+
+/* Textos */
+.zigzag-text {
+    flex: 1;
+}
+
+.zigzag-tag {
+    color: var(--primary-orange);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.zigzag-text h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 10px 0 20px;
+    line-height: 1.1;
+}
+
+.check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.check-list i { color: var(--turqueza); }
+
+.btn-zigzag {
+    display: inline-block;
+    padding: 18px 40px;
+    background: var(--primary-orange);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    box-shadow: 0 10px 25px rgba(239, 130, 29, 0.3);
+}
+
+.price-badge {
+    margin-left: 20px;
+    font-weight: 700;
+    color: var(--turqueza);
+}
+
+/* Responsivo */
+@media (max-width: 991px) {
+    .zigzag-row, .zigzag-row.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 100px;
+    }
+    .zigzag-shape { width: 280px; height: 280px; }
+    .pop-animal { max-width: 280px; }
+}
+
+/* --- ticket --- */
+/* Contenedor específico para que los tickets no se muevan de su lugar */
+.ticket-fan-container {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.tickets-fan {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    z-index: 5;
+}
+
+/* Estilo base del Ticket */
+.wild-ticket {
+    position: absolute;
+    width: 280px;
+    height: 130px;
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.t-main-white { background: white; flex: 3; padding: 20px; display: flex; flex-direction: column; justify-content: center; border-right: 2px dashed #eee; }
+.t-main-cyan { background: #e0f7f7; flex: 3; padding: 20px; display: flex; flex-direction: column; justify-content: center; border-right: 2px dashed #b2e5e5; }
+
+.t-side { 
+    background: var(--primary-orange); 
+    flex: 1; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 900; 
+    writing-mode: vertical-rl;
+    font-size: 0.8rem;
+}
+
+.t-label { font-size: 0.7rem; font-weight: 700; color: #999; text-transform: uppercase; }
+.t-cost { font-size: 1.8rem; font-weight: 900; color: var(--dark-text); }
+.t-main-cyan .t-cost { color: var(--turqueza); }
+
+/* --- POSICIÓN BARAJEADA (REPOSO) --- */
+.t-combi { transform: rotate(15deg) translate(40px, 20px); z-index: 1; }
+.t-adult { transform: rotate(5deg) translate(20px, 10px); z-index: 2; }
+.t-child { transform: rotate(-5deg) translate(0, 0); z-index: 3; }
+
+/* --- EFECTO AL PASAR EL MOUSE (SE ABREN) --- */
+.ticket-fan-container:hover .t-combi { transform: rotate(25deg) translate(80px, 40px); }
+.ticket-fan-container:hover .t-adult { transform: rotate(10deg) translate(40px, 15px); }
+.ticket-fan-container:hover .t-child { transform: rotate(-10deg) translate(-20px, -10px); }
+
+/* Animación de flotación suave */
+.tickets-fan {
+    animation: fanFloat 4s infinite ease-in-out;
+}
+
+@keyframes fanFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* pony */
+/* --- CONTENEDOR DEL CALENDARIO --- */
+.big-calendar {
+    position: relative;
+    width: 220px; /* Tamaño prominente */
+    z-index: 10;
+    animation: calendarFloat 4s infinite ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.calendar-base {
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+    overflow: visible;
+}
+
+/* Parte superior naranja */
+.calendar-top {
+    background: var(--primary-orange);
+    padding: 18px 10px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.month-name {
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* Anillas oscuras */
+.calendar-holes {
+    position: absolute;
+    top: -12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    left: 0;
+}
+
+.calendar-holes span {
+    width: 10px;
+    height: 22px;
+    background: #333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Cuerpo del número */
+.calendar-body {
+    padding: 25px 10px;
+    text-align: center;
+}
+
+.day-number {
+    display: block;
+    font-size: 5rem; /* Número grande */
+    font-weight: 900;
+    color: var(--dark-text);
+    line-height: 0.9;
+}
+
+.day-name {
+    font-size: 1rem;
+    color: var(--turqueza);
+    font-weight: 800;
+    margin-top: 10px;
+    display: block;
+}
+
+/* --- RELOJ FLOTANTE --- */
+.floating-clock-pro {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    border: 5px solid var(--turqueza);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-hand {
+    width: 3px;
+    height: 25px;
+    background: #333;
+    border-radius: 5px;
+    transform-origin: bottom;
+    animation: rotateHand 12s infinite linear;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes calendarFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(1.5deg); }
+}
+
+@keyframes rotateHand {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Ajuste para que la fila respire y no se vea blanca */
+.zigzag-row {
+    margin-bottom: 100px !important;
+    gap: 80px;
+}
+
+.zigzag-image-wrapper {
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --- CORRECCIÓN DE CONTRASTE EN MODO OSCURO --- */
+
+body.dark-mode .day-number {
+    /* El número 28 del calendario debe ser oscuro para resaltar en el fondo blanco del papel */
+    color: #2d2d2d !important;
+}
+
+body.dark-mode .t-cost {
+    /* El precio £12.95 dentro del ticket */
+    color: #2d2d2d !important;
+}
+
+body.dark-mode .t-main-white .t-label {
+    /* El texto "CHILD PASS" o "ADULT PASS" */
+    color: #777777 !important;
+}
+
+/* Si el ticket Combi (el turquesa) también se ve mal, ajustamos su precio */
+body.dark-mode .t-main-cyan .t-cost {
+    color: #008080 !important; /* Un turquesa más oscuro para legibilidad */
 }
