@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash End House Children's Farm — Inicio</title>
-    <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="icon" type="image/png" href="..Imagenes/LogoGranja.png">
+
+    <link rel="stylesheet" href="../css/escuela.css">
+    <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
 </head>
 <body>
-    <header class="site-header" id="site-header">
+   <header class="site-header" id="site-header">
         <div class="header-inner">
             <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
                 <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
@@ -21,27 +22,25 @@
             <nav class="main-nav" id="nav-menu" aria-label="Principal">
                 <ul class="main-nav-list">
                     <li class="nav-dropdown">
-
                         <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
-
                             Información
                         </button>
                         <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
                             <li role="none"><a role="menuitem" href="General.html">General</a></li>
                             <li role="none"><a role="menuitem" href="Fiestas.html">Fiestas</a></li>
-                            <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
+                            <li role="none"><a role="menuitem" class="nav-active" href="Escuelas.html">Escuelas</a></li>
                             <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
                         </ul>
                     </li>
-                    <li><a href="Seguridad.html">Seguridad de la granja</a></li>
+                    <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
                     <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
                     <li><a href="Contacto.html">Contacto</a></li>
                 </ul>
             </nav>
             <div class="header-right">
                 <form class="header-search" role="search" action="#" method="get">
-                    <label class="visually-hidden" for="q">Buscar en el sitio</label>
-                    <input id="q" type="search" name="q" placeholder="Buscar…" autocomplete="off">
+                    <label class="visually-hidden" for="q">Buscar por  palabra...</label>
+                    <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
                     <button type="submit" class="search-submit" aria-label="Buscar">
                         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
@@ -49,17 +48,18 @@
                         </svg>
                     </button>
                 </form>
-                <div class="header-utilities" role="toolbar" aria-label="Preferencias de visualización">
-                    <button type="button" class="icon-btn" id="btn-dark-mode"
-                            title="Activar modo oscuro" aria-label="Activar modo oscuro">
+                <div class="header-utilities" role="toolbar" aria-label="Preferencias (próximamente)">
+                    <button type="button" class="icon-btn" disabled title="Modo oscuro — próximamente" aria-label="Modo oscuro — próximamente">
                         <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
                         </svg>
                     </button>
-                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size"
-                            title="Tamaño de texto" aria-label="Tamaño de texto">
-                        <span class="icon-a-small">A</span>
-                        <span class="icon-a-large">A</span>
+                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
+                        <span class="icon-a">A</span>
+                        <span class="icon-plus-minus" aria-hidden="true">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">−</span>
+                        </span>
                     </button>
                 </div>
             </div>
@@ -71,10 +71,10 @@
             <h1 id="welcome-title" class="welcome-title">Escuelas</h1>
             <p class="welcome-text" lang="es">Damos una cordial bienvenida a escuelas y grupos visitantes durante todo el año. Cientos de escuelas, guarderías, grupos de iglesia y programas recreativos nos han visitado desde que iniciamos nuestros recorridos por la granja, hace más de 30 años. Nuestros visitantes siempre se van llenos de emoción, muchos de ellos tras haber tenido su primer encuentro con animales de granja.</p>
             <figure class="welcome-figure">
-                <img src="/Imagenes/EscuelaAshFarm.png" alt="Imagen de niños con animales" loading="lazy" decoding="async">
+                <img src="../Imagenes/EscuelaAshFarm.png" alt="Imagen de niños con animales" loading="lazy" decoding="async">
             </figure>
             <div class="welcome-actions">
-                <a href="#" class="btn-reserve">Reservar para Escuelas</a>
+                <a href="ReservaVisitaGranja.html" class="btn-reserve">Reservar para Escuelas</a>
             </div>
         </section>
 
@@ -84,7 +84,7 @@
                 <article class="feature-card pricing-card">
                     <h3 class="feature-card-title">Niños</h3>
                     <div class="feature-card-body">
-                        <p class="price">$256 mxn</p>
+                        <p class="price">£10,95</p>
                         <p class="pricing-text">Por alumno</p>
                     </div>
                 </article>
@@ -100,7 +100,7 @@
                 <article class="feature-card pricing-card">
                     <h3 class="feature-card-title">Adulto Adicional</h3>
                     <div class="feature-card-body">
-                        <p class="price">$232 mxn</p>
+                        <p class="price">£9,95</p>
                         <p class="pricing-text">Por persona</p>
                     </div>
                 </article>
@@ -131,7 +131,8 @@
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+
+    <script src="../js/Escuela.js"></script>
 </body>
 </html>
 

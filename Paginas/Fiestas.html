@@ -1,296 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ash End House — Fiestas</title>
+    <title>Ash End House Children's Farm — Fiestas</title>
     <link rel="stylesheet" href="../css/fiestas.css">
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-
 <body>
 
-    <div class="top-bar">
-        <div class="container top-bar-inner">
-            <div class="top-info">⏰ Horario: 08 AM - 08 PM</div>
-            <div class="top-contact">
-                <span>✉️ info@ashendhouse.com</span>
-                <span>📞 +1 (234) 567 89 00</span>
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+        <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
+            <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
+        </a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="main-nav" id="nav-menu" aria-label="Principal">
+            <ul class="main-nav-list">
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
+                        Información
+                    </button>
+                    <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
+                        <li role="none"><a role="menuitem" href="General.html">General</a></li>
+                        <li role="none"><a role="menuitem" class="nav-active" href="Fiestas.html">Fiestas</a></li>
+                        <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
+                        <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
+                    </ul>
+                </li>
+                <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
+                <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <form class="header-search" role="search" action="#" method="get">
+                <label class="visually-hidden" for="q">Buscar por palabra...</label>
+                <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
+                <button type="submit" class="search-submit" aria-label="Buscar">
+                    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                        <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="header-utilities" role="toolbar" aria-label="Preferencias">
+                <button type="button" class="icon-btn" id="btn-dark-mode" title="Activar modo oscuro" aria-label="Activar modo oscuro">
+                    <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
+                    </svg>
+                </button>
+                <button type="button" class="icon-btn icon-btn-text" id="btn-font-size" title="Tamaño de texto" aria-label="Tamaño de texto normal">
+                    <span class="icon-a">A</span>
+                    <span class="icon-plus-minus" aria-hidden="true">
+                        <span class="icon-plus">+</span>
+                        <span class="icon-minus">−</span>
+                    </span>
+                </button>
             </div>
         </div>
     </div>
+</header>
 
-    <header class="site-header color" id="site-header">
-        <div class="container header-inner">
-            <a href="index.html" class="brand">
-                <img src="../Imagenes/LogoGranja.png" alt="Logo" class="brand-logo">
-                <div class="brand-text">
-                    <span class="brand-name">ASH END</span>
-                    <span class="brand-sub">HOUSE</span>
-                </div>
-            </a>
+<main>
+    <!-- HERO ANIMADO -->
+    <section class="page-theme">
+        <div class="sun"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
 
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <nav class="main-nav" id="main-nav">
-                <ul class="main-nav-list">
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-link">Información</a>
-                        <ul class="nav-submenu">
-                            <li><a href="General.html">General</a></li>
-                            <li><a href="Fiestas.html">Fiestas</a></li>
-                            <li><a href="Escuelas.html">Escuelas</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="Seguridad.html" class="nav-link">Seguridad</a></li>
-                    <li><a href="Preguntas.html" class="nav-link">Preguntas</a></li>
-                    <li><a href="Contacto.html" class="nav-link">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <div class="accessibility-tools">
-                    <label class="theme-switch">
-                        <input type="checkbox" class="theme-switch__checkbox" id="theme-checkbox">
-                        <div class="theme-switch__container">
-                            <div class="theme-switch__clouds"></div>
-                            <div class="theme-switch__stars-container">
-                                <svg viewBox="0 0 144 55" fill="none">
-                                    <path d="..."></path>
-                                </svg>
-                            </div>
-                            <div class="theme-switch__circle-container">
-                                <div class="theme-switch__sun-moon-container">
-                                    <div class="theme-switch__moon"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-       
-  <section class="page-theme">
-    <div class="sun"></div>
-
-    <div class="cloud c1"></div>
-    <div class="cloud c2"></div>
-    <div class="cloud c3"></div>
-
-    <div class="horse-container">
-        <div class="horse-body">
-            <div class="h-mane-back"></div> 
-            <div class="h-head-wrapper">
-                <div class="h-head">
-                    <div class="h-ear-l"></div><div class="h-ear-r"></div>
-                    <div class="h-eye-l"></div><div class="h-eye-r"></div>
-                    <div class="h-snout">
-                        <div class="h-nose-l"></div><div class="h-nose-r"></div>
-                    </div>
-                    <div class="h-mane-front"></div> 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <h1 class="main-page-title">Fiestas</h1>
-    </div>
-
-    <div class="cow-container">
-        <div class="cow-body">
-            <div class="c-spot-body"></div>
-            <div class="c-head-wrapper">
-                <div class="c-head">
-                    <div class="c-ear-l"></div><div class="c-ear-r"></div>
-                    <div class="c-horn-l"></div><div class="c-horn-r"></div>
-                    <div class="c-eye-l"></div><div class="c-eye-r"></div>
-                    <div class="c-snout">
-                        <div class="c-nose-l"></div><div class="c-nose-r"></div>
+        <div class="horse-container">
+            <div class="horse-body">
+                <div class="h-mane-back"></div>
+                <div class="h-head-wrapper">
+                    <div class="h-head">
+                        <div class="h-ear-l"></div><div class="h-ear-r"></div>
+                        <div class="h-eye-l"></div><div class="h-eye-r"></div>
+                        <div class="h-snout"></div>
+                        <div class="h-mane-front"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="farm-floor"></div>
-</section>
-
-    
-        <section id="planes" class="container section-padding">
-            <div class="section-intro" data-aos="fade-up">
-                <span class="hero-badge">Nuestros Paquetes</span>
-                <h2 class="section-title">Grupos con Guía Turístico</h2>
-                <p class="section-desc">Nuestro amable guía llevará a los niños a recorrer la granja.</p>
-            </div>
-
-            <div class="grid-cards">
-                <div class="card" data-aos="fade-up">
-                    <span class="card-tag">Opción 1</span>
-                    <h3>Fiesta Combinada Matutina</h3>
-                    <p class="duration">⏱ 3 - 3.5 horas</p>
-                    <ul class="features">
-                        <li>12-30 niños</li>
-                        <li>Juego en Barrio de Juegos</li>
-                        <li>Visita a la granja + Poni/Tractor</li>
-                    </ul>
-                    <div class="price">£21.95 <span>/ niño</span></div>
-                </div>
-
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <span class="card-tag">Opción 2</span>
-                    <h3>Almuerzo en la Granja</h3>
-                    <p class="duration">⏱ 2 horas</p>
-                    <ul class="features">
-                        <li>10-30 niños</li>
-                        <li>Visita guiada completa</li>
-                        <li>Paseo en poni o tractor</li>
-                    </ul>
-                    <div class="price">£17.95 <span>/ niño</span></div>
-                </div>
-
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <span class="card-tag">Opción 3</span>
-                    <h3>Combinada Grande Tarde</h3>
-                    <p class="duration">⏱ 3.5 - 4 horas</p>
-                    <ul class="features">
-                        <li>12-20 niños</li>
-                        <li>Recorrido Granja + Actividad</li>
-                        <li>Cápsula privada (Cerdo/Vaca)</li>
-                    </ul>
-                    <div class="price">£23.95 <span>/ niño</span></div>
-                </div>
-            </div>
-
-            <div class="section-intro" style="margin-top: 80px;" data-aos="fade-up">
-                <h2 class="section-title">Grupos Pequeños</h2>
-            </div>
-
-            <div class="single-card-container">
-                <div class="card card-diy" data-aos="zoom-in">
-                    <span class="card-tag">Bricolaje / Grupos Pequeños</span>
-                    <h3>Fiesta DIY "LITTLE COMBI"</h3>
-                    <p class="duration">⏱ 4 horas (Recomendado)</p>
-                    <p class="diy-info">Ideal para grupos desde 8 personas.</p>
-                    <ul class="features">
-                        <li>Mesa en Play Barn</li>
-                        <li>Alimentación de animales</li>
-                        <li>Sentarse en poni y más</li>
-                    </ul>
-                    <div class="price">£22.95 <span>/ niño</span></div>
-                    <p class="adult-price">Adultos: £11.95</p>
-                </div>
-            </div>
-
-            <div class="policy-note" data-aos="fade-in" style="margin-top: 40px;">
-                <p><strong>Política de Tarifas:</strong> 1 adulto gratis por niño. Adultos adicionales £6.</p>
-            </div>
-        </section>
-    </main>
-
-    <button class="text-tool" id="text-toggle">A<span>±</span></button>
-
-    <footer class="site-footer">
-        <div class="footer-wave">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V46.29C80.7,51.86,215.15,76.32,321.39,56.44Z"
-                    class="shape-fill"></path>
-            </svg>
-        </div>
         <div class="container">
-            <div class="footer-main-grid">
-                <div class="footer-about">
-                    <a href="#" class="brand footer-brand-link">
-                        <img src="../Imagenes/LogoGranja.png" alt="Logo" class="footer-logo">
-                        <div class="brand-text">
-                            <span class="brand-name">ASH END</span>
-                            <span class="brand-sub">HOUSE</span>
-                        </div>
-                    </a>
-                    <p class="footer-description">
-                        Desde 1995, conectando a las familias de Monterrey con la esencia del campo y la vida animal
-                        en un ambiente educativo y seguro.
-                    </p>
+            <h1 class="main-page-title">Fiestas</h1>
+        </div>
 
-
-                    <div class="social-links">
-                        <a href="https://facebook.com" class="social-icon" target="_blank">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com" class="social-icon" target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://tiktok.com" class="social-icon" target="_blank">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </a>
+        <div class="cow-container">
+            <div class="cow-body">
+                <div class="c-spot-body"></div>
+                <div class="c-head-wrapper">
+                    <div class="c-head">
+                        <div class="c-ear-l"></div><div class="c-ear-r"></div>
+                        <div class="c-horn-l"></div><div class="c-horn-r"></div>
+                        <div class="c-eye-l"></div><div class="c-eye-r"></div>
+                        <div class="c-snout"></div>
                     </div>
-                </div>
-
-                <div class="footer-nav">
-                    <h4>Explora</h4>
-                    <ul>
-                        <li><a href="General.html">Información</a></li>
-                        <li><a href="Fiestas.html">Fiestas</a></li>
-                        <li><a href="Escuelas.html">Escuelas</a></li>
-                        <li><a href="Seguridad.html">Seguridad</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <p>📍 Carretera Nacional, Monterrey, NL.</p>
-                    <p>📞 +1 (234) 567 89 00</p>
-                    <p>✉️ info@ashendhouse.com</p>
-                    <div class="footer-badge">Abierto hoy: 8am - 8pm</div>
                 </div>
             </div>
         </div>
-    </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            AOS.init({ duration: 1000, once: true });
+        <div class="farm-floor"></div>
+    </section>
 
-            // SCRIPT DEL MENÚ MÓVIL
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const nav = document.getElementById('main-nav');
+    <!-- PLANES -->
+    <section id="planes" class="container section-padding">
+        <div class="section-intro">
+            <span class="hero-badge">Nuestros Paquetes</span>
+            <h2 class="section-title">Grupos con Guía Turístico</h2>
+            <p class="section-desc">Nuestro amable guía llevará a los niños a recorrer la granja.</p>
+        </div>
 
-            mobileBtn.addEventListener('click', () => {
-                nav.classList.toggle('active');
-                mobileBtn.querySelector('i').classList.toggle('fa-bars');
-                mobileBtn.querySelector('i').classList.toggle('fa-xmark');
-            });
+        <div class="grid-cards">
+            <div class="card">
+                <span class="card-tag">Opción 1</span>
+                <h3>Fiesta Combinada Matutina</h3>
+                <p class="duration">⏱ 3 - 3.5 horas</p>
+                <ul class="features">
+                    <li>12-30 niños</li>
+                    <li>Juego en Barrio de Juegos</li>
+                    <li>Visita a la granja + Poni/Tractor</li>
+                </ul>
+                <div class="price">£21.95 <span>/ niño</span></div>
+            </div>
 
-            // TAMAÑO DE TEXTO
-            const textBtn = document.getElementById('text-toggle');
-            let sizeIndex = 1;
-            const sizes = ['text-small', 'text-medium', 'text-large'];
-            textBtn.onclick = () => {
-                sizeIndex = (sizeIndex + 1) % 3;
-                document.body.classList.remove(...sizes);
-                document.body.classList.add(sizes[sizeIndex]);
-            };
+            <div class="card">
+                <span class="card-tag">Opción 2</span>
+                <h3>Almuerzo en la Granja</h3>
+                <p class="duration">⏱ 2 horas</p>
+                <ul class="features">
+                    <li>10-30 niños</li>
+                    <li>Visita guiada completa</li>
+                    <li>Paseo en poni o tractor</li>
+                </ul>
+                <div class="price">£17.95 <span>/ niño</span></div>
+            </div>
 
-            // DARK MODE
-            const themeCheckbox = document.getElementById('theme-checkbox');
-            themeCheckbox.addEventListener('change', () => {
-                document.body.classList.toggle('dark-mode', themeCheckbox.checked);
-            });
-        });
-    </script>
+            <div class="card">
+                <span class="card-tag">Opción 3</span>
+                <h3>Combinada Grande Tarde</h3>
+                <p class="duration">⏱ 3.5 - 4 horas</p>
+                <ul class="features">
+                    <li>12-20 niños</li>
+                    <li>Recorrido Granja + Actividad</li>
+                    <li>Cápsula privada (Cerdo/Vaca)</li>
+                </ul>
+                <div class="price">£23.95 <span>/ niño</span></div>
+            </div>
+        </div>
+
+        <div class="section-intro section-intro--small">
+            <h2 class="section-title">Grupos Pequeños</h2>
+        </div>
+
+        <div class="single-card-container">
+            <div class="card card-diy">
+                <span class="card-tag">Bricolaje / Grupos Pequeños</span>
+                <h3>Fiesta DIY "LITTLE COMBI"</h3>
+                <p class="duration">⏱ 4 horas (Recomendado)</p>
+                <p class="diy-info">Ideal para grupos desde 8 personas.</p>
+                <ul class="features">
+                    <li>Mesa en Play Barn</li>
+                    <li>Alimentación de animales</li>
+                    <li>Sentarse en poni y más</li>
+                </ul>
+                <div class="price">£22.95 <span>/ niño</span></div>
+                <p class="adult-price">Adultos: £11.95</p>
+            </div>
+        </div>
+
+        <div class="welcome-actions">
+            <a href="ReservaVisitaGranja.html" class="btn-reserve">Reservar Fiesta</a>
+        </div>
+
+        <div class="policy-note">
+            <p><strong>Política de Tarifas:</strong> 1 adulto gratis por niño. Adultos adicionales £6.</p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-bar">
+            <div class="footer-social">
+                <a class="social-link social-facebook" href="https://www.facebook.com/thechildrensfarm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <span class="social-icon" aria-hidden="true">
+                        <img src="../Imagenes/facebook.png" alt="">
+                    </span>
+                    <span>Facebook</span>
+                </a>
+                <a class="social-link social-instagram" href="https://www.instagram.com/ashendhousefarm" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <span class="social-icon" aria-hidden="true">
+                        <img src="../Imagenes/Instagram.png" alt="">
+                    </span>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            <p class="footer-copy"><span aria-hidden="true">©</span> Copyright <span id="year">2026</span></p>
+        </div>
+    </div>
+</footer>
+
+<script src="../ja/Fiestas.js"></script>
 </body>
-
 </html>

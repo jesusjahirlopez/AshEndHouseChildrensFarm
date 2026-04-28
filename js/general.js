@@ -1,4 +1,4 @@
-// Lógica del Carrusel
+// General Lógica del Carrusel
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 let currentSlide = 0;

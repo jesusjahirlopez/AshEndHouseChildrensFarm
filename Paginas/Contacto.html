@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash End House Children's Farm - Contacto</title>
     
-    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/contacto.css">
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
 </head>
 
 <body>
+  
    <header class="site-header" id="site-header">
         <div class="header-inner">
             <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
@@ -40,7 +41,7 @@
             </nav>
             <div class="header-right">
                 <form class="header-search" role="search" action="#" method="get">
-                    <label class="visually-hidden" for="q">Buscar en el sitio</label>
+                    <label class="visually-hidden" for="q">Buscar por  palabra...</label>
                     <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
                     <button type="submit" class="search-submit" aria-label="Buscar">
                         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -54,18 +55,18 @@
                         <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
                         </svg>
- 
-                        <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size"
-                            title="Tamaño de texto" aria-label="Tamaño de texto">
-                        <span class="icon-a-small">A</span>
-                        <span class="icon-a-large">A</span>
                     </button>
-                    
+                    <button type="button" class="icon-btn icon-btn-text" disabled title="Tamaño de texto — próximamente" aria-label="Tamaño de texto — próximamente">
+                        <span class="icon-a">A</span>
+                        <span class="icon-plus-minus" aria-hidden="true">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">−</span>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
-  
 
 <main class="site-main" id="contenido">
         <section class="welcome" aria-labelledby="welcome-title">
@@ -136,8 +137,6 @@
         <button type="button" class="btn-reserve" id="modal-contacto-close">Aceptar</button>
     </div>
 </div>
-
-    <script src="../script.js"></script>
     <script src="../js/Contacto.js"></script>
 </body>
 </html>
