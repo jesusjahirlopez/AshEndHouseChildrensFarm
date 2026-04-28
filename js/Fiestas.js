@@ -74,30 +74,41 @@
         });
     }
 
-    /* --- 3. Modo oscuro --- */
-    var darkBtn = document.getElementById("btn-dark-mode");
-    if (darkBtn) {
-        darkBtn.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-            var isDark = document.body.classList.contains("dark-mode");
-            darkBtn.setAttribute("title", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
-            darkBtn.setAttribute("aria-label", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
-        });
+    // Modo oscuro
+  var darkBtn = document.getElementById("btn-dark-mode");
+  if (darkBtn) {
+    if (localStorage.getItem("ash-dark") === "1") {
+      document.body.classList.add("dark-mode");
     }
+    darkBtn.addEventListener("click", function () {
+      var isDark = document.body.classList.toggle("dark-mode");
+      localStorage.setItem("ash-dark", isDark ? "1" : "0");
+      darkBtn.setAttribute("aria-label", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
+      darkBtn.setAttribute("title", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
+    });
+  }
 
-    /* --- 4. Tamano de fuente --- */
-    var fontBtn = document.getElementById("btn-font-size");
-    if (fontBtn) {
-        var sizes = ["", "font-md", "font-lg"];
-        var labels = ["normal", "mediano", "grande"];
-        var idx = 0;
-        fontBtn.addEventListener("click", function () {
-            document.body.classList.remove(sizes[idx]);
-            idx = (idx + 1) % sizes.length;
-            if (sizes[idx]) document.body.classList.add(sizes[idx]);
-            fontBtn.setAttribute("aria-label", "Tamaño de texto " + labels[idx]);
-            fontBtn.setAttribute("title", "Tamaño de texto: " + labels[idx]);
-        });
+  // Tamaño de fuente
+  var fontBtn = document.getElementById("btn-font-size");
+  var fontLevels = ["", "font-md", "font-lg"];
+  if (fontBtn) {
+    var savedLevel = parseInt(localStorage.getItem("ash-font") || "0", 10);
+    if (savedLevel > 0 && savedLevel < fontLevels.length) {
+      document.body.classList.add(fontLevels[savedLevel]);
     }
-
+    fontBtn.addEventListener("click", function () {
+      var current = 0;
+      fontLevels.forEach(function (cls, i) {
+        if (cls && document.body.classList.contains(cls)) { current = i; }
+      });
+      if (fontLevels[current]) { document.body.classList.remove(fontLevels[current]); }
+      var next = (current + 1) % fontLevels.length;
+      if (fontLevels[next]) { document.body.classList.add(fontLevels[next]); }
+      localStorage.setItem("ash-font", String(next));
+      var labels = ["Tamano normal", "Tamano mediano", "Tamano grande"];
+      fontBtn.setAttribute("title", labels[next]);
+      fontBtn.setAttribute("aria-label", labels[next]);
+    });
+  }
+  
 })();

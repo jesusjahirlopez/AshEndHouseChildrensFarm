@@ -73,14 +73,12 @@
     if (e.matches) { closeMenu(); closeInfoDropdown(); }
   });
 
-
-  // --- 3. Modo Oscuro (del Archivo 1) ---
+ // Modo oscuro
   var darkBtn = document.getElementById("btn-dark-mode");
   if (darkBtn) {
     if (localStorage.getItem("ash-dark") === "1") {
       document.body.classList.add("dark-mode");
     }
-
     darkBtn.addEventListener("click", function () {
       var isDark = document.body.classList.toggle("dark-mode");
       localStorage.setItem("ash-dark", isDark ? "1" : "0");
@@ -89,31 +87,24 @@
     });
   }
 
-
-  // --- 4. Ajuste de Tamaño de Letra (del Archivo 1) ---
+  // Tamaño de fuente
   var fontBtn = document.getElementById("btn-font-size");
   var fontLevels = ["", "font-md", "font-lg"];
-
   if (fontBtn) {
     var savedLevel = parseInt(localStorage.getItem("ash-font") || "0", 10);
     if (savedLevel > 0 && savedLevel < fontLevels.length) {
       document.body.classList.add(fontLevels[savedLevel]);
     }
-
     fontBtn.addEventListener("click", function () {
       var current = 0;
       fontLevels.forEach(function (cls, i) {
         if (cls && document.body.classList.contains(cls)) { current = i; }
       });
-
       if (fontLevels[current]) { document.body.classList.remove(fontLevels[current]); }
-
       var next = (current + 1) % fontLevels.length;
       if (fontLevels[next]) { document.body.classList.add(fontLevels[next]); }
-
       localStorage.setItem("ash-font", String(next));
-
-      var labels = ["Tamaño normal", "Tamaño mediano", "Tamaño grande"];
+      var labels = ["Tamano normal", "Tamano mediano", "Tamano grande"];
       fontBtn.setAttribute("title", labels[next]);
       fontBtn.setAttribute("aria-label", labels[next]);
     });

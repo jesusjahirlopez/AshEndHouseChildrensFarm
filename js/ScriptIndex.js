@@ -71,80 +71,47 @@
   mq.addEventListener("change", function (e) {
     if (e.matches) { closeMenu(); closeInfoDropdown(); }
   });
+  
 
-
-  // --- 3. Modo Oscuro (del Archivo 1) ---
+  // Modo oscuro
   var darkBtn = document.getElementById("btn-dark-mode");
   if (darkBtn) {
     if (localStorage.getItem("ash-dark") === "1") {
       document.body.classList.add("dark-mode");
     }
-
-
-    //----Modo Oscuro oficial-----///
-    var darkBtn = document.getElementById("btn-dark-mode");
-  if (darkBtn) {
-    // Definimos los iconos (Luna y Sol blanco)
-    var iconoLuna = '<svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="#333" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/></svg>';
-    var iconoSol = '<svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="white" d="M12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm0-9a1 1 0 0 0 1-1V4a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 12a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1zM5.64 7.05a1 1 0 0 0 .7.29 1 1 0 0 0 .71-.29 1 1 0 0 0 0-1.41l-.7-.71a1 1 0 0 0-1.41 1.41zm12.72 9.9a1 1 0 0 0-.7-.29 1 1 0 0 0-.71.29 1 1 0 0 0 0 1.41l.71.71a1 1 0 0 0 1.41-1.41zM5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm16-1h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zM7.05 18.36a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 1 0 1.41 1.41zm11.31-12.72a1 1 0 0 0 1.41-1.41l-.71-.7a1 1 0 0 0-1.41 1.41z"/></svg>';
-
-    // Al cargar la página, si ya estaba en modo oscuro, ponemos el Sol
-    if (localStorage.getItem("ash-dark") === "1") {
-      document.body.classList.add("dark-mode");
-      darkBtn.innerHTML = iconoSol;
-    } else {
-      darkBtn.innerHTML = iconoLuna;
-    }
-
-    // EVENTO DE CLIC: Aquí ocurre la magia del cambio de icono
     darkBtn.addEventListener("click", function () {
       var isDark = document.body.classList.toggle("dark-mode");
-      
-      if (isDark) {
-        darkBtn.innerHTML = iconoSol; // Cambia a Sol
-        localStorage.setItem("ash-dark", "1");
-      } else {
-        darkBtn.innerHTML = iconoLuna; // Cambia a Luna
-        localStorage.setItem("ash-dark", "0");
-      }
+      localStorage.setItem("ash-dark", isDark ? "1" : "0");
+      darkBtn.setAttribute("aria-label", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
+      darkBtn.setAttribute("title", isDark ? "Desactivar modo oscuro" : "Activar modo oscuro");
     });
   }
-    
 
-    //----------------------------////
-  
-  }
-
-
-  // --- 4. Ajuste de Tamaño de Letra (del Archivo 1) ---
+  // Tamaño de fuente
   var fontBtn = document.getElementById("btn-font-size");
   var fontLevels = ["", "font-md", "font-lg"];
-
   if (fontBtn) {
     var savedLevel = parseInt(localStorage.getItem("ash-font") || "0", 10);
     if (savedLevel > 0 && savedLevel < fontLevels.length) {
       document.body.classList.add(fontLevels[savedLevel]);
     }
-
     fontBtn.addEventListener("click", function () {
       var current = 0;
       fontLevels.forEach(function (cls, i) {
         if (cls && document.body.classList.contains(cls)) { current = i; }
       });
-
       if (fontLevels[current]) { document.body.classList.remove(fontLevels[current]); }
-
       var next = (current + 1) % fontLevels.length;
       if (fontLevels[next]) { document.body.classList.add(fontLevels[next]); }
-
       localStorage.setItem("ash-font", String(next));
-
-      var labels = ["Tamaño normal", "Tamaño mediano", "Tamaño grande"];
+      var labels = ["Tamano normal", "Tamano mediano", "Tamano grande"];
       fontBtn.setAttribute("title", labels[next]);
       fontBtn.setAttribute("aria-label", labels[next]);
     });
   }
 
+ 
+  
 })();
 
 // --- 5. Modales (Advertencia y Confirmación) ---

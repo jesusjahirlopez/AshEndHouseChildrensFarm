@@ -513,3 +513,151 @@ body.font-lg .welcome-title { font-size: clamp(2.2rem, 5vw, 3rem); }
   .nav-dropdown-toggle::after { transition: none; }
   .faq-item summary::after { transition: none; }
 }
+
+/* MODO OSCURO */
+
+/* Botones de utilidad — habilitados */
+.icon-btn {
+  cursor: pointer;
+  opacity: 1;
+  transition: background 0.15s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.icon-btn.btn-active {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+}
+
+body.dark-mode {
+  --color-page-bg: #1c1c1c;
+  --color-text: #e8e8e8;
+  --color-feature-panel: #2d2d2d;
+  --color-welcome-title: #fdb95b;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer {
+  background: #2b1d00;
+}
+
+body.dark-mode .nav-submenu {
+  background: #3a2800;
+}
+
+body.dark-mode .site-main {
+  background: #1c1c1c;
+}
+
+body.dark-mode .header-search {
+  background: #3a3a3a;
+}
+
+body.dark-mode .header-search input {
+  color: #e8e8e8;
+}
+
+body.dark-mode .header-search input::placeholder {
+  color: #999;
+}
+
+body.dark-mode .search-submit {
+  background: #555;
+  color: #fff;
+}
+
+body.dark-mode .search-submit:hover {
+  background: #666;
+}
+
+body.dark-mode .Events-card {
+  background: #272727;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .Events .feature-card-title {
+  color: #f0c060;
+}
+
+body.dark-mode .event-text {
+  color: #ccc;
+}
+
+body.dark-mode .feature-card-body {
+  background: #2d2d2d;
+}
+
+body.dark-mode .feature-card-text {
+  color: #ddd;
+}
+
+body.dark-mode .pricing .feature-card-body {
+  background: #272727;
+}
+
+body.dark-mode .pricing-text {
+  color: #ccc;
+}
+
+body.dark-mode .nav-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+body.dark-mode #btn-dark-mode {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* TAMAÑO DE LETRA — 3 niveles */
+
+body.font-md {
+  font-size: 1.12rem;
+}
+
+body.font-md .welcome-title {
+  font-size: clamp(2rem, 4.5vw, 2.65rem);
+}
+
+body.font-md .welcome-text,
+body.font-md main#contenido .welcome > p.welcome-text {
+  font-size: clamp(1.05rem, 2.2vw, 1.18rem);
+}
+
+body.font-md .feature-card-text,
+body.font-md .event-text,
+body.font-md .pricing-text {
+  font-size: 1.1rem;
+}
+
+body.font-md .feature-card-title {
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+}
+
+body.font-lg {
+  font-size: 1.25rem;
+}
+
+body.font-lg .welcome-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+}
+
+body.font-lg .welcome-text,
+body.font-lg main#contenido .welcome > p.welcome-text {
+  font-size: clamp(1.15rem, 2.5vw, 1.32rem);
+}
+
+body.font-lg .feature-card-text,
+body.font-lg .event-text,
+body.font-lg .pricing-text {
+  font-size: 1.2rem;
+}
+
+body.font-lg .feature-card-title {
+  font-size: clamp(1.25rem, 2.8vw, 1.6rem);
+}
+
+body.font-md #btn-font-size .icon-a-small { opacity: 0.5; }
+body.font-lg #btn-font-size .icon-a-large { opacity: 1; font-weight: 900; }
