@@ -1242,6 +1242,58 @@ body.dark-mode .policy-note { background: #332a22; }
     transform: scale(1.1);
 }
 
+/* --- RESPONSIVE FOOTER (SOLO CSS) --- */
+@media (max-width: 992px) {
+    .footer-main-grid {
+        /* Pasamos de 3 columnas a 1 sola columna */
+        grid-template-columns: 1fr; 
+        gap: 50px;
+        padding: 40px 20px;
+        text-align: center; /* Centramos el texto para mejor estética móvil */
+    }
+
+    .footer-about {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra el logo y la descripción */
+    }
+
+    .footer-description {
+        max-width: 100%; /* Que ocupe todo el ancho disponible */
+        margin: 0 auto;
+    }
+
+    .footer-nav h4::after, 
+    .footer-contact h4::after {
+        /* Centramos la línea decorativa debajo de los títulos */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-contact p {
+        justify-content: center; /* Centra los iconos de contacto */
+    }
+
+    .social-links {
+        justify-content: center; /* Centra los iconos de redes sociales */
+    }
+
+    .brand-text {
+        text-align: left; /* Mantiene el texto del logo alineado si es necesario */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-main-grid {
+        padding: 40px 10px;
+        gap: 40px;
+    }
+    
+    .footer-logo {
+        height: 55px; /* Un poco más pequeño en celulares muy chicos */
+    }
+}
+
 /* CONTENIDO TEXTO */
 .info-content-area .section-title { text-align: left; margin-bottom: 25px; font-size: 2.5rem; }
 .main-text { font-size: 1.1rem; line-height: 1.8; color: var(--dark-text); margin-bottom: 25px; }
@@ -1646,4 +1698,141 @@ body.dark-mode .t-main-white .t-label {
 /* Si el ticket Combi (el turquesa) también se ve mal, ajustamos su precio */
 body.dark-mode .t-main-cyan .t-cost {
     color: #008080 !important; /* Un turquesa más oscuro para legibilidad */
+}
+
+@media (max-width: 992px) {
+    /* El botón de hamburguesa estilo Minimalista */
+    .menu-toggle {
+        display: block;
+        background: rgba(255, 255, 255, 0.2); /* Estilo cristal */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    /* Contenedor del Menú (Deslizamiento desde arriba) */
+    .main-nav {
+        display: block !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--primary-orange);
+        z-index: 1000;
+        
+        /* Animación UI: Altura y Opacidad */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); /* Curva de movimiento elegante */
+    }
+
+    .main-nav.active {
+        max-height: 100vh; /* Se adapta al contenido */
+        opacity: 1;
+        visibility: visible;
+        padding: 20px 0;
+    }
+
+    .main-nav-list {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 20px;
+        margin: 0;
+        list-style: none;
+    }
+
+    /* Links Principales */
+    .nav-link {
+        color: white !important;
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding: 18px 0;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        letter-spacing: 0.5px;
+    }
+
+    /* La Flecha (Estilo UI) */
+    .arrow-icon {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote ligero */
+    }
+
+    /* Cuando el dropdown está abierto */
+    .nav-dropdown.open .arrow-icon {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    /* SUBMENÚ (El efecto que empuja a los demás) */
+    .nav-submenu {
+        position: static; /* Empuja el contenido hacia abajo */
+        display: none;
+        background: rgba(0, 0, 0, 0.1); /* Fondo oscuro muy sutil */
+        margin: 0;
+        padding: 5px 0 15px 15px; /* Sangría a la izquierda */
+        list-style: none;
+        border-left: 3px solid rgba(255, 255, 255, 0.3); /* Línea de jerarquía lateral */
+        margin-left: 5px;
+        margin-top: -5px;
+    }
+
+    .nav-dropdown.open .nav-submenu {
+        display: block;
+        animation: uiSlideDown 0.4s ease forwards;
+    }
+
+    .nav-submenu a {
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-decoration: none;
+        display: block;
+        padding: 12px 0;
+        font-size: 1.05rem;
+        transition: 0.3s;
+    }
+
+    .nav-submenu a:hover {
+        padding-left: 10px;
+        color: #fff !important;
+        background: transparent; /* Mantenemos el UI limpio */
+    }
+
+    .header-actions { display: none; }
+}
+
+/* Animación de entrada suave para el submenú */
+@keyframes uiSlideDown {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- 1. OCULTAR POR DEFECTO (PC) --- */
+.menu-toggle {
+    display: none; /* Esto quita el botón en pantallas grandes */
+    background: #fbd38d;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* --- 2. MOSTRAR SOLO EN MÓVIL --- */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block; /* Solo aquí se vuelve a mostrar */
+    }
+    
+    /* Aquí va el resto de tu código de móvil que ya tenemos... */
 }

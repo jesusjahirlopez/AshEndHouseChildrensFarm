@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -36,16 +37,26 @@
                 </div>
             </a>
 
+            <button class="menu-toggle" id="menu-open">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <nav class="main-nav" id="nav-menu">
                 <ul class="main-nav-list">
+
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-link">Información</a>
+                        <a href="#" class="nav-link dropdown-link">
+                            <span>Información</span>
+                            <i class="fas fa-chevron-down arrow-icon"></i>
+                        </a>
                         <ul class="nav-submenu">
                             <li><a href="General.html">General</a></li>
                             <li><a href="Fiestas.html">Fiestas</a></li>
                             <li><a href="Escuelas.html">Escuelas</a></li>
                         </ul>
                     </li>
+
+
                     <li><a href="Seguridad.html" class="nav-link">Seguridad</a></li>
                     <li><a href="Preguntas.html" class="nav-link">Preguntas frecuentes</a></li>
                     <li><a href="Contacto.html" class="nav-link">Contacto</a></li>
@@ -252,9 +263,7 @@
                             <a href="https://instagram.com" class="social-icon" target="_blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href="https://tiktok.com" class="social-icon" target="_blank">
-                                <i class="fa-brands fa-tiktok"></i>
-                            </a>
+
                         </div>
                     </div>
 
@@ -318,6 +327,26 @@
                     textBtn.style.transform = "scale(1.2)";
                     setTimeout(() => textBtn.style.transform = "scale(1)", 200);
                 };
+            }
+        });
+    </script>
+
+    <script>
+        const navBtn = document.getElementById('menu-open');
+        const navMenu = document.getElementById('nav-menu');
+        const dropDown = document.querySelector('.nav-dropdown');
+        const dropLink = document.querySelector('.dropdown-link');
+
+        // Manejo de la Hamburguesa
+        navBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Manejo del Dropdown (Empuja a los demás)
+        dropLink.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                dropDown.classList.toggle('open');
             }
         });
     </script>
