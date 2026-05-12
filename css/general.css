@@ -1829,10 +1829,90 @@ body.dark-mode .t-main-cyan .t-cost {
 }
 
 /* --- 2. MOSTRAR SOLO EN MÓVIL --- */
-@media (max-width: 992px) {
-    .menu-toggle {
-        display: block; /* Solo aquí se vuelve a mostrar */
+/* --- Estilos base para el menú cuando está abierto --- */
+@media (max-width: 900px) {
+    .site-header.nav-open .main-nav {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fdb95b; /* El color naranja de la imagen */
+        flex-direction: column;
+        padding: 20px;
+        z-index: 9999;
+        overflow-y: auto;
     }
-    
-    /* Aquí va el resto de tu código de móvil que ya tenemos... */
+
+    /* Ocultar elementos que no van en el menú móvil según la imagen */
+    .site-header.nav-open .brand,
+    .site-header.nav-open .header-search:not(.main-nav .header-search) {
+        display: none;
+    }
+
+    /* Estilo de la "X" para cerrar */
+    .site-header.nav-open .nav-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #fbdca9;
+        border-radius: 10px;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Lista de navegación vertical */
+    .main-nav-list {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 60px;
+        gap: 10px;
+    }
+
+    .main-nav-list li a, 
+    .nav-dropdown-toggle {
+        font-size: 1.3rem;
+        color: white !important;
+        font-weight: 800;
+        text-align: left;
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Submenú desplegable que empuja el contenido */
+    .nav-dropdown.is-open .nav-submenu {
+        display: block !important;
+        position: static;
+        background: rgba(0, 0, 0, 0.1);
+        width: 100%;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    /* Buscador y utilidades al fondo (Luna y AA) */
+    .site-header.nav-open .header-right {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-submenu {
+        position: static !important; /* Empuja el contenido hacia abajo */
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: none;
+        width: 100%;
+    }
 }
