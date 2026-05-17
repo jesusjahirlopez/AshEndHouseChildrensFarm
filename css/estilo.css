@@ -357,13 +357,15 @@ button.btn-reserve { border: none; cursor: pointer; font-family: var(--font-sans
 .modal-tbl-value { border-bottom: 1px solid #f0f0f0; padding: 0.5rem 0; }
 
 /* ——— Pie ——— */
-.site-footer { background: var(--color-orange); color: #fff; margin-top: auto; flex-shrink: 0; }
+.site-footer { background-color: #fdb95b; color: #fff; margin-top: auto; flex-shrink: 0; }
 .footer-inner { max-width: var(--content-max); margin: 0 auto; padding: 1.15rem var(--space-side); }
 .footer-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; min-height: 3rem; }
 .footer-social { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
 .social-link { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; color: #fff; }
 .social-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
-.footer-copy { margin: 0; font-weight: 600; color: #fff; }
+.footer-copy { margin: 0; font-weight: 600; color: #fff; 
+
+}
 
 /* ——— Modo Oscuro ——— */
 body.dark-mode {

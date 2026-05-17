@@ -1680,6 +1680,59 @@ body.dark-mode .policy-note { background: #332a22; }
 
 /* --- CORRECCIÓN DE CONTRASTE EN MODO OSCURO --- */
 
+body.dark-mode{
+      --color-text-main: #9ca3af;
+}
+
+body.dark-mode .top-bar {
+  background: #111827;
+  border-bottom: 1px solid #2d3748;
+}
+
+body.dark-mode .top-bar-inner {
+  color: #fdb95b; /* Naranja claro para resaltar datos de cabecera superior */
+}
+
+
+body.dark-mode .site-header {
+  background: #1f2937; /* Gris oscuro para el contenedor del nav */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .main-nav a,
+body.dark-mode .nav-dropdown-toggle {
+  color: #ffffff;
+}
+
+/* Invertimos el color de los enlaces principales del Nav a blanco */
+body.dark-mode .main-nav a,
+body.dark-mode .nav-dropdown-toggle {
+  color: #ffffff;
+}
+
+/* Adaptación estética del Submenú desplegable en tema oscuro */
+body.dark-mode .nav-submenu {
+  background: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+body.dark-mode .nav-submenu a {
+  color: #ffffff;
+}
+body.dark-mode .nav-submenu a:hover {
+  background: #2d3748;
+}
+
+/* Ajustes de botones e iconos de utilidades */
+body.dark-mode .icon-btn {
+  color: #ffffff;
+}
+body.dark-mode .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 body.dark-mode .day-number {
     /* El número 28 del calendario debe ser oscuro para resaltar en el fondo blanco del papel */
     color: #2d2d2d !important;
