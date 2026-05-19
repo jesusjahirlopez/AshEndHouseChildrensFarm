@@ -1493,10 +1493,10 @@ body.dark-mode {
 
 body.dark-mode .site-header,
 body.dark-mode .site-footer {
-  background: #2b1d00;
+  background: #c98938;
 }
 body.dark-mode .nav-submenu {
-  background: #3a2800;
+  background: #dba24a;
 }
 body.dark-mode .site-main {
   background: #1c1c1c;
@@ -1650,6 +1650,44 @@ body.dark-mode .modal-btn-cancel:hover {
 body.dark-mode .modal-btn-confirm {
   background: #fdb95b;
   color: #1c1c1c;
+}
+
+/* Formulario de pago — modo oscuro */
+body.dark-mode .payment-form-wrapper {
+  background: #272727;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode .payment-label,
+body.dark-mode .boleto-label,
+body.dark-mode .counter-val,
+body.dark-mode .payment-total-label,
+body.dark-mode .payment-total-amount {
+  color: #e8e8e8;
+}
+
+body.dark-mode .payment-input,
+body.dark-mode .counter-box,
+body.dark-mode .payment-total-row {
+  background: #333;
+  border-color: #555;
+  color: #e8e8e8;
+}
+
+body.dark-mode .payment-input::placeholder {
+  color: #999;
+}
+
+body.dark-mode .counter-btn {
+  color: #fdb95b;
+}
+
+body.dark-mode .cal-grid {
+  background: #333;
+}
+
+body.dark-mode .cal-header {
+  background: #c98938;
 }
 
 /* TAMAÑO DE LETRA — 3 niveles */

@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash End House Children's Farm - Contacto</title>
     <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="../css/site-shell.css">
+    <link rel="stylesheet" href="../css/site-global.css">
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
 </head>
 
 <body>
+    <script>
+        if (localStorage.getItem("ash-dark") === "1") document.body.classList.add("dark-mode");
+        var _af = parseInt(localStorage.getItem("ash-font") || "0", 10);
+        if (_af === 1) { document.documentElement.classList.add("ash-font-md"); document.body.classList.add("font-md"); }
+        else if (_af === 2) { document.documentElement.classList.add("ash-font-lg"); document.body.classList.add("font-lg"); }
+    </script>
 
     <div class="top-bar">
         <div class="container top-bar-inner">
@@ -28,16 +36,9 @@
                     class="brand-logo">
             </a>
 
-            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu"
-                aria-label="Abrir menú de navegación">
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-            </button>
-
             <nav class="main-nav" id="nav-menu" aria-label="Principal">
                 <ul class="main-nav-list">
-                    <li class="nav-dropdown">
+                    <li class="nav-dropdown" id="dropdown-info-container" style="--item-index: 1;">
                         <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false"
                             aria-haspopup="true" aria-controls="nav-info-submenu">
                             Información
@@ -49,40 +50,51 @@
                             <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
                         </ul>
                     </li>
-                    <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
-                    <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
-                    <li><a class="nav-active" href="Contacto.html">Contacto</a></li>
+                    <li style="--item-index: 2;"><a href="Seguridad.html">Seguridad de la Granja</a></li>
+                    <li style="--item-index: 3;"><a href="Preguntas.html">Preguntas Frecuentes</a></li>
+                    <li style="--item-index: 4;"><a class="nav-active" href="Contacto.html">Contacto</a></li>
                 </ul>
             </nav>
 
-            <div class="header-right">
+            <div class="header-right-wrapper">
                 <form class="header-search" role="search" action="#" method="get">
                     <label class="visually-hidden" for="q">Buscar por palabra...</label>
                     <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
                     <button type="submit" class="search-submit" aria-label="Buscar">
-                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14"
-                            height="14">
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="16"
+                            height="16">
                             <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" />
                             <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2"
                                 stroke-linecap="round" />
                         </svg>
                     </button>
                 </form>
-                <div class="header-utilities" role="toolbar" aria-label="Preferencias de visualización">
+
+                <div class="header-utilities">
                     <button type="button" class="icon-btn" id="btn-dark-mode" title="Activar modo oscuro"
                         aria-label="Activar modo oscuro">
-                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24"
-                            height="24">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="20"
+                            height="20">
                             <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z" />
                         </svg>
                     </button>
-                    <button type="button" class="icon-btn" id="btn-font-size" title="Tamaño de texto"
+                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size" title="Tamaño de texto"
                         aria-label="Tamaño de texto">
-                        <span style="font-size: 0.75rem; font-weight: bold; margin-right: 2px;">A</span>
-                        <span style="font-size: 1.1rem; font-weight: bold;">A</span>
+                        <span class="icon-a-small">A</span>
+                        <span class="icon-a-large">A</span>
                     </button>
                 </div>
+
+                <div class="hamburgers">
+                    <label class="hamburger" id="nav-toggle-label">
+                        <input type="checkbox" id="nav-toggle-checkbox" aria-label="Abrir menú de navegación" />
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </label>
+                </div>
             </div>
+
         </div>
     </header>
 
@@ -90,18 +102,14 @@
         <div class="landingplay-container">
 
             <header class="lp-hero-header">
-                <span class="lp-tagline">Contáctanos</span>
-                <h1 class="lp-main-title">Ponte en contacto con nuestro equipo</h1>
-                <p class="lp-main-subtitle">Estamos aquí para responder tus preguntas, organizar tus visitas guiadas y
-                    ayudarte a planificar un gran día en la granja. Escríbenos y comencemos a planear algo genial
-                    juntos.</p>
+                <h1 class="lp-main-title" id="blanco">Contacto</h1>
+                <p class="lp-main-subtitle">Estamos aquí para responder tus preguntas, organizar tus visitas guiadas y ayudarte a planificar un gran día en la granja. Escríbenos y comencemos a planear algo genial juntos.</p>
             </header>
 
             <div class="lp-split-content">
 
                 <div class="lp-form-column">
                     <div class="lp-form-card">
-                        <h2 class="lp-card-title">Hablemos de tu visita</h2>
 
                         <form id="contacto-form" action="#" method="POST" novalidate class="lp-ui-form">
                             <div class="lp-form-row">
@@ -165,16 +173,19 @@
                     <div class="lp-map-card">
                         <div class="lp-map-wrapper">
                             <iframe class="lp-iframe"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.368149861271!2d-1.7461019233158025!3d52.57425313217961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b106dbefca0d%3A0xcda8df283ef3b88!2sAsh%20End%20House%20Children&#39;s%20Farm!5e0!3m2!1ses-419!2smx!4v1715880000000!5m2!1ses-419!2smx"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.4752250268595!2d-1.7139269233157545!3d52.579042631526484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b13bf1823eb7%3A0x6b442da530dfec1a!2sAsh%20End%20House%20Children's%20Farm!5e0!3m2!1ses-419!2smx!4v1715800000000!5m2!1ses-419!2smx8"
                                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                                title="Mapa Ash End House Children's Farm">
-                            </iframe>
+                                title="Mapa Ash End House Children's Farm"></iframe>
+                            <div class="map-radar-sonda">
+                                <span class="sonda-dot"></span>
+                                <span class="sonda-pulse"></span>
+                            </div>
                         </div>
                         <div class="lp-map-footer">
                             <h4 class="lp-office-title">Visita nuestra Oficina</h4>
                             <p class="lp-office-address">Ash End House Farm, Middleton Lane, Tamworth, B78 2BL</p>
-                            <a href="https://maps.google.com/?q=Ash+End+House+Children&#39;s+Farm" target="_blank"
-                                rel="noopener noreferrer" class="lp-route-link">
+                            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.4752250268595!2d-1.7139269233157545!3d52.579042631526484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b13bf1823eb7%3A0x6b442da530dfec1a!2sAsh%20End%20House%20Children's%20Farm!5e0!3m2!1ses-419!2smx!4v1715800000000!5m2!1ses-419!2smx9"
+                                target="_blank" rel="noopener noreferrer" class="lp-route-link">
                                 Cómo llegar <span>→</span>
                             </a>
                         </div>
@@ -207,15 +218,109 @@
 
     <div class="modal-overlay" id="modal-contacto-overlay" hidden>
         <div class="modal-box" role="alertdialog" aria-modal="true">
-            <img src="../Imagenes/PagoExitoso.png" alt="Enviado con éxito"
-                style="width:70px; height:70px; object-fit:contain; margin: 0 auto 1rem; display:block;">
-            <p class="modal-msg">Se ha enviado tu comentario, gracias.</p>
+
+            <div class="success-checkmark-wrapper">
+                <div class="success-checkmark">
+                    <div class="check-icon">
+                        <span class="icon-line line-tip"></span>
+                        <span class="icon-line line-long"></span>
+                        <div class="icon-circle"></div>
+                        <div class="icon-fix"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="modal-msg">¡Tu mensaje ha sido enviado con éxito!</p>
+            <p class="modal-submsg">Nos pondremos en contacto contigo lo antes posible.</p>
             <button type="button" class="btn-lp-primary" id="modal-contacto-close"
-                style="padding: 0.5rem 1.5rem; width: auto; display: inline-block;">Aceptar</button>
+                style="padding: 0.65rem 2rem; width: auto; display: inline-block;">Aceptar</button>
         </div>
     </div>
 
-    <script src="../js/Contacto.js"></script>
+    <script src="../js/site-common.js"></script>
+    <script>
+ // --- MANEJO INTERACTIVO CON VALIDACIÓN INTELIGENTE DE CAMPOS Y MODAL DE ÉXITO ---
+var formulario = document.getElementById("contacto-form");
+var modalOverlay = document.getElementById("modal-contacto-overlay");
+var modalCloseBtn = document.getElementById("modal-contacto-close");
+
+// Traemos los elementos del HTML para validar
+var inputNombre = document.getElementById("nombre");
+var inputApellido = document.getElementById("apellido");
+var inputCorreo = document.getElementById("correo");
+var inputAsunto = document.getElementById("asunto"); // Tu Textarea de Mensaje
+
+// Traemos los spans de error del HTML
+var errNombre = document.getElementById("err-nombre");
+var errApellido = document.getElementById("err-apellido");
+var errCorreo = document.getElementById("err-correo");
+var errAsunto = document.getElementById("err-asunto");
+
+if (formulario && modalOverlay && modalCloseBtn) {
+    formulario.addEventListener("submit", function (e) {
+        e.preventDefault(); // Congela el envío local directo (Evita Error 405)
+
+        // VARIABLE CRÍTICA: Asumimos que todo está bien hasta demostrar lo contrario
+        var formularioValido = true;
+
+        // --- BLOQUE 1: VALIDACIONES INDIVIDUALES EN TIEMPO REAL ---
+
+        // 1. Validar Nombre
+        if (inputNombre.value.trim() === "") {
+            errNombre.removeAttribute("hidden"); // Muestra el error en rojo
+            formularioValido = false;          // MARCA LA FALLA GLOBAl
+        } else {
+            errNombre.setAttribute("hidden", "true"); // Lo esconde si ya escribió
+        }
+
+        // 2. Validar Apellido
+        if (inputApellido.value.trim() === "") {
+            errApellido.removeAttribute("hidden");
+            formularioValido = false;
+        } else {
+            errApellido.setAttribute("hidden", "true");
+        }
+
+        // 3. Validar Correo (Que no esté vacío y contenga un @)
+        if (inputCorreo.value.trim() === "" || !inputCorreo.value.includes("@")) {
+            errCorreo.removeAttribute("hidden");
+            formularioValido = false;
+        } else {
+            errCorreo.setAttribute("hidden", "true");
+        }
+
+        // 4. Validar Mensaje (Textarea)
+        if (inputAsunto.value.trim() === "") {
+            errAsunto.removeAttribute("hidden"); // Muestra el error abajo del textarea
+            formularioValido = false;
+        } else {
+            errAsunto.setAttribute("hidden", "true");
+        }
+
+        // --- BLOQUE 2: DECISIÓN FINAL BASADA EN LA VARIABLE CRÍTICA ---
+
+        // SOLUCIÓN: Solo si 'formularioValido' se mantuvo en true, desplegamos la palomita.
+        if (formularioValido) {
+            modalOverlay.removeAttribute("hidden"); // Se abre el modal con la animación de éxito
+        } else {
+            console.log("Validación fallida: Corrige los campos en rojo.");
+            // No hacemos nada más, el usuario ve los mensajes rojos en el fondo.
+        }
+    });
+
+    // Evento para cerrar el modal de éxito y limpiar todo
+    modalCloseBtn.addEventListener("click", function () {
+        modalOverlay.setAttribute("hidden", "");
+        formulario.reset(); // Limpia las cajas de texto automáticamente
+        
+        // Esconde todos los mensajes de error por si acaso
+        errNombre.setAttribute("hidden", "true");
+        errApellido.setAttribute("hidden", "true");
+        errCorreo.setAttribute("hidden", "true");
+        errAsunto.setAttribute("hidden", "true");
+    });
+}
+    </script>
 </body>
 
 </html>

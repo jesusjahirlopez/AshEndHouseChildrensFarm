@@ -1,0 +1,827 @@
+/* Ash End House — Tema global: modo oscuro, tipografía, colores naranja, nav activo */
+
+:root {
+  --ash-page-bg: #ffffff;
+  --ash-page-bg-dark: #1c1c1c;
+  --ash-text: #1a1a1a;
+  --ash-text-dark: #e8e8e8;
+  --ash-orange: #fdb95b;
+  --ash-orange-mid: #ef821d;
+  --ash-orange-dark: #e8a347;
+  --ash-orange-nav-dark: #c98938;
+  --ash-orange-submenu-dark: #dba24a;
+  --ash-orange-hover: #ef821d;
+}
+
+/* ——— Tamaño de texto global (html = escala rem en todo el sitio) ——— */
+html {
+  font-size: 100%;
+}
+html.ash-font-md {
+  font-size: 112.5%;
+  --space-side: clamp(0.75rem, 4vw, 3rem) !important;
+}
+html.ash-font-lg {
+  font-size: 125%;
+  --space-side: clamp(0.5rem, 2vw, 1.5rem) !important;
+}
+
+/* Nav: reducir gap y padding lateral cuando la fuente es más grande,
+   pero dejar que los rem escalen naturalmente (no forzar font-size) */
+html.ash-font-md .main-nav-list {
+  gap: 0.25rem 1rem !important;
+}
+html.ash-font-md .header-search {
+  min-width: min(150px, 100%) !important;
+  flex-shrink: 1 !important;
+}
+
+html.ash-font-lg .main-nav-list {
+  gap: 0.25rem 0.65rem !important;
+}
+html.ash-font-lg .header-search {
+  min-width: min(120px, 100%) !important;
+  flex-shrink: 1 !important;
+}
+
+/* Barra superior: ocultar en todas las páginas */
+.top-bar {
+  display: none !important;
+}
+
+/* ==== NAV: evitar que los iconos caigan abajo del nav ==== */
+.header-inner {
+  flex-wrap: nowrap !important;
+}
+
+.header-right-wrapper {
+  flex-shrink: 0 !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Submenú naranja en MODO CLARO también (consistencia con dark) */
+.nav-submenu {
+  background: var(--ash-orange-submenu-dark, #dba24a) !important;
+}
+
+.nav-submenu a {
+  color: #fff !important;
+}
+
+.nav-submenu a:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+
+/* Etiquetas secundarias decorativas: ocultar */
+.zigzag-tag,
+.hero-badge:not(.events-badge),
+.ep-tagline,
+.lp-tagline {
+  display: none !important;
+}
+
+/* ——— Texto justificado global (excepto títulos/subtítulos) ——— */
+body p,
+body li,
+body .faq-respuesta,
+body .faq-respuesta p,
+body .executive-intro-text p,
+body .executive-card p,
+body .med-card-desc,
+body .lp-main-subtitle,
+body .events-desc,
+body .hero-desc,
+body .welcome-text,
+body .feature-card-text,
+body .social-event-info,
+body .policy-mini,
+body .zigzag-text p,
+body .card p,
+body .diy-info,
+body .adult-price,
+body .lp-office-address,
+body .modal-confirm-intro,
+body .modal-msg,
+body .modal-submsg,
+body .ticket-price,
+body .archive-notice {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+h1, h2, h3, h4, h5, h6,
+.events-title,
+.lp-main-title,
+.executive-main-title,
+.executive-section-title,
+.hero-title,
+.welcome-title,
+.feature-card-title,
+.social-event-title,
+.events-badge,
+.section-title,
+details.faq-item summary {
+  text-align: inherit;
+}
+
+/* ——————————————————————————————————————————
+   MODO OSCURO UNIFICADO — fondo gris #1c1c1c, NO azul
+—————————————————————————————————————————— */
+body.dark-mode {
+  --color-page-bg: var(--ash-page-bg-dark) !important;
+  --bg-cream: var(--ash-page-bg-dark) !important;
+  --color-page-bg: #1c1c1c !important;
+  background-color: #1c1c1c !important;
+  color: var(--ash-text-dark) !important;
+}
+
+/* Forzar fondo oscuro en TODOS los contenedores de contenido de todas las páginas */
+body.dark-mode main,
+body.dark-mode .site-main,
+body.dark-mode #contenido,
+body.dark-mode .landingplay-container,
+body.dark-mode .page-theme,
+body.dark-mode .events-hero,
+body.dark-mode .events-grid-section,
+body.dark-mode .hero-section,
+body.dark-mode .info-zigzag-section,
+body.dark-mode .highlights,
+body.dark-mode .welcome,
+body.dark-mode .hero-section,
+body.dark-mode section {
+  background-color: #1c1c1c !important;
+  color: var(--ash-text-dark) !important;
+}
+
+/* ——— Nav y footer: naranja más claro en modo oscuro ——— */
+body.dark-mode .site-header,
+body.dark-mode .site-footer {
+  background: var(--ash-orange-nav-dark) !important;
+  background-color: var(--ash-orange-nav-dark) !important;
+}
+
+body.dark-mode .nav-submenu {
+  background: var(--ash-orange-submenu-dark) !important;
+}
+
+body.dark-mode .nav-submenu a {
+  color: #fff !important;
+}
+
+/* ——— Iconos luna (🌙) y AA: negro en modo claro, blanco en modo oscuro ——— */
+body.dark-mode .icon-btn,
+body.dark-mode .icon-btn .icon-a-small,
+body.dark-mode .icon-btn .icon-a-large,
+body.dark-mode .icon-btn .icon-svg,
+body.dark-mode .icon-btn .icon-svg path,
+body.dark-mode .icon-btn .font-indicator-sm,
+body.dark-mode .icon-btn .font-indicator-lg,
+body.dark-mode #btn-dark-mode,
+body.dark-mode #btn-dark-mode svg,
+body.dark-mode #btn-dark-mode path,
+body.dark-mode #btn-font-size,
+body.dark-mode #btn-font-size span {
+  color: #fff !important;
+  fill: currentColor;
+}
+
+body.dark-mode .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Lupa/buscador: blanca en dark mode en todas las páginas */
+body.dark-mode .search-icon,
+body.dark-mode .search-submit,
+body.dark-mode .search-submit svg,
+body.dark-mode .search-submit path,
+body.dark-mode .search-submit circle {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+body:not(.dark-mode) .icon-btn,
+body:not(.dark-mode) .icon-btn .icon-a-small,
+body:not(.dark-mode) .icon-btn .icon-a-large,
+body:not(.dark-mode) .icon-btn .icon-svg,
+body:not(.dark-mode) .icon-btn .icon-svg path,
+body:not(.dark-mode) .icon-btn .font-indicator-sm,
+body:not(.dark-mode) .icon-btn .font-indicator-lg,
+body:not(.dark-mode) #btn-dark-mode,
+body:not(.dark-mode) #btn-dark-mode svg,
+body:not(.dark-mode) #btn-dark-mode path,
+body:not(.dark-mode) #btn-font-size,
+body:not(.dark-mode) #btn-font-size span {
+  color: #111 !important;
+}
+
+/* ——— Nav: hover naranja; página actual negra y subrayada ——— */
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus-visible {
+  color: var(--ash-orange-hover) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.main-nav a.nav-active,
+.nav-submenu a.nav-active {
+  color: #111 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  font-weight: 800 !important;
+}
+
+body.dark-mode .main-nav a.nav-active,
+body.dark-mode .nav-submenu a.nav-active {
+  color: #111 !important;
+}
+
+body.dark-mode .main-nav a:hover,
+body.dark-mode .nav-dropdown-toggle:hover {
+  color: #ffedd5 !important;
+}
+
+/* ——— Footer: sin subrayado en redes sociales; hover naranja ——— */
+.site-footer .social-link,
+.site-footer .social-link span,
+.site-footer a {
+  text-decoration: none !important;
+}
+
+.site-footer .social-link:hover,
+.site-footer .social-link:hover span {
+  color: var(--ash-orange-mid) !important;
+  text-decoration: none !important;
+}
+
+/* ——— Sin colores azules en todo el sitio → naranja ——— */
+.highlight,
+.hero-title .highlight,
+.events-title .highlight,
+.check-list i,
+.fas.fa-check-circle,
+.fas.fa-star,
+.fas.fa-gift,
+.fas.fa-cake-candles,
+.fas.fa-users,
+.fas.fa-palette,
+.fas.fa-horse,
+.fas.fa-tractor,
+.fas.fa-child,
+.fas.fa-gamepad,
+.fas.fa-map-signs,
+.fas.fa-thumbtack,
+.fas.fa-apple-alt,
+.fas.fa-bacon,
+.fas.fa-door-closed,
+.card h3 i,
+.features li i,
+.price-badge,
+.lp-channel-text,
+.lp-route-link,
+.hero-badge,
+.events-badge,
+[class*="tag-cyan"],
+.tag-blue,
+.status-info,
+.card-ui-status.status-info,
+.day-name,
+.t-main-cyan .t-cost {
+  color: var(--ash-orange-mid) !important;
+}
+
+/* Botones outline y principales: naranja */
+.btn-outline,
+.btn-zigzag,
+.btn-main {
+  border-color: var(--ash-orange-mid) !important;
+}
+
+.btn-outline {
+  color: var(--ash-orange-mid) !important;
+}
+
+.btn-outline:hover,
+.btn-zigzag,
+.btn-main {
+  background: var(--ash-orange-mid) !important;
+  color: #fff !important;
+}
+
+/* ——— Etiquetas Seguridad → tono anaranjado ——— */
+.status-danger,
+.status-success,
+.status-warning,
+.status-info,
+.card-ui-status {
+  background: rgba(239, 130, 29, 0.18) !important;
+  color: var(--ash-orange-mid) !important;
+  border: 1px solid var(--ash-orange-dark) !important;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* Media tags eventos → naranja */
+.media-tag.tag-cyan,
+.media-tag.tag-blue,
+.media-tag.tag-purple,
+.media-tag.tag-red {
+  background: var(--ash-orange-mid) !important;
+  color: #fff !important;
+}
+
+/* Tarjetas Fiestas: etiquetas → naranja */
+.card-tag {
+  background: rgba(239, 130, 29, 0.15) !important;
+  color: var(--ash-orange-mid) !important;
+  border: 1px solid var(--ash-orange-dark) !important;
+}
+
+/* ——— Seguridad: título centrado, texto justificado ——— */
+.executive-hero-block {
+  text-align: center;
+}
+
+.executive-main-title {
+  text-align: center;
+}
+
+.executive-intro-text {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.executive-section-title {
+  text-align: center;
+}
+
+/* Preguntas Frecuentes: contenedor centrado, título a la izquierda */
+.lp-hero-header {
+  text-align: left;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contacto: héro centrado */
+.landingplay-container .lp-hero-header {
+  text-align: center;
+}
+
+.landingplay-container .lp-main-title,
+.landingplay-container .lp-main-subtitle {
+  text-align: center;
+}
+
+.caja-faq {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FAQ: títulos alineados a la izquierda */
+details.faq-item summary {
+  text-align: left;
+  justify-content: space-between;
+}
+
+details.faq-item .faq-respuesta p {
+  text-align: justify;
+}
+
+/* FAQ: acento naranja, no azul */
+details.faq-item[open] summary,
+details.faq-item summary:hover,
+.faq-item[open] summary,
+.faq-item summary:hover {
+  color: var(--ash-orange-mid) !important;
+}
+
+.faq-item[open] summary::after,
+details.faq-item[open] summary::after {
+  color: var(--ash-orange-mid) !important;
+}
+
+/* Modo oscuro FAQ: fondo gris oscuro, NO azul */
+body.dark-mode details.faq-item,
+body.dark-mode .faq-item {
+  background: #272727 !important;
+  border-color: #444 !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .faq-item summary,
+body.dark-mode details.faq-item summary {
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .faq-respuesta,
+body.dark-mode .faq-item .faq-respuesta {
+  color: var(--ash-text-dark) !important;
+  border-top-color: #444 !important;
+}
+
+/* ——— Contacto: título y descripción ——— */
+.lp-hero-header .lp-tagline {
+  display: none !important;
+}
+
+/* Fondo form card: gris claro */
+.lp-form-card,
+.lp-form-column .lp-form-card {
+  background: #e8e8e8 !important;
+  border-color: #d0d0d0 !important;
+}
+
+body.dark-mode .lp-form-card,
+body.dark-mode .lp-map-card {
+  background: #2d2d2d !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .campo-form label,
+body.dark-mode .lp-approach-title,
+body.dark-mode .lp-office-title,
+body.dark-mode .lp-office-address,
+body.dark-mode .lp-channel-text-static,
+body.dark-mode .modal-msg,
+body.dark-mode .modal-submsg {
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .campo-form input[type="text"],
+body.dark-mode .campo-form input[type="email"],
+body.dark-mode .campo-form textarea {
+  background: #333 !important;
+  color: #e8e8e8 !important;
+  border-color: #555 !important;
+}
+
+/* Márgenes correctos para landingplay */
+.landingplay-container {
+  max-width: var(--content-max, 1280px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-side, clamp(2rem, 10vw, 7rem));
+  padding-right: var(--space-side, clamp(2rem, 10vw, 7rem));
+}
+
+/* ——— Eventos: tarjetas con título en lugar de imagen ——— */
+.event-social-card .event-media {
+  display: none !important;
+}
+
+.event-social-card .card-media-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10rem;
+  background: linear-gradient(145deg, var(--ash-orange) 0%, var(--ash-orange-mid) 100%);
+  cursor: pointer;
+  position: relative;
+  border-radius: 0;
+}
+
+.event-social-card .media-tag {
+  position: static !important;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  background: transparent !important;
+  color: #fff !important;
+  text-align: center;
+}
+
+/* Overlay del evento: muestra al HOVER, no al clic */
+.event-social-card .card-social-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  background: #fff;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-social-card:hover .card-social-overlay,
+.event-social-card.is-open .card-social-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ocultar comentarios, precio y botón de reserva en tarjetas de eventos */
+.event-social-card .chat-divider,
+.event-social-card .chat-comment,
+.event-social-card .chat-reactions,
+.event-social-card .social-card-footer,
+.event-social-card .social-price,
+.event-social-card .btn-social-join,
+.event-social-card .archive-notice + .chat-comment {
+  display: none !important;
+}
+
+.event-social-card {
+  position: relative;
+  min-height: 10rem;
+}
+
+.event-social-card .social-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+body.dark-mode .event-social-card .card-social-overlay {
+  background: #272727 !important;
+}
+
+body.dark-mode .card-social-overlay,
+body.dark-mode .social-event-info,
+body.dark-mode .social-event-title {
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .social-event-title {
+  color: var(--ash-orange) !important;
+}
+
+/* ——— Reserva: calendario y formulario en modo oscuro ——— */
+body.dark-mode .cal-wrapper {
+  background: #1e1e1e !important;
+  border-color: var(--ash-orange) !important;
+}
+
+body.dark-mode .cal-grid {
+  background: #272727 !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .cal-selected-date {
+  background: rgba(253, 185, 91, 0.15) !important;
+  border-color: var(--ash-orange) !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .cal-grid .cal-day {
+  background: #333 !important;
+  color: #e8e8e8 !important;
+}
+
+body.dark-mode .cal-grid .cal-day:hover {
+  background: #444 !important;
+}
+
+body.dark-mode .cal-grid .cal-day.selected,
+body.dark-mode .cal-grid .cal-day.cal-selected {
+  background: var(--ash-orange-mid) !important;
+  color: #111 !important;
+}
+
+body.dark-mode .cal-grid .cal-day.past {
+  color: #666 !important;
+}
+
+body.dark-mode .cal-header {
+  background: var(--ash-orange-mid) !important;
+  color: #fff !important;
+}
+
+body.dark-mode .cal-nav {
+  color: #fff !important;
+  background: transparent;
+  border: none;
+}
+
+body.dark-mode .payment-form-wrapper {
+  background: #2d2d2d !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .modal-box,
+body.dark-mode .modal-confirm-box {
+  background: #2d2d2d !important;
+  color: var(--ash-text-dark) !important;
+  border-top-color: var(--ash-orange) !important;
+}
+
+body.dark-mode .ticket-item {
+  background: #2d2d2d !important;
+  border-color: #444 !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .ticket-item:hover,
+body.dark-mode .ticket-item.selected {
+  border-color: var(--ash-orange) !important;
+}
+
+body.dark-mode .payment-input {
+  background: #333 !important;
+  color: #e8e8e8 !important;
+  border-color: #555 !important;
+}
+
+body.dark-mode .payment-label {
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .payment-total-row {
+  background: #333 !important;
+  border-color: var(--ash-orange) !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .counter-box {
+  background: #333 !important;
+  border-color: #555 !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .modal-tbl-label,
+body.dark-mode .modal-tbl-value {
+  color: var(--ash-text-dark) !important;
+  border-bottom-color: #444 !important;
+}
+
+body.dark-mode .modal-confirm-title,
+body.dark-mode .modal-confirm-intro {
+  color: var(--ash-text-dark) !important;
+}
+
+/* ——— Tarjetas y paneles genéricos en modo oscuro ——— */
+body.dark-mode .card,
+body.dark-mode .executive-card,
+body.dark-mode .lp-map-card,
+body.dark-mode .feature-card-body,
+body.dark-mode .Events-card,
+body.dark-mode .pricing .feature-card-body {
+  background: #272727 !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .card h3,
+body.dark-mode .executive-card h3,
+body.dark-mode .card .duration,
+body.dark-mode .card .adult-price,
+body.dark-mode .card .diy-info {
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .welcome-title,
+body.dark-mode .section-title-text {
+  color: var(--ash-orange) !important;
+}
+
+/* ====================================================
+   TÍTULOS DE PÁGINA — CENTRADO GLOBAL
+   (h1 centrado en todas las páginas)
+==================================================== */
+body .lp-main-title,
+body .executive-main-title,
+body .events-title,
+body .main-page-title,
+body .section-title,
+body .welcome-title {
+  text-align: center !important;
+}
+
+/* Descripción/subtítulo debajo del h1: justificado, márgenes correctos */
+body .lp-main-subtitle,
+body .executive-intro-text,
+body .events-desc,
+body .hero-desc,
+body .section-desc {
+  text-align: justify !important;
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1rem, 4vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 4vw, 2.5rem) !important;
+}
+
+/* ====================================================
+   DARK MODE: TÍTULOS NARANJA, TEXTOS BLANCOS
+   ====================================================*/
+body.dark-mode .lp-main-title,
+body.dark-mode .executive-main-title,
+body.dark-mode .events-title,
+body.dark-mode .main-page-title {
+  color: var(--ash-orange) !important;
+}
+
+/* Descripciones de página en dark: BLANCAS */
+body.dark-mode .lp-main-subtitle,
+body.dark-mode .executive-intro-text,
+body.dark-mode .events-desc,
+body.dark-mode .hero-desc,
+body.dark-mode p {
+  color: #e5e7eb !important;
+}
+
+/* FAQ: el texto de las respuestas también blanco */
+body.dark-mode .faq-respuesta,
+body.dark-mode .faq-respuesta p,
+body.dark-mode details p {
+  color: #e5e7eb !important;
+}
+
+body.dark-mode .section-title,
+body.dark-mode .events-title {
+  color: var(--ash-orange) !important;
+}
+
+/* General page: eliminar azules del modo oscuro */
+body.dark-mode {
+  --bg-cream: #1c1c1c !important;
+  --white: #272727 !important;
+}
+
+body.dark-mode .zigzag-shape,
+body.dark-mode .blob-bg {
+  opacity: 0.35;
+}
+
+body.dark-mode .calendar-base,
+body.dark-mode .calendar-body,
+body.dark-mode .t-main-white {
+  background: #2d2d2d !important;
+  color: var(--ash-text-dark) !important;
+}
+
+body.dark-mode .t-main-cyan {
+  background: #1e2d2d !important;
+}
+
+/* Fiestas: cielo oscuro gris, no azul */
+body.dark-mode .page-theme,
+body.dark-mode .farm-floor {
+  background: #1c1c1c !important;
+}
+
+body.dark-mode .sun {
+  background: var(--ash-orange) !important;
+}
+
+/* ——— Submenú: consistente en desktop en todas las páginas ——— */
+@media (min-width: 901px) {
+  /* El submenú solo se muestra cuando .is-open está activo */
+  .nav-submenu[hidden] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .nav-submenu {
+    position: absolute !important;
+    top: calc(100% + 0.35rem) !important;
+    left: 0 !important;
+    min-width: 12rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    padding: 0.35rem 0 !important;
+    border: none !important;
+    background: var(--ash-orange-submenu-dark, #dba24a) !important;
+  }
+
+  .nav-submenu a {
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 0.92rem !important;
+    padding: 0.55rem 1.1rem !important;
+    display: block !important;
+  }
+
+  .nav-submenu a:hover,
+  .nav-submenu a:focus-visible {
+    color: #fff !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    text-decoration: underline !important;
+  }
+}
+
+/* ——— Responsividad nav móvil ——— */
+@media (max-width: 900px) {
+  .nav-submenu {
+    position: static !important;
+    width: 100% !important;
+    background: rgba(0, 0, 0, 0.14) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .nav-submenu a {
+    color: #fff !important;
+  }
+}

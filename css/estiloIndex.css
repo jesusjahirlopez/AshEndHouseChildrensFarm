@@ -122,7 +122,7 @@ a {
   margin: 0 auto;
   padding: 0.5rem var(--space-side);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.65rem 1.25rem;
@@ -133,7 +133,7 @@ a {
 .brand-logo { width: 76px; height: 76px; object-fit: contain; border-radius: 6px; }
 
 .main-nav ul, .main-nav-list { list-style: none; margin: 0; padding: 0; }
-.main-nav-list { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; }
+.main-nav-list { display: flex; flex-wrap: nowrap; align-items: center; gap: 0.5rem 1.25rem; }
 
 .main-nav a {
   font-weight: 700;
@@ -142,6 +142,7 @@ a {
   padding: 0.2rem 0;
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
 }
 
 .main-nav a:hover, .main-nav a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
@@ -201,7 +202,7 @@ a {
 }
 
 /* Búsqueda */
-.header-right { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.25rem; margin-left: auto; }
+.header-right { display: flex; flex-wrap: nowrap; align-items: center; gap: 0.75rem 1rem; margin-left: auto; flex-shrink: 0; }
 .header-search {
   display: flex;
   align-items: center;
@@ -282,11 +283,23 @@ button.btn-reserve { border: none; cursor: pointer; font-family: var(--font-sans
 
 /* ——— Tarjetas y Cuadrículas ——— */
 .highlights { margin-top: clamp(2.5rem, 5vw, 4rem); max-width: 72rem; margin-left: auto; margin-right: auto; }
-.highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.25rem, 3vw, 2rem); }
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto 1fr;
+  column-gap: clamp(1.25rem, 3vw, 2rem);
+  row-gap: clamp(1.25rem, 3vw, 2rem);
+}
 
-.feature-card { display: flex; flex-direction: column; min-width: 0; }
-.feature-card-title { margin: 0 0 0.85rem; text-align: center; font-size: clamp(1.05rem, 2.2vw, 1.3rem); font-weight: 800; color: var(--color-welcome-title); line-height: 1.25; }
-.feature-card-body { flex: 1; display: flex; flex-direction: column; background: var(--color-feature-panel); border-radius: 24px; padding: 1rem 1rem 1.35rem; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1); }
+.feature-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  min-width: 0;
+  row-gap: 0;
+}
+.feature-card-title { margin: 0 0 0.85rem; text-align: center !important; font-size: clamp(1.05rem, 2.2vw, 1.3rem); font-weight: 800; color: var(--color-welcome-title); line-height: 1.25; align-self: end; }
+.feature-card-body { flex: 1; display: flex; flex-direction: column; background: var(--color-feature-panel); border-radius: 24px; padding: 1rem 1rem 1.35rem; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1); align-self: stretch; }
 .feature-card-img-wrap { border-radius: 16px; overflow: hidden; margin-bottom: 1rem; aspect-ratio: 4 / 3; background: rgba(0, 0, 0, 0.12); }
 .feature-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .feature-card-text { margin: 0; font-size: clamp(0.9rem, 1.8vw, 0.98rem); line-height: 1.55; color: #fff; text-align: justify; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12); }
@@ -372,8 +385,8 @@ body.dark-mode {
   --color-feature-panel: #2d2d2d;
   --color-welcome-title: #fdb95b;
 }
-body.dark-mode .site-header, body.dark-mode .site-footer { background: #2b1d00; }
-body.dark-mode .nav-submenu { background: #3a2800; }
+body.dark-mode .site-header, body.dark-mode .site-footer { background: #c98938 !important; }
+body.dark-mode .nav-submenu { background: #dba24a; }
 body.dark-mode .header-search { background: #3a3a3a; }
 body.dark-mode .header-search input { color: #e8e8e8; }
 body.dark-mode .search-submit { background: #555; color: #fff; }
@@ -595,11 +608,11 @@ body.dark-mode {
 
 body.dark-mode .site-header,
 body.dark-mode .site-footer {
-  background: #2b1d00;
+  background: #c98938 !important;
 }
 
 body.dark-mode .nav-submenu {
-  background: #3a2800;
+  background: #dba24a;
 }
 
 body.dark-mode .site-main {
@@ -713,5 +726,5 @@ body.font-lg .feature-card-title {
   font-size: clamp(1.25rem, 2.8vw, 1.6rem);
 }
 
-body.font-md #btn-font-size .icon-a-small { opacity: 0.5; }
+/* icon-a-small siempre visible */
 body.font-lg #btn-font-size .icon-a-large { opacity: 1; font-weight: 900; }

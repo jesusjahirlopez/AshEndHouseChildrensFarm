@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguridad Corporativa — Ash End House Children's Farm</title>
     <link rel="stylesheet" href="../css/seguridad.css">
+    <link rel="stylesheet" href="../css/site-shell.css">
+    <link rel="stylesheet" href="../css/site-global.css">
     <link rel="icon" type="image/png" href="../Imagenes/LogoGranja.png">
 </head>
-
 <body>
+    <script>
+        if (localStorage.getItem("ash-dark") === "1") document.body.classList.add("dark-mode");
+        var _af = parseInt(localStorage.getItem("ash-font") || "0", 10);
+        if (_af === 1) { document.documentElement.classList.add("ash-font-md"); document.body.classList.add("font-md"); }
+        else if (_af === 2) { document.documentElement.classList.add("ash-font-lg"); document.body.classList.add("font-lg"); }
+    </script>
 
     <div class="top-bar">
         <div class="container top-bar-inner">
@@ -21,22 +27,13 @@
     <header class="site-header" id="site-header">
         <div class="header-inner">
             <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
-                <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76"
-                    class="brand-logo">
+                <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
             </a>
-
-            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu"
-                aria-label="Abrir menú de navegación">
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-toggle-bar" aria-hidden="true"></span>
-            </button>
 
             <nav class="main-nav" id="nav-menu" aria-label="Principal">
                 <ul class="main-nav-list">
-                    <li class="nav-dropdown">
-                        <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false"
-                            aria-haspopup="true" aria-controls="nav-info-submenu">
+                    <li class="nav-dropdown" id="dropdown-info-container" style="--item-index: 1;">
+                        <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
                             Información
                         </button>
                         <ul class="nav-submenu" id="nav-info-submenu" role="menu" hidden>
@@ -46,37 +43,43 @@
                             <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-active" href="Seguridad.html">Seguridad de la Granja</a></li>
-                    <li><a href="Preguntas.html">Preguntas Frecuentes</a></li>
-                    <li><a href="Contacto.html">Contacto</a></li>
+                    <li style="--item-index: 2;"><a class="nav-active" href="Seguridad.html">Seguridad de la Granja</a></li>
+                    <li style="--item-index: 3;"><a href="Preguntas.html">Preguntas Frecuentes</a></li>
+                    <li style="--item-index: 4;"><a href="Contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="header-right">
+
+            <div class="header-right-wrapper">
                 <form class="header-search" role="search" action="#" method="get">
                     <label class="visually-hidden" for="q">Buscar por palabra...</label>
                     <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
                     <button type="submit" class="search-submit" aria-label="Buscar">
-                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="16"
-                            height="16">
-                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" />
-                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2"
-                                stroke-linecap="round" />
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="16" height="16">
+                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
                         </svg>
                     </button>
                 </form>
-                <div class="header-utilities" role="toolbar" aria-label="Preferencias de visualización">
-                    <button type="button" class="icon-btn" id="btn-dark-mode" title="Activar modo oscuro"
-                        aria-label="Activar modo oscuro">
-                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="20"
-                            height="20">
-                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z" />
+                
+                <div class="header-utilities">
+                    <button type="button" class="icon-btn" id="btn-dark-mode" title="Activar modo oscuro" aria-label="Activar modo oscuro">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="20" height="20">
+                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
                         </svg>
                     </button>
-                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size" title="Tamaño de texto"
-                        aria-label="Tamaño de texto">
+                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size" title="Tamaño de texto" aria-label="Tamaño de texto">
                         <span class="icon-a-small">A</span>
                         <span class="icon-a-large">A</span>
                     </button>
+                </div>
+
+                <div class="hamburgers">
+                    <label class="hamburger" id="nav-toggle-label">
+                        <input type="checkbox" id="nav-toggle-checkbox" aria-label="Abrir menú de navegación" />
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -87,7 +90,7 @@
 
             <section class="executive-hero-block" aria-labelledby="welcome-title">
                 <span class="ep-tagline">Cumplimiento y Estándares</span>
-                <h1 id="welcome-title" class="executive-main-title">Seguridad y Gestión de Riesgos</h1>
+                <h1 id="welcome-title" class="executive-main-title">Seguridad de la Granja</h1>
                 <div class="executive-intro-text">
                     <p>
                         Visitar un complejo agrícola de libre interacción representa una experiencia didáctica de alto
@@ -171,8 +174,7 @@
                     </div>
 
                     <div class="med-card-image-wrapper">
-                        <img src="../Imagenes/toxoplasmosis.png"
-                            alt="Protocolo de Control Epidemiológico y Muestreo Clínico" class="med-card-img">
+                        <img src="../Imagenes/toxoplasmosis.png" alt="Protocolo de Control Epidemiológico y Muestreo Clínico" class="med-card-img">
                         <div class="img-overlay-branding">Estándar ISO 9001 / ISO 14001</div>
                     </div>
                 </div>
@@ -185,134 +187,20 @@
         <div class="footer-inner">
             <div class="footer-bar">
                 <div class="footer-social">
-                    <a class="social-link" href="https://www.facebook.com/thechildrensfarm" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="../Imagenes/facebook.png" alt="" width="20" height="20" style="object-fit: contain;">
+                    <a class="social-link" href="https://www.facebook.com/thechildrensfarm" target="_blank" rel="noopener noreferrer">
+                        <img src="../Imagenes/facebook.png" alt="" width="20" height="20" class="footer-icon-img">
                         <span>Facebook</span>
                     </a>
-                    <a class="social-link" href="https://www.instagram.com/ashendhousefarm" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="../Imagenes/Instagram.png" alt="" width="20" height="20" style="object-fit: contain;">
+                    <a class="social-link" href="https://www.instagram.com/ashendhousefarm" target="_blank" rel="noopener noreferrer">
+                        <img src="../Imagenes/Instagram.png" alt="" width="20" height="20" class="footer-icon-img">
                         <span>Instagram</span>
                     </a>
                 </div>
-                <p class="footer-copy">© Copyright <span id="year">2026</span> — Auditoría e Infraestructura de Ash End
-                    House Farm</p>
+                <p class="footer-copy"><span class="copy-symbol" aria-hidden="true">©</span> Copyright <span id="year">2026</span></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        (function () {
-            "use strict";
-
-            // --- 1. CONTROL DE APERTURA DEL MENÚ HAMBURGUESA (MÓVIL) ---
-            var header = document.getElementById("site-header");
-            var toggle = document.getElementById("nav-toggle");
-            var menu = document.getElementById("nav-menu");
-
-            if (header && toggle && menu) {
-                var mq = window.matchMedia("(min-width: 901px)");
-
-                function setMenuState(isOpen) {
-                    header.classList.toggle("nav-open", isOpen);
-                    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                    document.body.classList.toggle("nav-menu-open", isOpen);
-                }
-
-                // Evento click para abrir/cerrar la cortina móvil
-                toggle.addEventListener("click", function (e) {
-                    e.stopPropagation();
-                    var isOpen = header.classList.contains("nav-open");
-                    setMenuState(!isOpen);
-                });
-
-                // Auto-cerrar el menú móvil si el usuario da click en un enlace interno
-                menu.querySelectorAll("a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        if (!mq.matches) setMenuState(false);
-                    });
-                });
-
-                // Resetear estados si el usuario cambia el tamaño de la pantalla a escritorio
-                mq.addEventListener("change", function (e) {
-                    if (e.matches) {
-                        setMenuState(false);
-                        var submenu = document.getElementById("nav-info-submenu");
-                        if (submenu) submenu.setAttribute("hidden", "");
-                        var dropdownContainer = document.getElementById("dropdown-info-container");
-                        if (dropdownContainer) dropdownContainer.classList.remove("is-open");
-                    }
-                });
-            }
-
-            // --- 2. CONTROL DEL DROPDOWN DE "INFORMACIÓN" (MÓVILES Y PANTALLAS TÁCTILES) ---
-            var infoToggle = document.getElementById("nav-info-toggle");
-            var infoSubmenu = document.getElementById("nav-info-submenu");
-            // Buscamos el contenedor 'li' que envuelve al botón y al submenú
-            var dropdownContainer = infoToggle ? infoToggle.closest(".nav-dropdown") : null;
-
-            if (infoToggle && infoSubmenu) {
-                infoToggle.addEventListener("click", function (e) {
-                    // Evita que el click se propague y cierre el menú por error
-                    e.stopPropagation();
-
-                    var isExpanded = infoToggle.getAttribute("aria-expanded") === "true";
-
-                    // Conmutar estado de accesibilidad aria
-                    infoToggle.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
-
-                    if (dropdownContainer) {
-                        dropdownContainer.classList.toggle("is-open", !isExpanded);
-                    }
-
-                    // Mostrar o remover el atributo oculto nativo de HTML
-                    if (!isExpanded) {
-                        infoSubmenu.removeAttribute("hidden");
-                    } else {
-                        infoSubmenu.setAttribute("hidden", "");
-                    }
-                });
-            }
-
-            // --- 3. PERSISTENCIA DE CONTROL DE ACCESIBILIDAD (MODO OSCURO Y TEXTO) ---
-            var fontBtn = document.getElementById("btn-font-size");
-            var fontLevels = ["", "font-md", "font-lg"];
-
-            if (fontBtn) {
-                var savedLevel = parseInt(localStorage.getItem("ash-font") || "0", 10);
-                if (savedLevel > 0 && savedLevel < fontLevels.length) {
-                    document.body.classList.add(fontLevels[savedLevel]);
-                }
-
-                fontBtn.addEventListener("click", function () {
-                    var currentLevel = 0;
-                    fontLevels.forEach(function (className, index) {
-                        if (className && document.body.classList.contains(className)) {
-                            currentLevel = index;
-                        }
-                    });
-
-                    if (fontLevels[currentLevel]) document.body.classList.remove(fontLevels[currentLevel]);
-                    var nextLevel = (currentLevel + 1) % fontLevels.length;
-                    if (fontLevels[nextLevel]) document.body.classList.add(fontLevels[nextLevel]);
-                    localStorage.setItem("ash-font", String(nextLevel));
-                });
-            }
-
-            // Inicialización y persistencia del modo oscuro
-            var darkBtn = document.getElementById("btn-dark-mode");
-            if (darkBtn) {
-                if (localStorage.getItem("ash-dark") === "1") {
-                    document.body.classList.add("dark-mode");
-                }
-                darkBtn.addEventListener("click", function () {
-                    var isDark = document.body.classList.toggle("dark-mode");
-                    localStorage.setItem("ash-dark", isDark ? "1" : "0");
-                });
-            }
-        })();
-    </script>
+    <script src="../js/site-common.js"></script>
 </body>
-
 </html>

@@ -2,21 +2,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-
 /* ===== VARIABLES DEL SISTEMA DE DISEÑO ===== */
 :root {
   --color-orange: #fdb95b;
-  /* Nav Blanco por defecto */
+  /* Nav Naranja Fijo Corporativo */
   --color-orange-dark: #e8a347;
-   --color-btn-reserve: #ef821d;
+  --color-btn-reserve: #ffffff;
   --color-submenu-bg: #f3f4f6;
   --color-welcome-title: #101828;
-  --color-lp-blue: #2563eb;
-  --color-lp-blue-hover: #1d4ed8;
+  --color-lp-blue: #ef821d;
+  --color-lp-blue-hover: #e07510;
   --color-page-bg: #f9fafb;
   --color-text-main: #4b5563;
   --color-text-dark: #111827;
-  --color-border-ui: #e5e7eb;
+  --color-border-ui: #eaecf0;
   --space-side: clamp(1.5rem, 7vw, 6rem);
   --content-max: 1200px;
   --font-sans: 'Plus Jakarta Sans', "Segoe UI", system-ui, sans-serif;
@@ -66,6 +65,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.nav-menu-open {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -89,7 +92,7 @@ a {
   border: 0;
 }
 
-/* ===== CABECERA ===== */
+/* ===== SITE HEADER ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -108,11 +111,13 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
+  position: relative;
 }
 
 .brand {
   display: flex;
   align-items: center;
+  z-index: 10010;
 }
 
 .brand-logo {
@@ -122,29 +127,86 @@ a {
   border-radius: 6px;
 }
 
-/* Menú de Navegación */
-.nav-toggle {
+/* UNIFICACIÓN DE CONTENEDOR DERECHO */
+.header-right-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+  height: 44px;
+}
+
+/* ===== HAMBURGER CONTANER PREMIUM CALIBRADO ===== */
+.hamburgers {
   display: none;
-  flex-direction: column;
+  /* Oculto en PC */
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: rgba(0, 0, 0, 0.05);
+  width: 44px;
+  height: 44px;
+  z-index: 10010;
+}
+
+.hamburger {
   cursor: pointer;
-  border-radius: 8px;
-}
-
-.nav-toggle-bar {
+  position: relative;
   display: block;
-  width: 20px;
-  height: 2.5px;
-  background: #111;
-  border-radius: 2px;
+  width: 30px;
+  height: 24px;
+  margin-top: 2px;
 }
 
+.hamburger input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  border-radius: 40px;
+  position: absolute;
+  transition: all 0.4s cubic-bezier(0.37, -1.11, 0.79, 2.02);
+  background-color: #ffffff;
+  left: 0;
+}
+
+.bar:nth-child(2) {
+  top: 0;
+}
+
+.bar:nth-child(3) {
+  top: 10px;
+}
+
+.bar:nth-child(4) {
+  top: 20px;
+}
+
+/* Cambio dinámico al activar animación */
+.hamburger input:checked~.bar:nth-child(2) {
+  transform: translateY(10px) rotate(45deg);
+  background-color: crimson !important;
+}
+
+.hamburger input:checked~.bar:nth-child(3) {
+  opacity: 0;
+}
+
+.hamburger input:checked~.bar:nth-child(4) {
+  transform: translateY(-10px) rotate(-45deg);
+  background-color: crimson !important;
+}
+
+/* Menú de Navegación Escritorio */
 .main-nav-list {
   list-style: none;
   margin: 0;
@@ -154,47 +216,42 @@ a {
   gap: 1.5rem;
 }
 
-.main-nav a {
+.main-nav a,
+.nav-dropdown-toggle {
   font-weight: 700;
   font-size: 0.95rem;
-  color: white;
+  color: #ffffff;
   padding: 0.2rem 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: color 0.2s ease;
 }
 
-.main-nav a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.main-nav a:hover,
+.nav-dropdown-toggle:hover {
+  color: #111827;
 }
 
 .nav-active {
   text-decoration: underline !important;
   text-underline-offset: 4px;
-  color: black !important;
+  color: #111827 !important;
   font-weight: 800;
 }
 
-/* Submenús */
+/* Dropdowns PC */
 .nav-dropdown {
   position: relative;
-}
-
-.nav-dropdown-toggle {
-  border: none;
-  background: transparent;
-  font: inherit;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
 }
 
 .nav-dropdown-toggle::after {
   content: "▼";
   font-size: 0.6rem;
   margin-top: 2px;
+  margin-left: 4px;
+  display: inline-block;
 }
 
 .nav-submenu {
@@ -205,7 +262,7 @@ a {
   background: #ffffff;
   border-radius: 8px;
   padding: 0.25rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   list-style: none;
   border: 1px solid #e5e7eb;
 }
@@ -218,14 +275,12 @@ a {
   color: #111827;
 }
 
-/* Buscador e Iconos */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-left: auto;
+.nav-submenu a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #ef821d;
 }
 
+/* Utilidades derechas */
 .header-search {
   display: flex;
   align-items: center;
@@ -241,6 +296,7 @@ a {
   font-size: 0.9rem;
   color: var(--color-text-dark);
   font-family: var(--font-sans);
+  background: transparent;
 }
 
 .search-submit {
@@ -271,7 +327,7 @@ a {
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
-  color: #111827;
+  /* color controlado por site-global.css */
 }
 
 .font-indicator-sm {
@@ -287,8 +343,7 @@ a {
   color: inherit;
 }
 
-
-/* ===== CONTENEDOR CENTRAL ESTILO LANDINGPLAY ===== */
+/* ===== CENTRAL CONTENT ===== */
 .site-main {
   flex: 1;
   width: 100%;
@@ -306,11 +361,11 @@ a {
   gap: 3.5rem;
 }
 
-/* --- HERO HEADER --- */
 .lp-hero-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .lp-tagline {
@@ -325,10 +380,11 @@ a {
 .lp-main-title {
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: 800;
-  color: var(--color-text-dark);
+  color: #ef821d;
   letter-spacing: -0.03em;
   margin: 0 0 1rem 0;
   line-height: 1.15;
+  text-align: center !important;
 }
 
 .lp-main-subtitle {
@@ -336,10 +392,13 @@ a {
   color: var(--color-text-main);
   line-height: 1.6;
   max-width: 760px;
-  margin: 0;
+  margin: 0 auto;
+  text-align: justify;
+  text-justify: inter-word;
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
 }
 
-/* --- REJILLA --- */
 .lp-split-content {
   display: flex;
   gap: 4rem;
@@ -378,10 +437,6 @@ a {
 
 .lp-form-row .campo-form {
   flex: 1;
-}
-
-.main-nav a:hover {
-  color: var(--color-btn-reserve);
 }
 
 .campo-form {
@@ -445,7 +500,6 @@ a {
   transform: scale(0.99);
 }
 
-/* --- COLUMNA DERECHA --- */
 .lp-info-column {
   flex: 0.9;
   display: flex;
@@ -491,7 +545,6 @@ a {
   font-weight: 600;
 }
 
-/* Tarjeta del mapa */
 .lp-map-card {
   background: #ffffff;
   border-radius: 12px;
@@ -517,7 +570,6 @@ a {
   z-index: 1;
 }
 
-/* Sonda de radar */
 .map-radar-sonda {
   position: absolute;
   top: 43%;
@@ -547,22 +599,6 @@ a {
   border-radius: 50%;
   animation: radarEffectRun 1.6s infinite ease-out;
   opacity: 0;
-}
-
-@keyframes radarEffectRun {
-  0% {
-    transform: scale(0.4);
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
-
-  100% {
-    transform: scale(2.3);
-    opacity: 0;
-  }
 }
 
 .lp-map-footer {
@@ -604,7 +640,6 @@ a {
   transform: translateX(3px);
 }
 
-/* Alertas */
 .error-msj {
   color: #dc2626;
   font-size: 0.85rem;
@@ -622,7 +657,6 @@ a {
   background-color: #fef2f2 !important;
 }
 
-/* Modales */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -656,9 +690,8 @@ a {
   line-height: 1.4;
 }
 
-/* Footer */
 .site-footer {
-  background: var(--color-orange);
+  background: #fdb95b;
   color: #111827;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
@@ -698,16 +731,14 @@ a {
   font-size: 0.95rem;
 }
 
-
-/* ===== ADAPTACIÓN DINÁMICA A MODO OSCURO (CORREGIDA) ===== */
+/* ===== ADAPTACIÓN A MODO OSCURO ===== */
 body.dark-mode {
-  --color-page-bg: #111827;
+  --color-page-bg: #1c1c1c;
   --color-text-main: #9ca3af;
   --color-text-dark: #ffffff;
   --color-border-ui: #374151;
 }
 
-/* Forzamos a que el nav y el top-bar cambien a color oscuro profundo */
 body.dark-mode .top-bar {
   background: #111827;
   border-bottom: 1px solid #2d3748;
@@ -715,39 +746,34 @@ body.dark-mode .top-bar {
 
 body.dark-mode .top-bar-inner {
   color: #fdb95b;
-  /* Naranja claro para resaltar datos de cabecera superior */
+}
+
+body.dark-mode .site-header {
+  background: #c98938 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .main-nav-list a,
+body.dark-mode .nav-dropdown-toggle {
+  color: #ffffff;
 }
 
 body.dark-mode .main-nav-list a:hover,
 body.dark-mode .nav-dropdown-toggle:hover {
-  color: #ef821d !important;        
+  color: #ef821d !important;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 body.dark-mode .main-nav-list a.nav-active {
-  color: #ef821d !important;        
+  color: #ef821d !important;
   text-decoration: underline !important;
   text-underline-offset: 4px;
 }
 
-
-body.dark-mode .site-header {
-  background: #1f2937;
-  /* Gris oscuro para el contenedor del nav */
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-}
-
-/* Invertimos el color de los enlaces principales del Nav a blanco */
-body.dark-mode .main-nav a,
-body.dark-mode .nav-dropdown-toggle {
-  color: #ffffff;
-}
-
-/* Adaptación estética del Submenú desplegable en tema oscuro */
 body.dark-mode .nav-submenu {
-  background: #1f2937;
-  border-color: #374151;
+  background: #dba24a !important;
+  border-color: transparent;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -756,10 +782,10 @@ body.dark-mode .nav-submenu a {
 }
 
 body.dark-mode .nav-submenu a:hover {
-  background: #2d3748;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ef821d !important;
 }
 
-/* Ajustes de botones e iconos de utilidades */
 body.dark-mode .icon-btn {
   color: #ffffff;
 }
@@ -768,15 +794,14 @@ body.dark-mode .icon-btn:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Panel Central, Formulario e Info */
 body.dark-mode .site-main {
-  background: #111827;
+  background: #1c1c1c !important;
 }
 
 body.dark-mode .lp-form-card,
 body.dark-mode .lp-map-card {
-  background: #1f2937;
-  border-color: #374151;
+  background: #2d2d2d !important;
+  border-color: #444 !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -786,9 +811,9 @@ body.dark-mode .campo-form label {
 
 body.dark-mode .campo-form input,
 body.dark-mode .campo-form textarea {
-  background: #111827;
-  border-color: #4b5563;
-  color: #ffffff;
+  background: #333 !important;
+  border-color: #555 !important;
+  color: #e8e8e8 !important;
 }
 
 body.dark-mode .campo-form input:focus,
@@ -806,7 +831,8 @@ body.dark-mode .lp-channel-icon {
 }
 
 body.dark-mode .lp-map-footer {
-  background: #1f2937;
+  background: #2d2d2d !important;
+  color: #e8e8e8 !important;
 }
 
 body.dark-mode .header-search {
@@ -824,13 +850,27 @@ body.dark-mode .modal-box {
 }
 
 body.dark-mode .site-footer {
-  background: #1f2937;
+  background: #c98938 !important;
   color: #ffffff;
-  border-top-color: #374151;
+}
+
+/* Título de página naranja en dark mode */
+body.dark-mode .lp-main-title {
+  color: #ef821d !important;
+}
+
+/* Descripción de página blanca en dark mode */
+body.dark-mode .lp-main-subtitle,
+body.dark-mode p {
+  color: #e5e7eb !important;
+}
+
+body.dark-mode .bar {
+  background-color: #ffffff;
 }
 
 
-/* ===== RESPONSIVIDAD ===== */
+/* ===== RESPONSIVIDAD ADAPTATIVA AVANZADA ===== */
 @media (max-width: 1024px) {
   .lp-split-content {
     flex-direction: column;
@@ -847,42 +887,183 @@ body.dark-mode .site-footer {
 }
 
 @media (max-width: 900px) {
-  .nav-toggle {
+  .top-bar {
+    display: none !important;
+  }
+
+  .hamburgers {
     display: inline-flex;
   }
 
+  /* CORRECCIÓN DE COLCHÓN (PADDING): Ajuste de padding vertical y horizontal para dar espacio libre arriba y abajo */
   .header-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem var(--space-side) !important;
+    /* Añade colchón seguro para que no asfixie el diseño */
+    height: auto;
   }
 
-  .main-nav {
-    grid-column: 1 / -1;
+  /* CALIBRACIÓN DE CAJAS (44px x 44px): Luna, AA y Hamburguesa perfectamente alineados */
+  .header-right-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    height: 44px;
+  }
+
+  .header-search {
     display: none;
   }
 
+  .header-right-wrapper .icon-btn {
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .header-right-wrapper .icon-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  body.dark-mode .header-right-wrapper .icon-btn {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* ===== EFECTO TRASLÚCIDO PREMIUM (GLASSMORPHISM CON CORTINA ACOPLADA) ===== */
+  .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: none;
+    width: 100%;
+  }
+
+  /* La cortina se posiciona justo debajo del nav principal sin romper estructuras */
   .site-header.nav-open .main-nav {
-    display: block;
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(253, 185, 91, 0.95) !important;
+    /* Capa naranja traslúcida */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    padding: 1rem 0 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark-mode .site-header.nav-open .main-nav {
+    background-color: rgba(31, 41, 55, 0.95) !important;
+    /* Capa gris noche traslúcida */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .lp-main-title {
+    color: #ffffff !important;
+  }
+  
+
+  /* ===== TRANSICIÓN EN CASCADA SECUENCIAL ===== */
+  .main-nav-list li {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  .site-header.nav-open .main-nav-list li {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--item-index) * 0.08s);
   }
 
   .main-nav-list {
     flex-direction: column;
     align-items: stretch;
-    padding: 1rem 0;
-    gap: 0.5rem;
-  }
-
-  body.dark-mode .main-nav-list {
-    border-top: 1px solid #374151;
-    margin-top: 0.5rem;
-  }
-
-  .header-right {
-    grid-column: 1 / -1;
+    gap: 0;
     width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
+    padding: 0 16px;
+  }
+
+  /* Enlaces estilizados */
+  .main-nav a,
+  .nav-dropdown-toggle {
+    font-size: 1.2rem;
+    color: #ffffff !important;
+    text-align: left;
+    width: 100%;
+    padding: 15px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: block;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.25s ease;
+  }
+
+  body.dark-mode .main-nav a,
+  body.dark-mode .nav-dropdown-toggle {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Desplazamiento reactivo con foco lateral blanco */
+  .main-nav-list li a:hover,
+  .main-nav-list li .nav-dropdown-toggle:hover {
+    padding-left: 24px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .main-nav-list li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #ffffff;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+  }
+
+  .main-nav-list li a:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Acordeón interno translúcido */
+  .nav-dropdown.is-open .nav-submenu {
+    position: static !important;
+    display: block !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    width: 100%;
+    box-shadow: none !important;
+    padding: 5px 24px !important;
+    border: none !important;
+    border-left: 4px solid #ffffff !important;
+    margin-top: 4px;
+  }
+
+  .nav-dropdown.is-open .nav-submenu a {
+    color: #ffffff !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    font-size: 1.05rem;
+  }
+
+  .nav-dropdown.is-open .nav-submenu a:hover {
+    background: transparent !important;
+    padding-left: 8px !important;
+    color: #ef821d !important;
+  }
+
+  .hamburger input:checked~.bar {
+    background-color: #ef821d !important;
   }
 }
 
@@ -903,7 +1084,7 @@ body.dark-mode .site-footer {
   }
 }
 
-/* ESCALA ACCESIBILIDAD */
+/* ACCESIBILIDAD */
 body.font-md {
   font-size: 1.15rem;
 }
@@ -920,4 +1101,122 @@ body.font-lg {
 body.font-lg .campo-form input,
 body.font-lg .campo-form textarea {
   font-size: 1.12rem;
+}
+
+/* ===== SISTEMA DE ANIMACIÓN DEL MODAL DE ÉXITO ===== */
+
+.modal-overlay {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.modal-box {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+/* Cuando el modal pierde el atributo [hidden], se activa la entrada elástica */
+.modal-overlay:not([hidden]) {
+    display: flex !important;
+}
+.modal-overlay:not([hidden]) .modal-box {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-submsg {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    margin: -1rem 0 1.5rem 0;
+    font-weight: 500;
+}
+
+/* --- ESTRUCTURA DE LA PALOMITA DE VERIFICACIÓN --- */
+.success-checkmark-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+}
+
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid rgba(4, 163, 122, 0.2); /* Aro base tenue verde */
+}
+
+/* El círculo exterior que se va dibujando */
+.success-checkmark .check-icon .icon-circle {
+    top: -4px; left: -4px;
+    position: absolute;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 4px solid #04a37a; /* Color verde esmeralda */
+    box-sizing: content-box;
+    z-index: 2;
+    clip-path: circle(0% at 50% 50%);
+}
+
+/* Líneas internas de la palomita */
+.success-checkmark .check-icon .icon-line {
+    height: 5px;
+    background-color: #04a37a;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+
+.success-checkmark .check-icon .icon-line.line-tip {
+    width: 25px;
+    left: 14px; top: 46px;
+    transform: rotate(45deg);
+    width: 0;
+}
+
+.success-checkmark .check-icon .icon-line.line-long {
+    width: 47px;
+    right: 10px; top: 38px;
+    transform: rotate(-45deg);
+    width: 0;
+}
+
+/* --- DISPARADORES DE ANIMACIONES CUANDO SE ABRE EL MODAL --- */
+.modal-overlay:not([hidden]) .icon-circle {
+    animation: strokeCircle 0.4s ease-out forwards;
+}
+
+.modal-overlay:not([hidden]) .line-tip {
+    animation: strokeTip 0.2s ease-out 0.4s forwards;
+}
+
+@animation-delay: .2s;
+.modal-overlay:not([hidden]) .line-long {
+    animation: strokeLong 0.3s ease-out 0.55s forwards;
+}
+
+/* --- KEYFRAMES MATEMÁTICOS PARA EL EFECTO TRAZO --- */
+@keyframes strokeCircle {
+    0% { clip-path: circle(0% at 50% 50%); }
+    100% { clip-path: circle(100% at 50% 50%); }
+}
+
+@keyframes strokeTip {
+    0% { width: 0; left: 14px; top: 42px; }
+    100% { width: 20px; left: 16px; top: 44px; }
+}
+
+@keyframes strokeLong {
+    0% { width: 0; right: 42px; top: 44px; }
+    100% { width: 40px; right: 16px; top: 36px; }
 }

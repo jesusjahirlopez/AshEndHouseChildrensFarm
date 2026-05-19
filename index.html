@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash End House Children's Farm — Inicio</title>
     <link rel="stylesheet" href="css/estiloIndex.css">
+    <link rel="stylesheet" href="css/site-shell.css">
+    <link rel="stylesheet" href="css/site-global.css">
     <link rel="icon" type="image/png" href="Imagenes/LogoGranja.png">
 </head>
 <body>
+    <script>
+        if (localStorage.getItem("ash-dark") === "1") document.body.classList.add("dark-mode");
+        var _af = parseInt(localStorage.getItem("ash-font") || "0", 10);
+        if (_af === 1) { document.documentElement.classList.add("ash-font-md"); document.body.classList.add("font-md"); }
+        else if (_af === 2) { document.documentElement.classList.add("ash-font-lg"); document.body.classList.add("font-lg"); }
+    </script>
     <header class="site-header" id="site-header">
         <div class="header-inner">
             <a href="index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
@@ -159,6 +167,7 @@
         </div>
     </footer>
 
+    <script src="js/site-common.js"></script>
     <script src="js/ScriptIndex.js"></script>
 </body>
 </html>

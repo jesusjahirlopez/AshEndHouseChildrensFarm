@@ -358,7 +358,7 @@ button.btn-reserve { border: none; cursor: pointer; font-family: var(--font-sans
 
 /* ——— Pie ——— */
 .site-footer { background-color: #fdb95b; color: #fff; margin-top: auto; flex-shrink: 0; }
-.footer-inner { max-width: var(--content-max); margin: 0 auto; padding: 1.15rem var(--space-side); }
+.footer-inner { max-width:  #fdb95b; margin: 0 auto; padding: 1.15rem var(--space-side); }
 .footer-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; min-height: 3rem; }
 .footer-social { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
 .social-link { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; color: #fff; }
