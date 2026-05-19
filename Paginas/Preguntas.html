@@ -17,15 +17,19 @@
         else if (_af === 2) { document.documentElement.classList.add("ash-font-lg"); document.body.classList.add("font-lg"); }
     </script>
 
-    <header class="site-header" id="site-header">
+  <header class="site-header" id="site-header">
         <div class="header-inner">
-            <a href="../index.html" class="brand" aria-label="Inicio — Ash End House Children's Farm">
+             <a href="../index.html" class="brand" aria-label="Eventos — Ash End House Children's Farm">
                 <img src="../Imagenes/LogoGranja.png" alt="Ash End House Children's Farm" width="76" height="76" class="brand-logo">
             </a>
-
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
             <nav class="main-nav" id="nav-menu" aria-label="Principal">
                 <ul class="main-nav-list">
-                    <li class="nav-dropdown" id="dropdown-info-container" style="--item-index: 1;">
+                    <li class="nav-dropdown">
                         <button type="button" class="nav-dropdown-toggle" id="nav-info-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-info-submenu">
                             Información
                         </button>
@@ -35,44 +39,35 @@
                             <li role="none"><a role="menuitem" href="Escuelas.html">Escuelas</a></li>
                             <li role="none"><a role="menuitem" href="Eventos.html">Eventos</a></li>
                         </ul>
-                    </li>
-                    <li style="--item-index: 2;"><a href="Seguridad.html">Seguridad de la Granja</a></li>
-                    <li style="--item-index: 3;"><a class="nav-active" href="Preguntas.html">Preguntas Frecuentes</a></li>
-                    <li style="--item-index: 4;"><a href="Contacto.html">Contacto</a></li>
+                        </li>
+                    <li><a href="Seguridad.html">Seguridad de la Granja</a></li>
+                    <li><a class="nav-active" href="Preguntas.html">Preguntas Frecuentes</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-
-            <div class="header-right-wrapper">
+            <div class="header-right">
                 <form class="header-search" role="search" action="#" method="get">
                     <label class="visually-hidden" for="q">Buscar en el sitio</label>
-                    <input id="q" type="search" name="q" placeholder="Buscar por palabra..." autocomplete="off">
+                    <input id="q" type="search" name="q" placeholder="Buscar por palabra" autocomplete="off">
                     <button type="submit" class="search-submit" aria-label="Buscar">
-                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14">
-                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" />
-                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                            <path d="M15 15l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
                         </svg>
                     </button>
                 </form>
-                
-                <div class="header-utilities">
-                    <button type="button" class="icon-btn" id="btn-dark-mode" title="Activar modo oscuro" aria-label="Activar modo oscuro">
-                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24" height="24">
-                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z" />
+                <div class="header-utilities" role="toolbar" aria-label="Preferencias de visualización">
+                    <button type="button" class="icon-btn" id="btn-dark-mode"
+                            title="Activar modo oscuro" aria-label="Activar modo oscuro">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M21.64 13a9 9 0 0 1-9.87-9.87 7.5 7.5 0 1 0 9.87 9.87z"/>
                         </svg>
                     </button>
-                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size" title="Tamaño de texto" aria-label="Tamaño de texto">
+                    <button type="button" class="icon-btn icon-btn-text2" id="btn-font-size"
+                            title="Tamaño de texto" aria-label="Tamaño de texto">
                         <span class="icon-a-small">A</span>
                         <span class="icon-a-large">A</span>
                     </button>
-                </div>
-
-                <div class="hamburgers">
-                    <label class="hamburger" id="nav-toggle-label">
-                        <input type="checkbox" id="nav-toggle-checkbox" aria-label="Abrir menú de navegación" />
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </label>
                 </div>
             </div>
         </div>
@@ -99,7 +94,7 @@
                     <details class="faq-item">
                         <summary>Horarios</summary>
                         <div class="faq-respuesta">
-                            <p>Abrimos de martes a domingo desde las 9:00 a.m. hasta las 6:00 p.m. Los lunes permanecemos cerrados por mantenimiento general de las instalaciones y descanso de los animales.</p>
+                            <p>Abrimos de martes a domingo desde las 9:30 a.m. hasta las 5:00 p.m. Los lunes permanecemos cerrados por mantenimiento general de las instalaciones y descanso de los animales.</p>
                         </div>
                     </details>
 
